@@ -1,0 +1,4 @@
+[project]
+site_name = "FAIR-DAMA"
+site_description = "FAIR Data Principles and DAMA DMBok Alignment for success"
+site_url = "https://chris-day.github.io/FAIR-DAMA/"
