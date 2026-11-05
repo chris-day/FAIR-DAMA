@@ -1,9 +1,40 @@
 [project]
 site_name = "FAIR-DAMA"
-site_description = "FAIR Data Principles and DAMA DMBok Alignment for success"
+site_description = "DAMA knowledge areas, activities and personas mapped to potential direct and indirect FAIR Data Principle alignment."
 site_url = "https://fair-dama.perdl.com/"
 repo_url = "https://github.com/chris-day/FAIR-DAMA"
 copyright = '<a href="#__consent">Change cookie settings</a>'
+nav = [
+  { "Home" = "index.md" },
+  { "DAMA overview" = [
+    { "Overview" = "dama/index.md" },
+    { "Core knowledge areas" = "dama/core-knowledge-areas.md" },
+    { "Segments and FAIR alignment" = "dama/segments-and-fair-alignment.md" },
+  ] },
+  { "DAMA segments" = [
+    { "0. Data Management" = "dama/segments/00-data-management.md" },
+    { "1. Data Governance" = "dama/segments/01-data-governance.md" },
+    { "2. Data Architecture Management" = "dama/segments/02-data-architecture-management.md" },
+    { "3. Data Development" = "dama/segments/03-data-development.md" },
+    { "4. Data Operations Management" = "dama/segments/04-data-operations-management.md" },
+    { "5. Data Security Management" = "dama/segments/05-data-security-management.md" },
+    { "6. Reference & Master Data Management" = "dama/segments/06-reference-master-data-management.md" },
+    { "7. Data Warehousing & Business Intelligence Management" = "dama/segments/07-data-warehousing-business-intelligence.md" },
+    { "8. Document & Content Management" = "dama/segments/08-document-content-management.md" },
+    { "9. Meta-data Management" = "dama/segments/09-metadata-management.md" },
+    { "10. Data Quality Management" = "dama/segments/10-data-quality-management.md" },
+    { "11. Data Integration & Interoperability" = "dama/segments/11-data-integration-interoperability.md" },
+    { "12. Data Management Maturity Assessment" = "dama/segments/12-data-management-maturity-assessment.md" },
+  ] },
+  { "FAIR alignment" = [
+    { "Alignment gaps" = "dama/fair-alignment-gaps.md" },
+    { "15 FAIR principles" = "dama/fair-principles.md" },
+    { "Interactive Sankey" = "fair-alignment/index.md" },
+  ] },
+  { "Personas" = "dama/personas.md" },
+  { "Appendix" = "dama/appendix.md" },
+  { "Privacy" = "privacy.md" },
+]
 
 [project.theme]
 favicon = "assets/images/favicon.png"
@@ -29,5 +60,8 @@ markdown_description = "Public documentation for the FAIR-DAMA project."
 full_output = "llms-full.txt"
 
 [project.plugins.llmstxt.sections]
-"Project overview" = ["index.md"]
+"Project overview" = ["index.md", "dama/index.md", "dama/core-knowledge-areas.md", "dama/segments-and-fair-alignment.md"]
+"DAMA segments" = ["dama/segments/*.md"]
+"FAIR alignment" = ["dama/fair-alignment-gaps.md", "dama/fair-principles.md", "fair-alignment/index.md"]
+"Personas and appendix" = ["dama/personas.md", "dama/appendix.md"]
 "Privacy and services" = ["privacy.md"]
