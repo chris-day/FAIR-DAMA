@@ -4,7 +4,7 @@ Explore the proposed relationships between the 11 DAMA core knowledge areas and 
 
 ![Static overview of proposed DAMA knowledge area and FAIR principle mappings](assets/dama-fair-sankey_v1.0.0.svg)
 
-The interactive version lets you hover over a knowledge area to highlight its connections and select a ribbon to read its rationale and deliverables. Clicking a knowledge area or FAIR principle opens the corresponding section of the packaged v1.17.0 reading copy in a new tab.
+The interactive version lets you hover over a knowledge area to highlight its connections and select a ribbon to read its rationale and deliverables. Clicking a knowledge area opens its individual DAMA segment page. Clicking a FAIR principle opens the matching heading in the 15-principle alignment page.
 
 The interactive diagram loads external scripts from jsDelivr and unpkg. It loads only after you choose **Load interactive diagram** or open it directly.
 
