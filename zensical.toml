@@ -2,3 +2,32 @@
 site_name = "FAIR-DAMA"
 site_description = "FAIR Data Principles and DAMA DMBok Alignment for success"
 site_url = "https://fair-dama.perdl.com/"
+repo_url = "https://github.com/chris-day/FAIR-DAMA"
+copyright = '<a href="#__consent">Change cookie settings</a>'
+
+[project.theme]
+favicon = "assets/images/favicon.png"
+font = false
+
+[project.extra]
+generator = false
+
+[project.extra.consent]
+title = "Privacy choices"
+description = """
+  This documentation uses local storage to remember your site preferences and
+  cookie choice. If you choose to allow GitHub repository details, the site may
+  request public repository information from GitHub. We do not use analytics.
+"""
+actions = ["accept", "reject", "manage"]
+
+[project.extra.consent.cookies]
+github = { name = "GitHub repository details", checked = false }
+
+[project.plugins.llmstxt]
+markdown_description = "Public documentation for the FAIR-DAMA project."
+full_output = "llms-full.txt"
+
+[project.plugins.llmstxt.sections]
+"Project overview" = ["index.md"]
+"Privacy and services" = ["privacy.md"]
