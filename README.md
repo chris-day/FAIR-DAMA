@@ -1,5 +1,8 @@
 # FAIR-DAMA
-FAIR Data Principles and DAMA DMBok Alignment for success
+FAIR Data Principles and DAMA DMBok Alignment for success.
+
+[![DOI](https://zenodo.org/badge/1419841293.svg)](https://doi.org/10.5281/zenodo.23973609)
+
 
 ## Documentation setup
 
