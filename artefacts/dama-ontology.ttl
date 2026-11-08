@@ -1,0 +1,143 @@
+# Project vocabulary based on the supplied knowledge area names and definitions.
+# The example.org namespace is a placeholder for a maintained namespace.
+@prefix dama: <https://example.org/dama/terms/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+
+dcterms:creator a owl:AnnotationProperty .
+
+<https://orcid.org/0000-0001-5095-7052> rdfs:label "Chris Day"@en .
+
+<https://example.org/dama/ontology> a owl:Ontology ;
+    dcterms:creator <https://orcid.org/0000-0001-5095-7052> ;
+    dcterms:title "DAMA Knowledge Areas Vocabulary"@en ;
+    dcterms:description "An OWL vocabulary for the eleven DAMA-DMBOK2 knowledge areas, modeled after the FAIR Vocabulary."@en ;
+    dcterms:source <https://w3id.org/fair/principles/terms/FAIR-Vocabulary> .
+
+# Properties
+dcterms:title a owl:AnnotationProperty .
+dcterms:description a owl:AnnotationProperty .
+dcterms:source a owl:AnnotationProperty .
+skos:definition a owl:AnnotationProperty .
+dcterms:hasPart a owl:ObjectProperty .
+
+# Classes
+dama:FrameworkEdition a owl:Class ;
+    rdfs:label "Framework edition"@en ;
+    rdfs:isDefinedBy <https://example.org/dama/ontology> .
+
+dama:KnowledgeArea a owl:Class ;
+    rdfs:label "Knowledge area"@en ;
+    rdfs:isDefinedBy <https://example.org/dama/ontology> .
+
+dama:DMBOK2-2017-KnowledgeArea a owl:Class ;
+    rdfs:subClassOf dama:KnowledgeArea ;
+    rdfs:label "DAMA-DMBOK2 (2017) knowledge area"@en ;
+    rdfs:isDefinedBy <https://example.org/dama/ontology> ;
+    owl:equivalentClass [
+        a owl:Class ;
+        owl:oneOf (
+            dama:DataGovernance
+            dama:DataArchitecture
+            dama:DataModelingAndDesign
+            dama:DataStorageAndOperations
+            dama:DataSecurity
+            dama:DataIntegrationAndInteroperability
+            dama:DocumentsAndContentManagement
+            dama:ReferenceAndMasterDataManagement
+            dama:DataWarehousingAndBusinessIntelligence
+            dama:MetadataManagement
+            dama:DataQualityManagement
+        )
+    ] .
+
+# Framework and its direct parts
+dama:DMBOK2-2017 a owl:NamedIndividual, dama:FrameworkEdition ;
+    rdfs:label "DAMA-DMBOK2 (2017)"@en ;
+    rdfs:isDefinedBy <https://example.org/dama/ontology> ;
+    dcterms:hasPart
+        dama:DataGovernance,
+        dama:DataArchitecture,
+        dama:DataModelingAndDesign,
+        dama:DataStorageAndOperations,
+        dama:DataSecurity,
+        dama:DataIntegrationAndInteroperability,
+        dama:DocumentsAndContentManagement,
+        dama:ReferenceAndMasterDataManagement,
+        dama:DataWarehousingAndBusinessIntelligence,
+        dama:MetadataManagement,
+        dama:DataQualityManagement .
+
+# OWL does not assume that different names denote different individuals.
+[] a owl:AllDifferent ;
+    owl:distinctMembers (
+        dama:DataGovernance
+        dama:DataArchitecture
+        dama:DataModelingAndDesign
+        dama:DataStorageAndOperations
+        dama:DataSecurity
+        dama:DataIntegrationAndInteroperability
+        dama:DocumentsAndContentManagement
+        dama:ReferenceAndMasterDataManagement
+        dama:DataWarehousingAndBusinessIntelligence
+        dama:MetadataManagement
+        dama:DataQualityManagement
+    ) .
+
+# Knowledge areas
+dama:DataGovernance a owl:NamedIndividual, dama:DMBOK2-2017-KnowledgeArea ;
+    rdfs:label "Data Governance"@en ;
+    skos:definition "Establishes policies, roles, and standards for managing data as a valuable business asset. It ensures compliance, accountability, and consistency across the organization."@en ;
+    rdfs:isDefinedBy <https://example.org/dama/ontology> .
+
+dama:DataArchitecture a owl:NamedIndividual, dama:DMBOK2-2017-KnowledgeArea ;
+    rdfs:label "Data Architecture"@en ;
+    skos:definition "Focuses on designing and maintaining the data structures and frameworks that support business strategy. This includes defining data models, selecting technologies, and ensuring data flows align with enterprise goals."@en ;
+    rdfs:isDefinedBy <https://example.org/dama/ontology> .
+
+dama:DataModelingAndDesign a owl:NamedIndividual, dama:DMBOK2-2017-KnowledgeArea ;
+    rdfs:label "Data Modeling & Design"@en ;
+    skos:definition "Develops structured representations of data to support business operations and analytics. It involves creating conceptual, logical, and physical data models that enable better data integration and usability."@en ;
+    rdfs:isDefinedBy <https://example.org/dama/ontology> .
+
+dama:DataStorageAndOperations a owl:NamedIndividual, dama:DMBOK2-2017-KnowledgeArea ;
+    rdfs:label "Data Storage & Operations"@en ;
+    skos:definition "Ensures data is efficiently stored, retrieved, and maintained. This includes managing databases, implementing backup and recovery solutions, and optimizing data performance."@en ;
+    rdfs:isDefinedBy <https://example.org/dama/ontology> .
+
+dama:DataSecurity a owl:NamedIndividual, dama:DMBOK2-2017-KnowledgeArea ;
+    rdfs:label "Data Security"@en ;
+    skos:definition "Protects data from unauthorized access, breaches, and loss. It encompasses access controls, encryption, regulatory compliance, and security policies to safeguard sensitive information."@en ;
+    rdfs:isDefinedBy <https://example.org/dama/ontology> .
+
+dama:DataIntegrationAndInteroperability a owl:NamedIndividual, dama:DMBOK2-2017-KnowledgeArea ;
+    rdfs:label "Data Integration & Interoperability"@en ;
+    skos:definition "Enables the seamless flow of data across systems and platforms. This includes Extract, Transform, Load (ETL) processes, API-based integrations, and ensuring consistent data formats for operational efficiency."@en ;
+    rdfs:isDefinedBy <https://example.org/dama/ontology> .
+
+dama:DocumentsAndContentManagement a owl:NamedIndividual, dama:DMBOK2-2017-KnowledgeArea ;
+    rdfs:label "Documents & Content Management"@en ;
+    skos:definition "Manages unstructured data such as documents, images, videos, and other content. This area ensures that digital assets are properly stored, categorized, and accessed according to business needs."@en ;
+    rdfs:isDefinedBy <https://example.org/dama/ontology> .
+
+dama:ReferenceAndMasterDataManagement a owl:NamedIndividual, dama:DMBOK2-2017-KnowledgeArea ;
+    rdfs:label "Reference & Master Data Management"@en ;
+    skos:definition "Ensures consistency in core data entities like customers, products, and locations across business units. Master Data Management (MDM) and Reference Data Management provide a “single source of truth” for key business information."@en ;
+    rdfs:isDefinedBy <https://example.org/dama/ontology> .
+
+dama:DataWarehousingAndBusinessIntelligence a owl:NamedIndividual, dama:DMBOK2-2017-KnowledgeArea ;
+    rdfs:label "Data Warehousing & Business Intelligence"@en ;
+    skos:definition "Supports analytics, reporting, and decision-making by organizing data for easy access. It involves designing data warehouses, data lakes, and business intelligence (BI) tools to enable strategic insights."@en ;
+    rdfs:isDefinedBy <https://example.org/dama/ontology> .
+
+dama:MetadataManagement a owl:NamedIndividual, dama:DMBOK2-2017-KnowledgeArea ;
+    rdfs:label "Metadata Management"@en ;
+    skos:definition "Maintains “data about data” to improve understanding, governance, and accessibility. Metadata catalogs help organizations track data lineage, definitions, and usage across different systems."@en ;
+    rdfs:isDefinedBy <https://example.org/dama/ontology> .
+
+dama:DataQualityManagement a owl:NamedIndividual, dama:DMBOK2-2017-KnowledgeArea ;
+    rdfs:label "Data Quality Management"@en ;
+    skos:definition "Ensures that data is accurate, complete, consistent, timely, valid, and unique. This includes defining data quality metrics, detecting errors, and implementing cleansing and enrichment strategies."@en ;
+    rdfs:isDefinedBy <https://example.org/dama/ontology> .
