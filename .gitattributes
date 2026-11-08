@@ -1,0 +1,12 @@
+# Handle line endings automatically for all text files
+* text=auto
+
+# Explicitly enforce Linux LF endings on checkout and commit
+*.txt text eol=lf
+*.py text eol=lf
+*.js text eol=lf
+*.json text eol=lf
+*.md text eol=lf
+*.sh text eol=lf
+*.ksh text eol=lf
+
