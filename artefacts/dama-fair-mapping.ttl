@@ -1,0 +1,162 @@
+# Load with dama-ontology.ttl and fair-ontology.ttl for the source definitions.
+# These are proposed contributions. Each describes a practice and a FAIR target.
+@prefix map: <https://example.org/dama-fair/terms/> .
+@prefix dama: <https://example.org/dama/terms/> .
+@prefix fair: <https://w3id.org/fair/principles/terms/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+dcterms:creator a owl:AnnotationProperty .
+
+<https://orcid.org/0000-0001-5095-7052> rdfs:label "Chris Day"@en .
+
+<https://example.org/dama-fair/ontology> a owl:Ontology ;
+    dcterms:creator <https://orcid.org/0000-0001-5095-7052> ;
+    dcterms:title "DAMA to FAIR Contribution Ontology"@en ;
+    dcterms:source <https://example.org/dama/ontology>, fair:FAIR-Vocabulary .
+
+dcterms:title a owl:AnnotationProperty .
+dcterms:source a owl:AnnotationProperty .
+map:rationale a owl:AnnotationProperty .
+map:applicabilityCondition a owl:AnnotationProperty .
+
+map:Practice a owl:Class ;
+    rdfs:label "DAMA-related practice"@en .
+
+map:FAIRContribution a owl:Class ;
+    rdfs:label "FAIR contribution assertion"@en ;
+    owl:disjointUnionOf ( map:DirectContribution map:IndirectContribution ) ;
+    rdfs:subClassOf
+        [ a owl:Restriction ; owl:onProperty map:fromPractice ;
+          owl:someValuesFrom map:Practice ],
+        [ a owl:Restriction ; owl:onProperty map:targetsPrinciple ;
+          owl:someValuesFrom fair:FAIR-SubPrinciple ] .
+
+map:DirectContribution a owl:Class ;
+    rdfs:label "Direct contribution"@en ;
+    rdfs:comment "The source practice produces or verifies evidence addressing the target FAIR subprinciple."@en .
+
+map:IndirectContribution a owl:Class ;
+    rdfs:label "Indirect contribution"@en ;
+    rdfs:comment "The source practice enables an intermediate practice that provides or verifies the evidence."@en ;
+    rdfs:subClassOf [ a owl:Restriction ; owl:onProperty map:viaPractice ;
+                      owl:someValuesFrom map:Practice ] .
+
+map:inKnowledgeArea a owl:ObjectProperty ;
+    rdfs:domain map:Practice ;
+    rdfs:range dama:KnowledgeArea .
+
+map:fromPractice a owl:ObjectProperty, owl:FunctionalProperty ;
+    rdfs:domain map:FAIRContribution ;
+    rdfs:range map:Practice .
+
+map:targetsPrinciple a owl:ObjectProperty, owl:FunctionalProperty ;
+    rdfs:domain map:FAIRContribution ;
+    rdfs:range fair:FAIR-SubPrinciple .
+
+map:viaPractice a owl:ObjectProperty ;
+    rdfs:domain map:IndirectContribution ;
+    rdfs:range map:Practice .
+
+# Practices are local examples associated with the DAMA knowledge areas.
+map:PublishProvenance a owl:NamedIndividual, map:Practice ;
+    rdfs:label "Publish detailed dataset provenance"@en ;
+    map:inKnowledgeArea dama:MetadataManagement .
+
+map:AssignProvenanceResponsibility a owl:NamedIndividual, map:Practice ;
+    rdfs:label "Assign responsibility for documenting provenance"@en ;
+    map:inKnowledgeArea dama:DataGovernance .
+
+map:IncludeDatasetIdentifier a owl:NamedIndividual, map:Practice ;
+    rdfs:label "Include the dataset identifier in its metadata"@en ;
+    map:inKnowledgeArea dama:MetadataManagement .
+
+map:PublishSharedRepresentation a owl:NamedIndividual, map:Practice ;
+    rdfs:label "Publish data or metadata in a shared representation"@en ;
+    map:inKnowledgeArea dama:DataIntegrationAndInteroperability .
+
+map:AttachUsageLicense a owl:NamedIndividual, map:Practice ;
+    rdfs:label "Attach a usage license to the published data or metadata"@en ;
+    map:inKnowledgeArea dama:MetadataManagement .
+
+map:SetLicensingPolicy a owl:NamedIndividual, map:Practice ;
+    rdfs:label "Set a data licensing policy"@en ;
+    map:inKnowledgeArea dama:DataGovernance .
+
+map:ConfigureRetrievalAuthorization a owl:NamedIndividual, map:Practice ;
+    rdfs:label "Configure authentication and authorization for retrieval"@en ;
+    map:inKnowledgeArea dama:DataSecurity .
+
+map:IndexInSearchableCatalog a owl:NamedIndividual, map:Practice ;
+    rdfs:label "Index data or metadata in a searchable catalog"@en ;
+    map:inKnowledgeArea dama:MetadataManagement .
+
+map:SetDataSecurityPolicy a owl:NamedIndividual, map:Practice ;
+    rdfs:label "Set a data security policy"@en ;
+    map:inKnowledgeArea dama:DataSecurity .
+
+# Proposed contribution assertions and vocabulary terms used as their sources.
+map:PublishProvenanceToR1_2 a owl:NamedIndividual, map:DirectContribution ;
+    map:fromPractice map:PublishProvenance ;
+    map:targetsPrinciple fair:R1.2 ;
+    map:rationale "The provenance record provides evidence about the origins and history of the data."@en ;
+    map:applicabilityCondition "Detailed provenance is associated with the data or metadata."@en ;
+    dcterms:source dama:MetadataManagement, fair:R1.2 .
+
+map:AssignProvenanceResponsibilityToR1_2 a owl:NamedIndividual, map:IndirectContribution ;
+    map:fromPractice map:AssignProvenanceResponsibility ;
+    map:targetsPrinciple fair:R1.2 ;
+    map:viaPractice map:PublishProvenance ;
+    map:rationale "Assigning responsibility enables the publication of detailed dataset provenance."@en ;
+    dcterms:source dama:DataGovernance, fair:R1.2 .
+
+map:IncludeDatasetIdentifierToF3 a owl:NamedIndividual, map:DirectContribution ;
+    map:fromPractice map:IncludeDatasetIdentifier ;
+    map:targetsPrinciple fair:F3 ;
+    map:rationale "The metadata record explicitly identifies the data it describes."@en ;
+    map:applicabilityCondition "The identifier in the metadata is the identifier of the described data."@en ;
+    dcterms:source dama:MetadataManagement, fair:F3 .
+
+map:PublishSharedRepresentationToI1 a owl:NamedIndividual, map:DirectContribution ;
+    map:fromPractice map:PublishSharedRepresentation ;
+    map:targetsPrinciple fair:I1 ;
+    map:rationale "The published representation provides evidence of the knowledge representation language used."@en ;
+    map:applicabilityCondition "The language is formal, accessible, shared and broadly applicable."@en ;
+    dcterms:source dama:DataIntegrationAndInteroperability, fair:I1 .
+
+map:AttachUsageLicenseToR1_1 a owl:NamedIndividual, map:DirectContribution ;
+    map:fromPractice map:AttachUsageLicense ;
+    map:targetsPrinciple fair:R1.1 ;
+    map:rationale "The published license states the terms under which the data or metadata may be used."@en ;
+    map:applicabilityCondition "The license applies to the resource and is clear and accessible."@en ;
+    dcterms:source dama:MetadataManagement, fair:R1.1 .
+
+map:SetLicensingPolicyToR1_1 a owl:NamedIndividual, map:IndirectContribution ;
+    map:fromPractice map:SetLicensingPolicy ;
+    map:targetsPrinciple fair:R1.1 ;
+    map:viaPractice map:AttachUsageLicense ;
+    map:rationale "The policy enables a publishing practice that attaches the applicable usage license."@en ;
+    dcterms:source dama:DataGovernance, fair:R1.1 .
+
+map:ConfigureRetrievalAuthorizationToA1_2 a owl:NamedIndividual, map:DirectContribution ;
+    map:fromPractice map:ConfigureRetrievalAuthorization ;
+    map:targetsPrinciple fair:A1.2 ;
+    map:rationale "The retrieval configuration provides evidence that the protocol supports authentication and authorization."@en ;
+    map:applicabilityCondition "Access control is needed and the retrieval protocol supports both authentication and authorization."@en ;
+    dcterms:source dama:DataSecurity, fair:A1.2 .
+
+map:IndexInSearchableCatalogToF4 a owl:NamedIndividual, map:DirectContribution ;
+    map:fromPractice map:IndexInSearchableCatalog ;
+    map:targetsPrinciple fair:F4 ;
+    map:rationale "A searchable catalog entry provides evidence that the data or metadata have been indexed."@en ;
+    map:applicabilityCondition "The catalog is searchable and contains an index entry for the relevant data or metadata."@en ;
+    dcterms:source dama:MetadataManagement, fair:F4 .
+
+map:SetDataSecurityPolicyToA1_2 a owl:NamedIndividual, map:IndirectContribution ;
+    map:fromPractice map:SetDataSecurityPolicy ;
+    map:targetsPrinciple fair:A1.2 ;
+    map:viaPractice map:ConfigureRetrievalAuthorization ;
+    map:rationale "The policy drives the configuration of authentication and authorization for data or metadata retrieval."@en ;
+    map:applicabilityCondition "The policy applies to the retrieval service and calls for authentication and authorization where needed."@en ;
+    dcterms:source dama:DataSecurity, fair:A1.2 .
