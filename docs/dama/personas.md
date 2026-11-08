@@ -4,7 +4,7 @@ This table catalogs every unique name in the Suppliers, Participants and Consume
 
 Names are deduplicated exactly as written. Source variants such as CIO and Chief Information Officer, singular and plural titles, and combined groups are retained separately to preserve traceability; they should not be read as necessarily distinct organizational posts. The original section names are retained, including Data Development and Meta-data Management. Data Management is the overall overview, and Data Management Maturity Assessment is a supporting discipline rather than a separate core knowledge area. Supplier or consumer status alone does not establish responsibility or approval authority.
 
-For sections 11 and 12, the source role lists supplied in the conversation have been added to their respective sections. The catalog uses those explicit lists rather than deriving supplier/participant/consumer status from proposed activity-level assignments. Organizations, systems and collective groups named in the lists are included alongside individual job roles.
+For sections 11 and 12, the source role lists have been added to their respective sections. The catalog uses those explicit lists rather than deriving supplier/participant/consumer status from proposed activity-level assignments. Organizations, systems and collective groups named in the lists are included alongside individual job roles.
 
 
 The **Direct FAIR Principle** and **Indirect FAIR Principle** columns are derived relationships through the areas listed in the three role-category columns. For each persona, each column is the deduplicated union of the corresponding direct or indirect FAIR IDs in those areas' FAIR Alignment summaries. Supplier, participant and consumer appearances are all included. These are area-level inferences, not activity-specific role assignments, proof of implementation, or claims of personal accountability. A principle may appear in both columns where different area mappings support it differently. A blank means no principle ID is identified in the corresponding area summaries, not that the persona has no possible FAIR contribution.
@@ -12,7 +12,7 @@ The **Direct FAIR Principle** and **Indirect FAIR Principle** columns are derive
 The Data Management overview contributes its documented original ten-segment aggregate where listed. Maturity Assessment contributes no specific IDs. Composite names and source variants remain separate, following the catalog's existing naming convention.
 
 | Persona / source name | High-level description | Supplier in | Participant in | Consumer in | Direct FAIR Principle | Indirect FAIR Principle |
-|---|---|---|---|---|---|---|
+| --- | --- | --- | --- | --- | --- | --- |
 | All Employees | Contribute to organization-wide creation, use and handling of information. |  | Document & Content Management |  | F2, F4, A1, A1.2, I2 | A2 |
 | Application Architects | Design application structures and their use of data and integration services. |  | Reference & Master Data Management |  | I3, R1.2 |  |
 | Application Developers and Architects | Design and build applications that create, access and process data. |  |  | Reference & Master Data Management | I3, R1.2 |  |

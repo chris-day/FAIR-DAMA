@@ -2,26 +2,26 @@
 
 **Version 1.9.0 addition:** DMMaturityAssessment provides an assessment and improvement process but adds no specific FAIR principle IDs. Combined coverage remains ten principles with potential direct alignment and five with indirect alignment only.
 
-**Updated position (version 1.8.0):** Adding the user-supplied DataIntegrationInteroperability analysis brings combined potential coverage to all 15 FAIR principles: ten have direct alignment and five have indirect alignment only (F1, F3, A1.1, A2, R1.1). A1.1 now has proposed indirect support from integration architecture and data services; it still has no direct mapping. The original ten-segment findings and workbook references below are retained as the historical baseline and exclude the new table.
+**Updated position (version 1.8.0):** Adding the user-supplied DataIntegrationInteroperability analysis brings combined potential coverage to all 15 FAIR principles: ten have direct alignment, and five have indirect alignment only (F1, F3, A1.1, A2, R1.1). A1.1 now has proposed indirect support from integration architecture and data services; it still has no direct mapping. The original ten-segment findings and workbook references below are retained as the historical baseline and exclude the new table.
 
-Across all ten DAMA segments, **10 of the 15 FAIR principles have direct alignment, four have indirect alignment only, and one has no identified alignment**. These counts describe the combined mappings, not the coverage of each individual segment.
+Across all ten DAMA segments, **10 of the 15 FAIR principles have direct alignment, four have indirect alignment only, and one has no identified alignment**. These counts describe the combined mappings, not the coverage of each segment.
 
 | Gap category | FAIR principle ID | Requirement | Alignment found |
-|---|---|---|---|
-| No alignment identified | **A1.1** | The retrieval protocol is open, free and universally implementable | Neither direct nor indirect |
-| Indirect only | **F1** | Data and metadata receive globally unique, persistent identifiers | Data Architecture Management |
+| --- | --- | --- | --- |
+| No alignment identified | **A1.1** | The retrieval protocol is open, free and universally implementable. | Neither direct nor indirect |
+| Indirect only | **F1** | Data and metadata receive globally unique, persistent identifiers. | Data Architecture Management |
 | Indirect only | **F3** | Metadata explicitly includes the identifier of the data it describes | Meta-data Management |
-| Indirect only | **A2** | Metadata remains accessible when the data is no longer available | Meta-data Management; Document & Content Management; Data Operations Management |
-| Indirect only | **R1.1** | Data and metadata are released with a clear, accessible data usage licence | Data Operations Management |
+| Indirect only | **A2** | Metadata remains accessible when the data is no longer available. | Meta-data Management; Document & Content Management; Data Operations Management |
+| Indirect only | **R1.1** | Data and metadata are released with a clear, accessible data usage licence. | Data Operations Management |
 
 The remaining principles have **potential direct alignment** somewhere in the mappings:
 
 **F2, F4, A1, A1.2, I1, I2, I3, R1, R1.2, R1.3.**
 
-These IDs appear explicitly in column H, **FAIR principles supported**, in the workbook cells listed below. The table identifies every segment containing each ID in that column. “Potential” reflects the workbook’s assessment of activity and deliverable descriptions; these mappings do not establish implementation or compliance.
+These IDs appear explicitly in column H, **FAIR principles supported**, in the workbook cells listed below. The table identifies every segment in that column that contains each ID. “Potential” reflects the workbook’s assessment of activity and deliverable descriptions; these mappings do not establish implementation or compliance.
 
 | FAIR principle ID | DAMA segment with potential direct alignment | Workbook evidence (column H) |
-|---|---|---|
+| --- | --- | --- |
 | F2 | 9. Meta-data Management | MetadataManagement!H2, H6 |
 | F2 | 8. Document & Content Management | DocumentContentManagement!H8 |
 | F4 | 9. Meta-data Management | MetadataManagement!H8, H10 |
