@@ -9,4 +9,5 @@
 *.md text eol=lf
 *.sh text eol=lf
 *.ksh text eol=lf
+*.ttl text eol=lf
 
