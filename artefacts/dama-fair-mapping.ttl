@@ -1,7 +1,7 @@
 # Load with dama-ontology.ttl and fair-ontology.ttl for the source definitions.
 # These are proposed contributions. Each describes a practice and a FAIR target.
-@prefix map: <https://example.org/dama-fair/terms/> .
-@prefix dama: <https://example.org/dama/terms/> .
+@prefix map: <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-fair-mapping.ttl#> .
+@prefix dama: <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-ontology.ttl#> .
 @prefix fair: <https://w3id.org/fair/principles/terms/> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
@@ -11,10 +11,10 @@ dcterms:creator a owl:AnnotationProperty .
 
 <https://orcid.org/0000-0001-5095-7052> rdfs:label "Chris Day"@en .
 
-<https://example.org/dama-fair/ontology> a owl:Ontology ;
+<https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-fair-mapping.ttl> a owl:Ontology ;
     dcterms:creator <https://orcid.org/0000-0001-5095-7052> ;
     dcterms:title "DAMA to FAIR Contribution Ontology"@en ;
-    dcterms:source <https://example.org/dama/ontology>, fair:FAIR-Vocabulary .
+    dcterms:source <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-ontology.ttl>, fair:FAIR-Vocabulary .
 
 dcterms:title a owl:AnnotationProperty .
 dcterms:source a owl:AnnotationProperty .
