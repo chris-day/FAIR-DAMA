@@ -1,0 +1,20 @@
+digraph Ontologies {
+  graph [rankdir=LR, bgcolor="transparent", pad="0.25", nodesep="0.45", ranksep="0.8"];
+  node [shape=box, style="rounded,filled", fillcolor="#f3f7fc", color="#45617c", fontname="sans-serif", fontsize=11];
+  edge [color="#45617c", fontname="sans-serif", fontsize=9, arrowsize=0.7];
+
+  Persona [label="Persona"];
+  Topic [label="DAMA source topic"];
+  Area [label="DAMA knowledge area"];
+  Practice [label="DAMA practice"];
+  Contribution [label="OWL contribution assertion"];
+  FAIR [label="FAIR subprinciple"];
+
+  Persona -> Topic [label="supplierIn / participantIn / consumerIn"];
+  Topic -> Area [label="correspondsToKnowledgeArea"];
+  Practice -> Area [label="inKnowledgeArea"];
+  Contribution -> Practice [label="fromPractice"];
+  Contribution -> FAIR [label="targetsPrinciple"];
+  Contribution -> Practice [style=dashed, label="viaPractice (indirect)"];
+  Persona -> FAIR [style=dashed, label="reported direct or indirect link"];
+}

@@ -32,6 +32,7 @@ nav = [
     { "Interactive Sankey" = "fair-alignment/index.md" },
   ] },
   { "Personas" = "dama/personas.md" },
+  { "Ontologies" = "ontologies.md" },
   { "Appendix" = "dama/appendix.md" },
   { "Privacy" = "privacy.md" },
 ]
@@ -63,5 +64,5 @@ full_output = "llms-full.txt"
 "Project overview" = ["index.md", "dama/index.md", "dama/core-knowledge-areas.md", "dama/segments-and-fair-alignment.md"]
 "DAMA segments" = ["dama/segments/*.md"]
 "FAIR alignment" = ["dama/fair-alignment-gaps.md", "dama/fair-principles.md", "fair-alignment/index.md"]
-"Personas and appendix" = ["dama/personas.md", "dama/appendix.md"]
+"Personas, ontologies and appendix" = ["dama/personas.md", "ontologies.md", "dama/appendix.md"]
 "Privacy and services" = ["privacy.md"]
