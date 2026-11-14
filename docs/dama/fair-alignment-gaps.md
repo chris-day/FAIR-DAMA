@@ -53,7 +53,7 @@ These IDs appear explicitly in column H, **FAIR principles supported**, in the w
 Two distinctions matter when interpreting these gaps:
 
 - **Parent principles do not establish their subprinciples.** Alignment with A1 does not establish A1.1, and alignment with R1 does not establish R1.1.
-- **Mapped alignment is not evidence of implementation.** Even the ten directly aligned principles still need implementation evidence and validation. The workbook identifies potential support from activities and deliverables.
+- **Mapped alignment is not evidence of implementation.** Even the ten directly aligned principles still need evidence of implementation and validation. The workbook identifies potential support from activities and deliverables.
 
 The main additions needed are therefore explicit requirements for **persistent identifiers, identifiers within metadata, open retrieval protocols, metadata persistence, and data usage licensing**. In particular, software or technology licensing in operations does not by itself establish a FAIR data usage licence.
 
