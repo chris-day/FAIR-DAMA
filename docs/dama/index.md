@@ -2,8 +2,6 @@
 
 > Source: *DAMA Segments — High Level*, v1.17.0, Chris Day. The alignments are potential and proposed; implementation and compliance require supporting evidence. Source DAMA images carry copyright © DAMA International.
 
-**Use DAMA's management disciplines to deliver FAIR outcomes: prioritize the five principles with only indirect alignment, assign accountable owners, and verify implementation against identified data and metadata resources.**
-
 ## Situation — DAMA provides the delivery framework for FAIR
 
 DAMA-DMBOK organizes data management into 11 core knowledge areas. FAIR defines 15 principles for making data and metadata findable, accessible, interoperable and reusable. This document connects the two through activity-level mappings, expected deliverables, role descriptions and evidence requirements, providing a basis for incorporating FAIR into existing data management work.
@@ -12,7 +10,7 @@ DAMA-DMBOK organizes data management into 11 core knowledge areas. FAIR defines 
 
 The original ten-segment analysis identified potential direct support for ten FAIR principles, indirect support for four, and no identified support for A1.1. Adding the Data Integration & Interoperability activity analysis extends potential coverage to all 15 principles, but **five still have indirect alignment only**: persistent identifiers (F1), explicit data identifiers in metadata (F3), open retrieval protocols (A1.1), metadata persistence (A2), and data usage licensing (R1.1).
 
-Even the ten directly aligned principles require implementation evidence. The source material also combines an older ten-segment structure with the 11 DMBOK2 knowledge areas, while persona relationships are inferred from area membership rather than confirmed individual accountability. Without explicit requirements, ownership and resource-level tests, broad capability coverage can be mistaken for demonstrated FAIR delivery.
+Even the ten directly aligned principles require evidence of implementation. The source material also combines an older ten-segment structure with the 11 DMBOK2 knowledge areas, while persona relationships are inferred from area membership rather than confirmed individual accountability. Without explicit requirements, ownership and resource-level tests, broad capability coverage can be mistaken for demonstrated FAIR delivery.
 
 ## Question — How can DAMA capabilities become demonstrable FAIR outcomes?
 
@@ -28,7 +26,7 @@ Use the knowledge-area activities as the delivery mechanism, with three prioriti
 
 The resulting program should track each FAIR principle from requirement to activity, owner, deliverable, test and retained evidence. This makes the mapping usable for implementation decisions and subsequent assurance.
 
-The Sankey diagram summarizes the separate **implementation-oriented proposal** across all 11 core knowledge areas: **51 direct and 10 enabling connections** to the 15 FAIR principles. It shows where implementation responsibilities could sit; it does not change the activity-analysis finding that five principles currently have indirect alignment only. Each ribbon represents one proposed mapping, not alignment strength, maturity or compliance. Data Management Maturity Assessment is a supporting discipline and is not an additional core knowledge-area node.
+The Sankey diagram summarizes the separate **implementation-oriented proposal** across all 11 core knowledge areas: **51 direct and 10 enabling connections** to the 15 FAIR principles. It shows where implementation responsibilities could sit; it does not change the activity-analysis finding that five principles currently have only indirect alignment. Each ribbon represents one proposed mapping, not alignment strength, maturity or compliance. Data Management Maturity Assessment is a supporting discipline and is not an additional core knowledge-area node.
 
 ![Sankey diagram: 11 DAMA core knowledge areas on the left connect to 15 FAIR principles on the right; 51 direct and 10 enabling proposed mappings.](../fair-alignment/assets/dama-fair-sankey_v1.0.0.svg)
 
