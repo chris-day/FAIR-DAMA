@@ -30,7 +30,7 @@ The principle descriptions below are abbreviated from the [FAIR Guiding Principl
 
 | DAMA-DMBOK Knowledge Area | Core Alignment with F3 | Key Technical Deliverables / Targets |
 | --- | --- | --- |
-| Metadata Management | **Direct:** Record the data identifier explicitly in its metadata. | Mandatory resource-identifier field; distinction between metadata-record ID and data ID. |
+| Metadata Management | **Direct:** Explicitly record the data identifier in its metadata. | Mandatory resource-identifier field; distinction between metadata-record ID and data ID. |
 | Data Modeling & Design | **Direct:** Model an unambiguous relationship between metadata and the described resource. | Explicit “describes” relationship; version-specific resource references. |
 | Data Integration & Interoperability | **Direct:** Preserve identifiers through metadata harvesting and exchange. | Identifier-preserving mappings; round-trip exchange tests. |
 | Data Quality Management | **Direct:** Verify identifier presence and correct resource association. | Missing-identifier checks; mismatched-reference detection; identifier consistency tests. |
