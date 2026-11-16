@@ -1,4 +1,4 @@
-# 10. Data Quality Management
+# Data Quality Management
 
 ## Definition
 
@@ -16,7 +16,7 @@ No direct principle IDs are identified. Quality requirements, profiling and moni
 
 | DAMA Segments overview name | FAIR Direct IDs | FAIR Indirect IDs |
 |---|---|---|
-| 10. Data Quality Management | None identified | [F2][fair-f2], [R1][fair-r1] |
+| Data Quality Management | None identified | [F2][fair-f2], [R1][fair-r1] |
 
 ## Business Drivers
 

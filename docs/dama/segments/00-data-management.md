@@ -1,4 +1,4 @@
-# 0. Data Management
+# Data Management
 
 ## Definition
 
@@ -20,7 +20,7 @@ Across its ten segments, Data Management has potential direct alignment with ric
 
 | DAMA Segments overview name | FAIR Direct IDs | FAIR Indirect IDs |
 |---|---|---|
-| 0. Data Management | [F2][fair-f2], [F4][fair-f4], [A1][fair-a1], [A1.2][fair-a1.2], [I1][fair-i1], [I2][fair-i2], [I3][fair-i3], [R1][fair-r1], [R1.2][fair-r1.2], [R1.3][fair-r1.3] | [F1][fair-f1], [F2][fair-f2], [F3][fair-f3], [A1.2][fair-a1.2], [A2][fair-a2], [R1][fair-r1], [R1.1][fair-r1.1], [R1.2][fair-r1.2] |
+| Data Management | [F2][fair-f2], [F4][fair-f4], [A1][fair-a1], [A1.2][fair-a1.2], [I1][fair-i1], [I2][fair-i2], [I3][fair-i3], [R1][fair-r1], [R1.2][fair-r1.2], [R1.3][fair-r1.3] | [F1][fair-f1], [F2][fair-f2], [F3][fair-f3], [A1.2][fair-a1.2], [A2][fair-a2], [R1][fair-r1], [R1.1][fair-r1.1], [R1.2][fair-r1.2] |
 
 ## Business Drivers
 
@@ -35,16 +35,16 @@ Across its ten segments, Data Management has potential direct alignment with ric
 
 The overview labels these as **Functions**:
 
-1. Data Governance
-2. Data Architecture Management
-3. Data Development
-4. Database Operations Management
-5. Data Security Management
-6. Reference & Master Data Management
-7. Data Warehousing & Business Intelligence Management
-8. Document & Content Management
-9. Meta-data Management
-10. Data Quality Management
+- Data Governance
+- Data Architecture Management
+- Data Development
+- Database Operations Management
+- Data Security Management
+- Reference & Master Data Management
+- Data Warehousing & Business Intelligence Management
+- Document & Content Management
+- Meta-data Management
+- Data Quality Management
 
 ### Primary Deliverables
 

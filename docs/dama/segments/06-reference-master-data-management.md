@@ -1,4 +1,4 @@
-# 6. Reference & Master Data Management
+# Reference & Master Data Management
 
 ## Definition
 
@@ -16,7 +16,7 @@ Direct alignment concerns qualified references between data or metadata ([I3][fa
 
 | DAMA Segments overview name | FAIR Direct IDs | FAIR Indirect IDs |
 |---|---|---|
-| 6. Reference & Master Data Management | [I3][fair-i3], [R1.2][fair-r1.2] | None identified |
+| Reference & Master Data Management | [I3][fair-i3], [R1.2][fair-r1.2] | None identified |
 
 ## Business Drivers
 

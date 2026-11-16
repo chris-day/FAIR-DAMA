@@ -1,4 +1,4 @@
-# 5. Data Security Management
+# Data Security Management
 
 ## Definition
 
@@ -16,7 +16,7 @@ Both direct and indirect alignment concern protocols that allow authentication a
 
 | DAMA Segments overview name | FAIR Direct IDs | FAIR Indirect IDs |
 |---|---|---|
-| 5. Data Security Management | [A1.2][fair-a1.2] | [A1.2][fair-a1.2] |
+| Data Security Management | [A1.2][fair-a1.2] | [A1.2][fair-a1.2] |
 
 ## Business Drivers
 

@@ -1,4 +1,4 @@
-# 9. Meta-data Management
+# Meta-data Management
 
 ## Definition
 
@@ -17,7 +17,7 @@ Direct alignment spans rich discovery and reuse descriptions ([F2][fair-f2], [R1
 
 | DAMA Segments overview name | FAIR Direct IDs | FAIR Indirect IDs |
 |---|---|---|
-| 9. Meta-data Management | [F2][fair-f2], [F4][fair-f4], [A1][fair-a1], [I1][fair-i1], [I3][fair-i3], [R1][fair-r1], [R1.2][fair-r1.2], [R1.3][fair-r1.3] | [F3][fair-f3], [A2][fair-a2] |
+| Meta-data Management | [F2][fair-f2], [F4][fair-f4], [A1][fair-a1], [I1][fair-i1], [I3][fair-i3], [R1][fair-r1], [R1.2][fair-r1.2], [R1.3][fair-r1.3] | [F3][fair-f3], [A2][fair-a2] |
 
 ## Business Drivers
 

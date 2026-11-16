@@ -1,4 +1,4 @@
-# 12. Data Management Maturity Assessment
+# Data Management Maturity Assessment
 
 Worksheet name: **DMMaturityAssessment**. This is a supporting assessment discipline across the knowledge areas, rather than an additional core DMBOK2 knowledge area. The section number continues the document numbering.
 
@@ -19,7 +19,7 @@ Maturity assessment can enable FAIR implementation by defining assessment criter
 
 | DAMA Segments overview name | FAIR Direct IDs | FAIR Indirect IDs |
 |---|---|---|
-| 12. Data Management Maturity Assessment | | |
+| Data Management Maturity Assessment | | |
 
 ## Business Drivers
 

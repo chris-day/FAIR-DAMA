@@ -1,4 +1,4 @@
-# 7. Data Warehousing & Business Intelligence Management
+# Data Warehousing & Business Intelligence Management
 
 ## Definition
 
@@ -15,7 +15,7 @@ Direct alignment concerns registration or indexing in a searchable resource ([F4
 
 | DAMA Segments overview name | FAIR Direct IDs | FAIR Indirect IDs |
 |---|---|---|
-| 7. Data Warehousing & Business Intelligence Management | [F4][fair-f4], [A1][fair-a1] | None identified |
+| Data Warehousing & Business Intelligence Management | [F4][fair-f4], [A1][fair-a1] | None identified |
 
 ## Business Drivers
 

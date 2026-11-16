@@ -1,4 +1,4 @@
-# 1. Data Governance
+# Data Governance
 
 ## Definition
 
@@ -18,7 +18,7 @@ No specific direct or indirect FAIR principle IDs are identified for this segmen
 
 | DAMA Segments overview name | FAIR Direct IDs | FAIR Indirect IDs |
 |---|---|---|
-| 1. Data Governance | None identified | None identified |
+| Data Governance | None identified | None identified |
 
 ## Business Drivers
 

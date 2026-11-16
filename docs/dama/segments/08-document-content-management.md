@@ -1,4 +1,4 @@
-# 8. Document & Content Management
+# Document & Content Management
 
 ## Definition
 
@@ -18,7 +18,7 @@ Direct alignment concerns rich metadata descriptions ([F2][fair-f2]), searchable
 
 | DAMA Segments overview name | FAIR Direct IDs | FAIR Indirect IDs |
 |---|---|---|
-| 8. Document & Content Management | [F2][fair-f2], [F4][fair-f4], [A1][fair-a1], [A1.2][fair-a1.2], [I2][fair-i2] | [A2][fair-a2] |
+| Document & Content Management | [F2][fair-f2], [F4][fair-f4], [A1][fair-a1], [A1.2][fair-a1.2], [I2][fair-i2] | [A2][fair-a2] |
 
 ## Business Drivers
 

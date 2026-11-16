@@ -2,18 +2,18 @@
 
 | DAMA Segments overview name | FAIR Direct IDs | FAIR Indirect IDs |
 |---|---|---|
-| 1. Data Governance | None identified | None identified |
-| 2. Data Architecture Management | [I1][fair-i1], [I2][fair-i2], [I3][fair-i3], [R1.2][fair-r1.2], [R1.3][fair-r1.3] | [F1][fair-f1] |
-| 3. Data Development | [A1][fair-a1], [I1][fair-i1], [I3][fair-i3], [R1.2][fair-r1.2] | None identified |
-| 4. Data Operations Management | None identified | [A2][fair-a2], [R1.1][fair-r1.1], [R1.2][fair-r1.2] |
-| 5. Data Security Management | [A1.2][fair-a1.2] | [A1.2][fair-a1.2] |
-| 6. Reference & Master Data Management | [I3][fair-i3], [R1.2][fair-r1.2] | None identified |
-| 7. Data Warehousing & Business Intelligence Management | [F4][fair-f4], [A1][fair-a1] | None identified |
-| 8. Document & Content Management | [F2][fair-f2], [F4][fair-f4], [A1][fair-a1], [A1.2][fair-a1.2], [I2][fair-i2] | [A2][fair-a2] |
-| 9. Meta-data Management | [F2][fair-f2], [F4][fair-f4], [A1][fair-a1], [I1][fair-i1], [I3][fair-i3], [R1][fair-r1], [R1.2][fair-r1.2], [R1.3][fair-r1.3] | [F3][fair-f3], [A2][fair-a2] |
-| 10. Data Quality Management | None identified | [F2][fair-f2], [R1][fair-r1] |
-| 11. Data Integration & Interoperability | [F2][fair-f2], [F4][fair-f4], [A1.2][fair-a1.2], [R1][fair-r1], [R1.2][fair-r1.2] | [A1][fair-a1], [A1.1][fair-a1.1], [A1.2][fair-a1.2], [A2][fair-a2], [I1][fair-i1], [I3][fair-i3], [R1][fair-r1], [R1.2][fair-r1.2], [R1.3][fair-r1.3] |
-| 12. Data Management Maturity Assessment | | |
+| Data Governance | None identified | None identified |
+| Data Architecture Management | [I1][fair-i1], [I2][fair-i2], [I3][fair-i3], [R1.2][fair-r1.2], [R1.3][fair-r1.3] | [F1][fair-f1] |
+| Data Development | [A1][fair-a1], [I1][fair-i1], [I3][fair-i3], [R1.2][fair-r1.2] | None identified |
+| Data Operations Management | None identified | [A2][fair-a2], [R1.1][fair-r1.1], [R1.2][fair-r1.2] |
+| Data Security Management | [A1.2][fair-a1.2] | [A1.2][fair-a1.2] |
+| Reference & Master Data Management | [I3][fair-i3], [R1.2][fair-r1.2] | None identified |
+| Data Warehousing & Business Intelligence Management | [F4][fair-f4], [A1][fair-a1] | None identified |
+| Document & Content Management | [F2][fair-f2], [F4][fair-f4], [A1][fair-a1], [A1.2][fair-a1.2], [I2][fair-i2] | [A2][fair-a2] |
+| Meta-data Management | [F2][fair-f2], [F4][fair-f4], [A1][fair-a1], [I1][fair-i1], [I3][fair-i3], [R1][fair-r1], [R1.2][fair-r1.2], [R1.3][fair-r1.3] | [F3][fair-f3], [A2][fair-a2] |
+| Data Quality Management | None identified | [F2][fair-f2], [R1][fair-r1] |
+| Data Integration & Interoperability | [F2][fair-f2], [F4][fair-f4], [A1.2][fair-a1.2], [R1][fair-r1], [R1.2][fair-r1.2] | [A1][fair-a1], [A1.1][fair-a1.1], [A1.2][fair-a1.2], [A2][fair-a2], [I1][fair-i1], [I3][fair-i3], [R1][fair-r1], [R1.2][fair-r1.2], [R1.3][fair-r1.3] |
+| Data Management Maturity Assessment | | |
 
 [fair-f1]: fair-principles.md#f1-globally-unique-persistent-identification
 [fair-f2]: fair-principles.md#f2-rich-metadata-describing-data

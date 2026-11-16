@@ -1,4 +1,4 @@
-# 3. Data Development
+# Data Development
 
 ## Definition
 
@@ -18,7 +18,7 @@ Direct alignment concerns retrieval through a standardized communications protoc
 
 | DAMA Segments overview name | FAIR Direct IDs | FAIR Indirect IDs |
 |---|---|---|
-| 3. Data Development | [A1][fair-a1], [I1][fair-i1], [I3][fair-i3], [R1.2][fair-r1.2] | None identified |
+| Data Development | [A1][fair-a1], [I1][fair-i1], [I3][fair-i3], [R1.2][fair-r1.2] | None identified |
 
 ## Business Drivers
 

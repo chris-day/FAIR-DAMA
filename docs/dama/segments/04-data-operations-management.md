@@ -1,4 +1,4 @@
-# 4. Data Operations Management
+# Data Operations Management
 
 ## Definition
 
@@ -16,7 +16,7 @@ No direct principle IDs are identified. Operations provides indirect alignment w
 
 | DAMA Segments overview name | FAIR Direct IDs | FAIR Indirect IDs |
 |---|---|---|
-| 4. Data Operations Management | None identified | [A2][fair-a2], [R1.1][fair-r1.1], [R1.2][fair-r1.2] |
+| Data Operations Management | None identified | [A2][fair-a2], [R1.1][fair-r1.1], [R1.2][fair-r1.2] |
 
 ## Business Drivers
 

@@ -1,4 +1,4 @@
-# 2. Data Architecture Management
+# Data Architecture Management
 
 ## Definition
 
@@ -16,7 +16,7 @@ Direct alignment concerns formal shared representations ([I1][fair-i1]), FAIR vo
 
 | DAMA Segments overview name | FAIR Direct IDs | FAIR Indirect IDs |
 |---|---|---|
-| 2. Data Architecture Management | [I1][fair-i1], [I2][fair-i2], [I3][fair-i3], [R1.2][fair-r1.2], [R1.3][fair-r1.3] | [F1][fair-f1] |
+| Data Architecture Management | [I1][fair-i1], [I2][fair-i2], [I3][fair-i3], [R1.2][fair-r1.2], [R1.3][fair-r1.3] | [F1][fair-f1] |
 
 ## Business Drivers
 

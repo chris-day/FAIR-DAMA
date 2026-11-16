@@ -1,4 +1,4 @@
-# 11. Data Integration & Interoperability
+# Data Integration & Interoperability
 
 Worksheet name: **DataIntegrationInteroperability**. This section adds the DMBOK2 knowledge area to the earlier ten-segment structure; the section number is a document continuation, not a DMBOK knowledge-area number.
 
@@ -19,7 +19,7 @@ The supplied table proposes direct alignment with rich discovery and reuse descr
 
 | DAMA Segments overview name | FAIR Direct IDs | FAIR Indirect IDs |
 |---|---|---|
-| 11. Data Integration & Interoperability | [F2][fair-f2], [F4][fair-f4], [A1.2][fair-a1.2], [R1][fair-r1], [R1.2][fair-r1.2] | [A1][fair-a1], [A1.1][fair-a1.1], [A1.2][fair-a1.2], [A2][fair-a2], [I1][fair-i1], [I3][fair-i3], [R1][fair-r1], [R1.2][fair-r1.2], [R1.3][fair-r1.3] |
+| Data Integration & Interoperability | [F2][fair-f2], [F4][fair-f4], [A1.2][fair-a1.2], [R1][fair-r1], [R1.2][fair-r1.2] | [A1][fair-a1], [A1.1][fair-a1.1], [A1.2][fair-a1.2], [A2][fair-a2], [I1][fair-i1], [I3][fair-i3], [R1][fair-r1], [R1.2][fair-r1.2], [R1.3][fair-r1.3] |
 
 ## Business Drivers
 
