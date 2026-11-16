@@ -9,10 +9,10 @@ Across all ten DAMA segments, **10 of the 15 FAIR principles have direct alignme
 | Gap category | FAIR principle ID | Requirement | Alignment found |
 | --- | --- | --- | --- |
 | No alignment identified | **[A1.1](fair-principles.md#a11-open-free-and-universally-implementable-retrieval-protocol)** | The retrieval protocol is open, free and universally implementable. | Neither direct nor indirect |
-| Indirect only | **[F1](fair-principles.md#f1-globally-unique-persistent-identification)** | Data and metadata receive globally unique, persistent identifiers. | Data Architecture Management |
-| Indirect only | **[F3](fair-principles.md#f3-metadata-explicitly-identifies-the-data-described)** | Metadata explicitly includes the identifier of the data it describes | Meta-data Management |
-| Indirect only | **[A2](fair-principles.md#a2-metadata-remains-accessible-after-data-becomes-unavailable)** | Metadata remains accessible when the data is no longer available. | Meta-data Management; Document & Content Management; Data Operations Management |
-| Indirect only | **[R1.1](fair-principles.md#r11-clear-accessible-data-usage-licence)** | Data and metadata are released with a clear, accessible data usage licence. | Data Operations Management |
+| Indirect only | **[F1](fair-principles.md#f1-globally-unique-persistent-identification)** | Data and metadata receive globally unique, persistent identifiers. | [Data Architecture Management][dama-02] |
+| Indirect only | **[F3](fair-principles.md#f3-metadata-explicitly-identifies-the-data-described)** | Metadata explicitly includes the identifier of the data it describes | [Meta-data Management][dama-09] |
+| Indirect only | **[A2](fair-principles.md#a2-metadata-remains-accessible-after-data-becomes-unavailable)** | Metadata remains accessible when the data is no longer available. | [Meta-data Management][dama-09]; [Document & Content Management][dama-08]; [Data Operations Management][dama-04] |
+| Indirect only | **[R1.1](fair-principles.md#r11-clear-accessible-data-usage-licence)** | Data and metadata are released with a clear, accessible data usage licence. | [Data Operations Management][dama-04] |
 
 The remaining principles have **potential direct alignment** somewhere in the mappings:
 
@@ -22,33 +22,33 @@ These IDs appear explicitly in column H, **FAIR principles supported**, in the w
 
 | FAIR principle ID | DAMA segment with potential direct alignment | Workbook evidence (column H) |
 | --- | --- | --- |
-| [F2](fair-principles.md#f2-rich-metadata-describing-data) | Meta-data Management | MetadataManagement!H2, H6 |
-| [F2](fair-principles.md#f2-rich-metadata-describing-data) | Document & Content Management | DocumentContentManagement!H8 |
-| [F4](fair-principles.md#f4-registration-or-indexing-in-a-searchable-resource) | Meta-data Management | MetadataManagement!H8, H10 |
-| [F4](fair-principles.md#f4-registration-or-indexing-in-a-searchable-resource) | Data Warehousing & Business Intelligence Management | DWandBIActivities!H5 |
-| [F4](fair-principles.md#f4-registration-or-indexing-in-a-searchable-resource) | Document & Content Management | DocumentContentManagement!H8 |
-| [A1](fair-principles.md#a1-retrieval-by-identifier-through-a-standardized-protocol) | Meta-data Management | MetadataManagement!H9 |
-| [A1](fair-principles.md#a1-retrieval-by-identifier-through-a-standardized-protocol) | Data Warehousing & Business Intelligence Management | DWandBIActivities!H6 |
-| [A1](fair-principles.md#a1-retrieval-by-identifier-through-a-standardized-protocol) | Document & Content Management | DocumentContentManagement!H3, H9 |
-| [A1](fair-principles.md#a1-retrieval-by-identifier-through-a-standardized-protocol) | Data Development | DataDevelopment!H8, H17 |
-| [A1.2](fair-principles.md#a12-authentication-and-authorization-where-needed) | Data Security Management | DataSecurityManagement!H5, H6, H7, H8 |
-| [A1.2](fair-principles.md#a12-authentication-and-authorization-where-needed) | Document & Content Management | DocumentContentManagement!H3 |
-| [I1](fair-principles.md#i1-formal-shared-language-for-knowledge-representation) | Meta-data Management | MetadataManagement!H3, H7 |
-| [I1](fair-principles.md#i1-formal-shared-language-for-knowledge-representation) | Data Development | DataDevelopment!H6 |
-| [I1](fair-principles.md#i1-formal-shared-language-for-knowledge-representation) | Data Architecture Management | DataArchitectureManagement!H3, H8, H9 |
-| [I2](fair-principles.md#i2-use-of-vocabularies-that-are-themselves-fair) | Document & Content Management | DocumentContentManagement!H7 |
-| [I2](fair-principles.md#i2-use-of-vocabularies-that-are-themselves-fair) | Data Architecture Management | DataArchitectureManagement!H3, H8 |
-| [I3](fair-principles.md#i3-qualified-references-to-other-data-or-metadata) | Meta-data Management | MetadataManagement!H7 |
-| [I3](fair-principles.md#i3-qualified-references-to-other-data-or-metadata) | Reference & Master Data Management | ReferenceMasterDataManagement!H7, H8 |
-| [I3](fair-principles.md#i3-qualified-references-to-other-data-or-metadata) | Data Development | DataDevelopment!H9 |
-| [I3](fair-principles.md#i3-qualified-references-to-other-data-or-metadata) | Data Architecture Management | DataArchitectureManagement!H3, H6 |
-| [R1](fair-principles.md#r1-accurate-relevant-descriptions-sufficient-for-reuse) | Meta-data Management | MetadataManagement!H2, H6, H10 |
-| [R1.2](fair-principles.md#r12-detailed-provenance) | Meta-data Management | MetadataManagement!H10 |
-| [R1.2](fair-principles.md#r12-detailed-provenance) | Reference & Master Data Management | ReferenceMasterDataManagement!H3, H7 |
-| [R1.2](fair-principles.md#r12-detailed-provenance) | Data Development | DataDevelopment!H9, H12 |
-| [R1.2](fair-principles.md#r12-detailed-provenance) | Data Architecture Management | DataArchitectureManagement!H6 |
-| [R1.3](fair-principles.md#r13-conformance-to-relevant-community-standards) | Meta-data Management | MetadataManagement!H4 |
-| [R1.3](fair-principles.md#r13-conformance-to-relevant-community-standards) | Data Architecture Management | DataArchitectureManagement!H8 |
+| [F2](fair-principles.md#f2-rich-metadata-describing-data) | [Meta-data Management][dama-09] | MetadataManagement!H2, H6 |
+| [F2](fair-principles.md#f2-rich-metadata-describing-data) | [Document & Content Management][dama-08] | DocumentContentManagement!H8 |
+| [F4](fair-principles.md#f4-registration-or-indexing-in-a-searchable-resource) | [Meta-data Management][dama-09] | MetadataManagement!H8, H10 |
+| [F4](fair-principles.md#f4-registration-or-indexing-in-a-searchable-resource) | [Data Warehousing & Business Intelligence Management][dama-07] | DWandBIActivities!H5 |
+| [F4](fair-principles.md#f4-registration-or-indexing-in-a-searchable-resource) | [Document & Content Management][dama-08] | DocumentContentManagement!H8 |
+| [A1](fair-principles.md#a1-retrieval-by-identifier-through-a-standardized-protocol) | [Meta-data Management][dama-09] | MetadataManagement!H9 |
+| [A1](fair-principles.md#a1-retrieval-by-identifier-through-a-standardized-protocol) | [Data Warehousing & Business Intelligence Management][dama-07] | DWandBIActivities!H6 |
+| [A1](fair-principles.md#a1-retrieval-by-identifier-through-a-standardized-protocol) | [Document & Content Management][dama-08] | DocumentContentManagement!H3, H9 |
+| [A1](fair-principles.md#a1-retrieval-by-identifier-through-a-standardized-protocol) | [Data Development][dama-03] | DataDevelopment!H8, H17 |
+| [A1.2](fair-principles.md#a12-authentication-and-authorization-where-needed) | [Data Security Management][dama-05] | DataSecurityManagement!H5, H6, H7, H8 |
+| [A1.2](fair-principles.md#a12-authentication-and-authorization-where-needed) | [Document & Content Management][dama-08] | DocumentContentManagement!H3 |
+| [I1](fair-principles.md#i1-formal-shared-language-for-knowledge-representation) | [Meta-data Management][dama-09] | MetadataManagement!H3, H7 |
+| [I1](fair-principles.md#i1-formal-shared-language-for-knowledge-representation) | [Data Development][dama-03] | DataDevelopment!H6 |
+| [I1](fair-principles.md#i1-formal-shared-language-for-knowledge-representation) | [Data Architecture Management][dama-02] | DataArchitectureManagement!H3, H8, H9 |
+| [I2](fair-principles.md#i2-use-of-vocabularies-that-are-themselves-fair) | [Document & Content Management][dama-08] | DocumentContentManagement!H7 |
+| [I2](fair-principles.md#i2-use-of-vocabularies-that-are-themselves-fair) | [Data Architecture Management][dama-02] | DataArchitectureManagement!H3, H8 |
+| [I3](fair-principles.md#i3-qualified-references-to-other-data-or-metadata) | [Meta-data Management][dama-09] | MetadataManagement!H7 |
+| [I3](fair-principles.md#i3-qualified-references-to-other-data-or-metadata) | [Reference & Master Data Management][dama-06] | ReferenceMasterDataManagement!H7, H8 |
+| [I3](fair-principles.md#i3-qualified-references-to-other-data-or-metadata) | [Data Development][dama-03] | DataDevelopment!H9 |
+| [I3](fair-principles.md#i3-qualified-references-to-other-data-or-metadata) | [Data Architecture Management][dama-02] | DataArchitectureManagement!H3, H6 |
+| [R1](fair-principles.md#r1-accurate-relevant-descriptions-sufficient-for-reuse) | [Meta-data Management][dama-09] | MetadataManagement!H2, H6, H10 |
+| [R1.2](fair-principles.md#r12-detailed-provenance) | [Meta-data Management][dama-09] | MetadataManagement!H10 |
+| [R1.2](fair-principles.md#r12-detailed-provenance) | [Reference & Master Data Management][dama-06] | ReferenceMasterDataManagement!H3, H7 |
+| [R1.2](fair-principles.md#r12-detailed-provenance) | [Data Development][dama-03] | DataDevelopment!H9, H12 |
+| [R1.2](fair-principles.md#r12-detailed-provenance) | [Data Architecture Management][dama-02] | DataArchitectureManagement!H6 |
+| [R1.3](fair-principles.md#r13-conformance-to-relevant-community-standards) | [Meta-data Management][dama-09] | MetadataManagement!H4 |
+| [R1.3](fair-principles.md#r13-conformance-to-relevant-community-standards) | [Data Architecture Management][dama-02] | DataArchitectureManagement!H8 |
 
 Two distinctions matter when interpreting these gaps:
 
@@ -62,3 +62,12 @@ Source: [DAMA-PDOC_FAIR-MASTER_2026-10-13.xlsx](../assets/downloads/DAMA-PDOC_FA
 Added in version 1.2.0.
 
 Version 1.3.0 adds the principle-to-segment table and exact workbook cell references for potential direct alignment.
+
+[dama-02]: segments/02-data-architecture-management.md
+[dama-03]: segments/03-data-development.md
+[dama-04]: segments/04-data-operations-management.md
+[dama-05]: segments/05-data-security-management.md
+[dama-06]: segments/06-reference-master-data-management.md
+[dama-07]: segments/07-data-warehousing-business-intelligence.md
+[dama-08]: segments/08-document-content-management.md
+[dama-09]: segments/09-metadata-management.md

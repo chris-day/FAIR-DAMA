@@ -35,16 +35,16 @@ Across its ten segments, Data Management has potential direct alignment with ric
 
 The overview labels these as **Functions**:
 
-- Data Governance
-- Data Architecture Management
-- Data Development
-- Database Operations Management
-- Data Security Management
-- Reference & Master Data Management
-- Data Warehousing & Business Intelligence Management
-- Document & Content Management
-- Meta-data Management
-- Data Quality Management
+- [Data Governance][dama-01]
+- [Data Architecture Management][dama-02]
+- [Data Development][dama-03]
+- [Database Operations Management][dama-04]
+- [Data Security Management][dama-05]
+- [Reference & Master Data Management][dama-06]
+- [Data Warehousing & Business Intelligence Management][dama-07]
+- [Document & Content Management][dama-08]
+- [Meta-data Management][dama-09]
+- [Data Quality Management][dama-10]
 
 ### Primary Deliverables
 
@@ -110,3 +110,14 @@ The overview labels these as **Functions**:
 [fair-r1.1]: ../fair-principles.md#r11-clear-accessible-data-usage-licence
 [fair-r1.2]: ../fair-principles.md#r12-detailed-provenance
 [fair-r1.3]: ../fair-principles.md#r13-conformance-to-relevant-community-standards
+
+[dama-01]: 01-data-governance.md
+[dama-02]: 02-data-architecture-management.md
+[dama-03]: 03-data-development.md
+[dama-04]: 04-data-operations-management.md
+[dama-05]: 05-data-security-management.md
+[dama-06]: 06-reference-master-data-management.md
+[dama-07]: 07-data-warehousing-business-intelligence.md
+[dama-08]: 08-document-content-management.md
+[dama-09]: 09-metadata-management.md
+[dama-10]: 10-data-quality-management.md
