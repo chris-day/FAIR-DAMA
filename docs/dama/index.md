@@ -30,6 +30,8 @@ The Sankey diagram summarizes the separate **implementation-oriented proposal** 
 
 ![Sankey diagram: 11 DAMA core knowledge areas on the left connect to 15 FAIR principles on the right; 51 direct and 10 enabling proposed mappings.](../fair-alignment/assets/dama-fair-sankey_v1.0.0.svg)
 
+The [expanded Sankey diagram](../fair-alignment/index.md) also includes Big Data & Data Science and Data Handling Ethics, for 13 areas and topics and 74 proposed mappings.
+
 ## Document scope and conventions
 
 Duplicate images have been consolidated into eleven blocks. **Activities** corrects the spelling in the requested heading. **Not shown in source** identifies missing sections.

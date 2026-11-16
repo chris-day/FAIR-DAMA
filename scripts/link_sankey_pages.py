@@ -10,8 +10,8 @@ import tomllib
 
 
 ROOT = Path(__file__).resolve().parents[1]
-PACKAGE = ROOT / "artefacts/DAMA_FAIR_Sankey_v1.2.0.zip"
-DESTINATION = ROOT / "docs/fair-alignment/sankey-v1.1.0.html"
+PACKAGE = ROOT / "artefacts/DAMA_FAIR_Sankey_v1.3.0.zip"
+DESTINATION = ROOT / "docs/fair-alignment/sankey-v1.3.0.html"
 FAIR_PAGE = ROOT / "site/dama/fair-principles/index.html"
 
 
@@ -21,14 +21,14 @@ def main() -> None:
         raise ValueError("site_url must be a canonical HTTPS directory URL")
 
     with ZipFile(PACKAGE) as archive:
-        prefix = "dama-fair-sankey-v1.2.0/"
+        prefix = "dama-fair-sankey-v1.3.0/"
         html = archive.read(prefix + "index.html").decode("utf-8")
         original_anchors = json.loads(archive.read(prefix + "section-links.json"))
         data = json.loads(archive.read(prefix + "data.json"))
 
     areas = data["areas"]
     principles = [item["id"] for item in data["principles"]]
-    if len(areas) != 11 or len(principles) != 15:
+    if len(areas) != 13 or len(principles) != 15 or len(data["links"]) != 74:
         raise ValueError("Unexpected Sankey label count")
     if set(original_anchors) != set(areas) | set(principles):
         raise ValueError("Sankey labels differ from section-links.json")
@@ -69,7 +69,7 @@ def main() -> None:
     start = html.index(start_marker)
     end = html.index(end_marker, start)
     script = (
-        "    // Published Zensical destinations for all 26 diagram labels.\n"
+        "    // Published Zensical destinations for all 28 diagram labels.\n"
         f"    const pageUrls={json.dumps(urls, ensure_ascii=False)};\n"
         "    function sectionHref(id){\n"
         "      if(!Object.hasOwn(pageUrls,id)) throw new Error(`Missing page for ${id}`);\n"
@@ -94,7 +94,7 @@ def main() -> None:
         + "  // Diagram labels use the generated Zensical page map."
         + html[outer_end:]
     )
-    if "DAMA_Segments_High_Level_v1.17.0.html" in html:
+    if "DAMA_Segments_High_Level_v1.18.0.html" in html:
         raise ValueError("Old reading-copy target remains in the diagram")
     DESTINATION.write_bytes(html.encode("utf-8"))
     print(f"Mapped {len(areas)} DAMA and {len(principles)} FAIR labels to {site_url}")

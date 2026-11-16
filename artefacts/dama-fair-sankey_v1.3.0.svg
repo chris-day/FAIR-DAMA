@@ -1,0 +1,149 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1660" height="1500" viewBox="0 0 1660 1500" role="img" aria-labelledby="title description">
+<title id="title">DAMA–FAIR Sankey v1.3.0</title>
+<desc id="description">13 DAMA areas and topics map to 15 FAIR principles through 74 proposed alignments: 52 direct and 22 enabling or indirect. Big Data and Data Science and Data Handling Ethics are additional topics beyond the 11 core knowledge areas. Equal ribbon widths represent mappings, not strength or compliance.</desc>
+<rect width="100%" height="100%" fill="white"/>
+<g font-family="Arial, sans-serif" fill="#182230">
+<text x="30" y="49.6" font-size="30" text-anchor="start" fill="#182230">DAMA–FAIR Sankey · v1.3.0</text>
+<text x="30" y="84.4" font-size="20" text-anchor="start" fill="#182230">11 core knowledge areas + 2 additional topics → 15 FAIR Data Principles</text>
+<rect x="30.00" y="110.00" width="24.00" height="11.00" fill="#2878A8"/>
+<text x="66" y="118.64" font-size="17" text-anchor="start" fill="#182230">Direct proposal · 52</text>
+<rect x="290.00" y="110.00" width="24.00" height="11.00" fill="#C27832"/>
+<text x="326" y="118.64" font-size="17" text-anchor="start" fill="#182230">Enabling / indirect · 22</text>
+<text x="30" y="152.64" font-size="17" text-anchor="start" fill="#182230">DAMA areas and topics</text>
+<text x="1214" y="152.64" font-size="17" text-anchor="start" fill="#182230">FAIR ID and short name</text>
+<path d="M 407 916.655 C 798.5 916.655, 798.5 169.628, 1190 169.628" fill="none" stroke="#2878A8" stroke-width="9.257" stroke-opacity="0.27"><title>Metadata Management → F1 · Direct · Implementation-oriented proposal (11 core areas)</title></path>
+<path d="M 407 779.448 C 798.5 779.448, 798.5 178.885, 1190 178.885" fill="none" stroke="#2878A8" stroke-width="9.257" stroke-opacity="0.27"><title>Reference &amp; Master Data Management → F1 · Direct · Implementation-oriented proposal (11 core areas)</title></path>
+<path d="M 407 440.236 C 798.5 440.236, 798.5 188.142, 1190 188.142" fill="none" stroke="#2878A8" stroke-width="9.257" stroke-opacity="0.27"><title>Data Storage &amp; Operations → F1 · Direct · Implementation-oriented proposal (11 core areas)</title></path>
+<path d="M 407 169.628 C 798.5 169.628, 798.5 197.399, 1190 197.399" fill="none" stroke="#C27832" stroke-width="9.257" stroke-opacity="0.27"><title>Data Governance → F1 · Enabling · Implementation-oriented proposal (11 core areas)</title></path>
+<path d="M 407 925.912 C 798.5 925.912, 798.5 241.655, 1190 241.655" fill="none" stroke="#2878A8" stroke-width="9.257" stroke-opacity="0.27"><title>Metadata Management → F2 · Direct · Implementation-oriented proposal (11 core areas)</title></path>
+<path d="M 407 343.863 C 798.5 343.863, 798.5 250.912, 1190 250.912" fill="none" stroke="#2878A8" stroke-width="9.257" stroke-opacity="0.27"><title>Data Modeling &amp; Design → F2 · Direct · Implementation-oriented proposal (11 core areas)</title></path>
+<path d="M 407 1096.340 C 798.5 1096.340, 798.5 260.169, 1190 260.169" fill="none" stroke="#2878A8" stroke-width="9.257" stroke-opacity="0.27"><title>Data Quality Management → F2 · Direct · Implementation-oriented proposal (11 core areas)</title></path>
+<path d="M 407 701.588 C 798.5 701.588, 798.5 269.426, 1190 269.426" fill="none" stroke="#2878A8" stroke-width="9.257" stroke-opacity="0.27"><title>Documents &amp; Content Management → F2 · Direct · Implementation-oriented proposal (11 core areas)</title></path>
+<path d="M 407 935.169 C 798.5 935.169, 798.5 322.939, 1190 322.939" fill="none" stroke="#2878A8" stroke-width="9.257" stroke-opacity="0.27"><title>Metadata Management → F3 · Direct · Implementation-oriented proposal (11 core areas)</title></path>
+<path d="M 407 353.119 C 798.5 353.119, 798.5 332.196, 1190 332.196" fill="none" stroke="#2878A8" stroke-width="9.257" stroke-opacity="0.27"><title>Data Modeling &amp; Design → F3 · Direct · Implementation-oriented proposal (11 core areas)</title></path>
+<path d="M 407 568.187 C 798.5 568.187, 798.5 341.453, 1190 341.453" fill="none" stroke="#2878A8" stroke-width="9.257" stroke-opacity="0.27"><title>Data Integration &amp; Interoperability → F3 · Direct · Implementation-oriented proposal (11 core areas)</title></path>
+<path d="M 407 1105.597 C 798.5 1105.597, 798.5 350.709, 1190 350.709" fill="none" stroke="#2878A8" stroke-width="9.257" stroke-opacity="0.27"><title>Data Quality Management → F3 · Direct · Implementation-oriented proposal (11 core areas)</title></path>
+<path d="M 407 944.426 C 798.5 944.426, 798.5 394.966, 1190 394.966" fill="none" stroke="#2878A8" stroke-width="9.257" stroke-opacity="0.27"><title>Metadata Management → F4 · Direct · Implementation-oriented proposal (11 core areas)</title></path>
+<path d="M 407 577.444 C 798.5 577.444, 798.5 404.223, 1190 404.223" fill="none" stroke="#2878A8" stroke-width="9.257" stroke-opacity="0.27"><title>Data Integration &amp; Interoperability → F4 · Direct · Implementation-oriented proposal (11 core areas)</title></path>
+<path d="M 407 710.845 C 798.5 710.845, 798.5 413.480, 1190 413.480" fill="none" stroke="#2878A8" stroke-width="9.257" stroke-opacity="0.27"><title>Documents &amp; Content Management → F4 · Direct · Implementation-oriented proposal (11 core areas)</title></path>
+<path d="M 407 848.052 C 798.5 848.052, 798.5 422.736, 1190 422.736" fill="none" stroke="#2878A8" stroke-width="9.257" stroke-opacity="0.27"><title>Data Warehousing &amp; Business Intelligence → F4 · Direct · Implementation-oriented proposal (11 core areas)</title></path>
+<path d="M 407 586.700 C 798.5 586.700, 798.5 466.993, 1190 466.993" fill="none" stroke="#2878A8" stroke-width="9.257" stroke-opacity="0.27"><title>Data Integration &amp; Interoperability → A1 · Direct · Implementation-oriented proposal (11 core areas)</title></path>
+<path d="M 407 449.493 C 798.5 449.493, 798.5 476.250, 1190 476.250" fill="none" stroke="#2878A8" stroke-width="9.257" stroke-opacity="0.27"><title>Data Storage &amp; Operations → A1 · Direct · Implementation-oriented proposal (11 core areas)</title></path>
+<path d="M 407 953.682 C 798.5 953.682, 798.5 485.507, 1190 485.507" fill="none" stroke="#2878A8" stroke-width="9.257" stroke-opacity="0.27"><title>Metadata Management → A1 · Direct · Implementation-oriented proposal (11 core areas)</title></path>
+<path d="M 407 275.259 C 798.5 275.259, 798.5 494.764, 1190 494.764" fill="none" stroke="#C27832" stroke-width="9.257" stroke-opacity="0.27"><title>Data Architecture → A1 · Enabling · Implementation-oriented proposal (11 core areas)</title></path>
+<path d="M 407 595.957 C 798.5 595.957, 798.5 548.277, 1190 548.277" fill="none" stroke="#2878A8" stroke-width="9.257" stroke-opacity="0.27"><title>Data Integration &amp; Interoperability → A1.1 · Direct · Implementation-oriented proposal (11 core areas)</title></path>
+<path d="M 407 962.939 C 798.5 962.939, 798.5 557.534, 1190 557.534" fill="none" stroke="#2878A8" stroke-width="9.257" stroke-opacity="0.27"><title>Metadata Management → A1.1 · Direct · Implementation-oriented proposal (11 core areas)</title></path>
+<path d="M 407 284.516 C 798.5 284.516, 798.5 566.791, 1190 566.791" fill="none" stroke="#C27832" stroke-width="9.257" stroke-opacity="0.27"><title>Data Architecture → A1.1 · Enabling · Implementation-oriented proposal (11 core areas)</title></path>
+<path d="M 407 178.885 C 798.5 178.885, 798.5 576.047, 1190 576.047" fill="none" stroke="#C27832" stroke-width="9.257" stroke-opacity="0.27"><title>Data Governance → A1.1 · Enabling · Implementation-oriented proposal (11 core areas)</title></path>
+<path d="M 407 518.097 C 798.5 518.097, 798.5 629.561, 1190 629.561" fill="none" stroke="#2878A8" stroke-width="9.257" stroke-opacity="0.27"><title>Data Security → A1.2 · Direct · Implementation-oriented proposal (11 core areas)</title></path>
+<path d="M 407 605.214 C 798.5 605.214, 798.5 638.818, 1190 638.818" fill="none" stroke="#2878A8" stroke-width="9.257" stroke-opacity="0.27"><title>Data Integration &amp; Interoperability → A1.2 · Direct · Implementation-oriented proposal (11 core areas)</title></path>
+<path d="M 407 972.196 C 798.5 972.196, 798.5 648.074, 1190 648.074" fill="none" stroke="#2878A8" stroke-width="9.257" stroke-opacity="0.27"><title>Metadata Management → A1.2 · Direct · Implementation-oriented proposal (11 core areas)</title></path>
+<path d="M 407 188.142 C 798.5 188.142, 798.5 657.331, 1190 657.331" fill="none" stroke="#C27832" stroke-width="9.257" stroke-opacity="0.27"><title>Data Governance → A1.2 · Enabling · Implementation-oriented proposal (11 core areas)</title></path>
+<path d="M 407 981.453 C 798.5 981.453, 798.5 720.101, 1190 720.101" fill="none" stroke="#2878A8" stroke-width="9.257" stroke-opacity="0.27"><title>Metadata Management → A2 · Direct · Implementation-oriented proposal (11 core areas)</title></path>
+<path d="M 407 458.750 C 798.5 458.750, 798.5 729.358, 1190 729.358" fill="none" stroke="#2878A8" stroke-width="9.257" stroke-opacity="0.27"><title>Data Storage &amp; Operations → A2 · Direct · Implementation-oriented proposal (11 core areas)</title></path>
+<path d="M 407 720.101 C 798.5 720.101, 798.5 738.615, 1190 738.615" fill="none" stroke="#2878A8" stroke-width="9.257" stroke-opacity="0.27"><title>Documents &amp; Content Management → A2 · Direct · Implementation-oriented proposal (11 core areas)</title></path>
+<path d="M 407 197.399 C 798.5 197.399, 798.5 747.872, 1190 747.872" fill="none" stroke="#C27832" stroke-width="9.257" stroke-opacity="0.27"><title>Data Governance → A2 · Enabling · Implementation-oriented proposal (11 core areas)</title></path>
+<path d="M 407 362.376 C 798.5 362.376, 798.5 792.128, 1190 792.128" fill="none" stroke="#2878A8" stroke-width="9.257" stroke-opacity="0.27"><title>Data Modeling &amp; Design → I1 · Direct · Implementation-oriented proposal (11 core areas)</title></path>
+<path d="M 407 990.709 C 798.5 990.709, 798.5 801.385, 1190 801.385" fill="none" stroke="#2878A8" stroke-width="9.257" stroke-opacity="0.27"><title>Metadata Management → I1 · Direct · Implementation-oriented proposal (11 core areas)</title></path>
+<path d="M 407 614.471 C 798.5 614.471, 798.5 810.642, 1190 810.642" fill="none" stroke="#2878A8" stroke-width="9.257" stroke-opacity="0.27"><title>Data Integration &amp; Interoperability → I1 · Direct · Implementation-oriented proposal (11 core areas)</title></path>
+<path d="M 407 293.773 C 798.5 293.773, 798.5 819.899, 1190 819.899" fill="none" stroke="#C27832" stroke-width="9.257" stroke-opacity="0.27"><title>Data Architecture → I1 · Enabling · Implementation-oriented proposal (11 core areas)</title></path>
+<path d="M 407 788.705 C 798.5 788.705, 798.5 873.412, 1190 873.412" fill="none" stroke="#2878A8" stroke-width="9.257" stroke-opacity="0.27"><title>Reference &amp; Master Data Management → I2 · Direct · Implementation-oriented proposal (11 core areas)</title></path>
+<path d="M 407 999.966 C 798.5 999.966, 798.5 882.669, 1190 882.669" fill="none" stroke="#2878A8" stroke-width="9.257" stroke-opacity="0.27"><title>Metadata Management → I2 · Direct · Implementation-oriented proposal (11 core areas)</title></path>
+<path d="M 407 1114.854 C 798.5 1114.854, 798.5 891.926, 1190 891.926" fill="none" stroke="#2878A8" stroke-width="9.257" stroke-opacity="0.27"><title>Data Quality Management → I2 · Direct · Implementation-oriented proposal (11 core areas)</title></path>
+<path d="M 407 206.655 C 798.5 206.655, 798.5 901.182, 1190 901.182" fill="none" stroke="#C27832" stroke-width="9.257" stroke-opacity="0.27"><title>Data Governance → I2 · Enabling · Implementation-oriented proposal (11 core areas)</title></path>
+<path d="M 407 371.633 C 798.5 371.633, 798.5 945.439, 1190 945.439" fill="none" stroke="#2878A8" stroke-width="9.257" stroke-opacity="0.27"><title>Data Modeling &amp; Design → I3 · Direct · Implementation-oriented proposal (11 core areas)</title></path>
+<path d="M 407 1009.223 C 798.5 1009.223, 798.5 954.696, 1190 954.696" fill="none" stroke="#2878A8" stroke-width="9.257" stroke-opacity="0.27"><title>Metadata Management → I3 · Direct · Implementation-oriented proposal (11 core areas)</title></path>
+<path d="M 407 623.727 C 798.5 623.727, 798.5 963.953, 1190 963.953" fill="none" stroke="#2878A8" stroke-width="9.257" stroke-opacity="0.27"><title>Data Integration &amp; Interoperability → I3 · Direct · Implementation-oriented proposal (11 core areas)</title></path>
+<path d="M 407 797.962 C 798.5 797.962, 798.5 973.209, 1190 973.209" fill="none" stroke="#2878A8" stroke-width="9.257" stroke-opacity="0.27"><title>Reference &amp; Master Data Management → I3 · Direct · Implementation-oriented proposal (11 core areas)</title></path>
+<path d="M 407 1018.480 C 798.5 1018.480, 798.5 1026.723, 1190 1026.723" fill="none" stroke="#2878A8" stroke-width="9.257" stroke-opacity="0.27"><title>Metadata Management → R1 · Direct · Implementation-oriented proposal (11 core areas)</title></path>
+<path d="M 407 1124.110 C 798.5 1124.110, 798.5 1035.980, 1190 1035.980" fill="none" stroke="#2878A8" stroke-width="9.257" stroke-opacity="0.27"><title>Data Quality Management → R1 · Direct · Implementation-oriented proposal (11 core areas)</title></path>
+<path d="M 407 380.890 C 798.5 380.890, 798.5 1045.236, 1190 1045.236" fill="none" stroke="#2878A8" stroke-width="9.257" stroke-opacity="0.27"><title>Data Modeling &amp; Design → R1 · Direct · Implementation-oriented proposal (11 core areas)</title></path>
+<path d="M 407 857.309 C 798.5 857.309, 798.5 1054.493, 1190 1054.493" fill="none" stroke="#2878A8" stroke-width="9.257" stroke-opacity="0.27"><title>Data Warehousing &amp; Business Intelligence → R1 · Direct · Implementation-oriented proposal (11 core areas)</title></path>
+<path d="M 407 1027.736 C 798.5 1027.736, 798.5 1117.264, 1190 1117.264" fill="none" stroke="#2878A8" stroke-width="9.257" stroke-opacity="0.27"><title>Metadata Management → R1.1 · Direct · Implementation-oriented proposal (11 core areas)</title></path>
+<path d="M 407 729.358 C 798.5 729.358, 798.5 1126.520, 1190 1126.520" fill="none" stroke="#2878A8" stroke-width="9.257" stroke-opacity="0.27"><title>Documents &amp; Content Management → R1.1 · Direct · Implementation-oriented proposal (11 core areas)</title></path>
+<path d="M 407 632.984 C 798.5 632.984, 798.5 1135.777, 1190 1135.777" fill="none" stroke="#2878A8" stroke-width="9.257" stroke-opacity="0.27"><title>Data Integration &amp; Interoperability → R1.1 · Direct · Implementation-oriented proposal (11 core areas)</title></path>
+<path d="M 407 215.912 C 798.5 215.912, 798.5 1145.034, 1190 1145.034" fill="none" stroke="#C27832" stroke-width="9.257" stroke-opacity="0.27"><title>Data Governance → R1.1 · Enabling · Implementation-oriented proposal (11 core areas)</title></path>
+<path d="M 407 1036.993 C 798.5 1036.993, 798.5 1207.804, 1190 1207.804" fill="none" stroke="#2878A8" stroke-width="9.257" stroke-opacity="0.27"><title>Metadata Management → R1.2 · Direct · Implementation-oriented proposal (11 core areas)</title></path>
+<path d="M 407 642.241 C 798.5 642.241, 798.5 1217.061, 1190 1217.061" fill="none" stroke="#2878A8" stroke-width="9.257" stroke-opacity="0.27"><title>Data Integration &amp; Interoperability → R1.2 · Direct · Implementation-oriented proposal (11 core areas)</title></path>
+<path d="M 407 866.565 C 798.5 866.565, 798.5 1226.318, 1190 1226.318" fill="none" stroke="#2878A8" stroke-width="9.257" stroke-opacity="0.27"><title>Data Warehousing &amp; Business Intelligence → R1.2 · Direct · Implementation-oriented proposal (11 core areas)</title></path>
+<path d="M 407 468.007 C 798.5 468.007, 798.5 1235.574, 1190 1235.574" fill="none" stroke="#2878A8" stroke-width="9.257" stroke-opacity="0.27"><title>Data Storage &amp; Operations → R1.2 · Direct · Implementation-oriented proposal (11 core areas)</title></path>
+<path d="M 407 225.169 C 798.5 225.169, 798.5 1289.088, 1190 1289.088" fill="none" stroke="#C27832" stroke-width="9.257" stroke-opacity="0.27"><title>Data Governance → R1.3 · Enabling · Implementation-oriented proposal (11 core areas)</title></path>
+<path d="M 407 390.146 C 798.5 390.146, 798.5 1298.345, 1190 1298.345" fill="none" stroke="#2878A8" stroke-width="9.257" stroke-opacity="0.27"><title>Data Modeling &amp; Design → R1.3 · Direct · Implementation-oriented proposal (11 core areas)</title></path>
+<path d="M 407 1046.250 C 798.5 1046.250, 798.5 1307.601, 1190 1307.601" fill="none" stroke="#2878A8" stroke-width="9.257" stroke-opacity="0.27"><title>Metadata Management → R1.3 · Direct · Implementation-oriented proposal (11 core areas)</title></path>
+<path d="M 407 651.498 C 798.5 651.498, 798.5 1316.858, 1190 1316.858" fill="none" stroke="#2878A8" stroke-width="9.257" stroke-opacity="0.27"><title>Data Integration &amp; Interoperability → R1.3 · Direct · Implementation-oriented proposal (11 core areas)</title></path>
+<path d="M 407 1133.367 C 798.5 1133.367, 798.5 1326.115, 1190 1326.115" fill="none" stroke="#2878A8" stroke-width="9.257" stroke-opacity="0.27"><title>Data Quality Management → R1.3 · Direct · Implementation-oriented proposal (11 core areas)</title></path>
+<path d="M 407 1183.457 C 798.5 1183.457, 798.5 1063.750, 1190 1063.750" fill="none" stroke="#2878A8" stroke-width="9.257" stroke-opacity="0.27"><title>Big Data &amp; Data Science → R1 · Direct · Activity-derived proposal (additional topic)</title></path>
+<path d="M 407 1192.714 C 798.5 1192.714, 798.5 504.020, 1190 504.020" fill="none" stroke="#C27832" stroke-width="9.257" stroke-opacity="0.27"><title>Big Data &amp; Data Science → A1 · Indirect · Activity-derived proposal (additional topic)</title></path>
+<path d="M 407 1201.971 C 798.5 1201.971, 798.5 585.304, 1190 585.304" fill="none" stroke="#C27832" stroke-width="9.257" stroke-opacity="0.27"><title>Big Data &amp; Data Science → A1.1 · Indirect · Activity-derived proposal (additional topic)</title></path>
+<path d="M 407 1211.227 C 798.5 1211.227, 798.5 666.588, 1190 666.588" fill="none" stroke="#C27832" stroke-width="9.257" stroke-opacity="0.27"><title>Big Data &amp; Data Science → A1.2 · Indirect · Activity-derived proposal (additional topic)</title></path>
+<path d="M 407 1220.484 C 798.5 1220.484, 798.5 278.682, 1190 278.682" fill="none" stroke="#C27832" stroke-width="9.257" stroke-opacity="0.27"><title>Big Data &amp; Data Science → F2 · Indirect · Activity-derived proposal (additional topic)</title></path>
+<path d="M 407 1229.741 C 798.5 1229.741, 798.5 829.155, 1190 829.155" fill="none" stroke="#C27832" stroke-width="9.257" stroke-opacity="0.27"><title>Big Data &amp; Data Science → I1 · Indirect · Activity-derived proposal (additional topic)</title></path>
+<path d="M 407 1238.998 C 798.5 1238.998, 798.5 982.466, 1190 982.466" fill="none" stroke="#C27832" stroke-width="9.257" stroke-opacity="0.27"><title>Big Data &amp; Data Science → I3 · Indirect · Activity-derived proposal (additional topic)</title></path>
+<path d="M 407 1248.255 C 798.5 1248.255, 798.5 1073.007, 1190 1073.007" fill="none" stroke="#C27832" stroke-width="9.257" stroke-opacity="0.27"><title>Big Data &amp; Data Science → R1 · Indirect · Activity-derived proposal (additional topic)</title></path>
+<path d="M 407 1257.511 C 798.5 1257.511, 798.5 1154.291, 1190 1154.291" fill="none" stroke="#C27832" stroke-width="9.257" stroke-opacity="0.27"><title>Big Data &amp; Data Science → R1.1 · Indirect · Activity-derived proposal (additional topic)</title></path>
+<path d="M 407 1266.768 C 798.5 1266.768, 798.5 1244.831, 1190 1244.831" fill="none" stroke="#C27832" stroke-width="9.257" stroke-opacity="0.27"><title>Big Data &amp; Data Science → R1.2 · Indirect · Activity-derived proposal (additional topic)</title></path>
+<path d="M 407 1276.025 C 798.5 1276.025, 798.5 1335.372, 1190 1335.372" fill="none" stroke="#C27832" stroke-width="9.257" stroke-opacity="0.27"><title>Big Data &amp; Data Science → R1.3 · Indirect · Activity-derived proposal (additional topic)</title></path>
+<path d="M 407 1326.115 C 798.5 1326.115, 798.5 675.845, 1190 675.845" fill="none" stroke="#C27832" stroke-width="9.257" stroke-opacity="0.27"><title>Data Handling Ethics → A1.2 · Indirect · Activity-derived proposal (additional topic)</title></path>
+<path d="M 407 1335.372 C 798.5 1335.372, 798.5 1163.547, 1190 1163.547" fill="none" stroke="#C27832" stroke-width="9.257" stroke-opacity="0.27"><title>Data Handling Ethics → R1.1 · Indirect · Activity-derived proposal (additional topic)</title></path>
+<rect x="395.00" y="165.00" width="12.00" height="64.80" fill="#596777"/>
+<text x="381" y="202.95864864864865" font-size="18" text-anchor="end" fill="#182230">Data Governance</text>
+<rect x="395.00" y="270.63" width="12.00" height="27.77" fill="#596777"/>
+<text x="381" y="290.0757657657658" font-size="18" text-anchor="end" fill="#182230">Data Architecture</text>
+<rect x="395.00" y="339.23" width="12.00" height="55.54" fill="#596777"/>
+<text x="381" y="372.5645045045045" font-size="18" text-anchor="end" fill="#182230">Data Modeling &amp; Design</text>
+<rect x="395.00" y="435.61" width="12.00" height="37.03" fill="#596777"/>
+<text x="381" y="459.6816216216216" font-size="18" text-anchor="end" fill="#182230">Data Storage &amp; Operations</text>
+<rect x="395.00" y="513.47" width="12.00" height="9.26" fill="#596777"/>
+<text x="381" y="523.6568468468467" font-size="18" text-anchor="end" fill="#182230">Data Security</text>
+<rect x="395.00" y="563.56" width="12.00" height="92.57" fill="#596777"/>
+<text x="381" y="604.4023423423423" font-size="18" text-anchor="end" fill="#182230">Data Integration &amp;</text>
+<text x="381" y="626.4023423423423" font-size="18" text-anchor="end" fill="#182230">Interoperability</text>
+<rect x="395.00" y="696.96" width="12.00" height="37.03" fill="#596777"/>
+<text x="381" y="721.0329729729731" font-size="18" text-anchor="end" fill="#182230">Documents &amp; Content Management</text>
+<rect x="395.00" y="774.82" width="12.00" height="27.77" fill="#596777"/>
+<text x="381" y="794.2649549549549" font-size="18" text-anchor="end" fill="#182230">Reference &amp; Master Data Management</text>
+<rect x="395.00" y="843.42" width="12.00" height="27.77" fill="#596777"/>
+<text x="381" y="851.8685585585586" font-size="18" text-anchor="end" fill="#182230">Data Warehousing &amp; Business</text>
+<text x="381" y="873.8685585585586" font-size="18" text-anchor="end" fill="#182230">Intelligence</text>
+<rect x="395.00" y="912.03" width="12.00" height="138.85" fill="#596777"/>
+<text x="381" y="987.0127027027027" font-size="18" text-anchor="end" fill="#182230">Metadata Management</text>
+<rect x="395.00" y="1091.71" width="12.00" height="46.28" fill="#596777"/>
+<text x="381" y="1120.4136036036034" font-size="18" text-anchor="end" fill="#182230">Data Quality Management</text>
+<rect x="395.00" y="1178.83" width="12.00" height="101.82" fill="#596777"/>
+<text x="381" y="1235.3009909909906" font-size="18" text-anchor="end" fill="#182230">Big Data &amp; Data Science †</text>
+<rect x="395.00" y="1321.49" width="12.00" height="18.51" fill="#596777"/>
+<text x="381" y="1336.3032432432428" font-size="18" text-anchor="end" fill="#182230">Data Handling Ethics †</text>
+<rect x="1190.00" y="165.00" width="12.00" height="37.03" fill="#596777"/>
+<text x="1214" y="189.07351351351352" font-size="18" text-anchor="start" fill="#182230">F1 · Persistent identifiers</text>
+<rect x="1190.00" y="237.03" width="12.00" height="46.28" fill="#596777"/>
+<text x="1214" y="265.7289189189189" font-size="18" text-anchor="start" fill="#182230">F2 · Rich metadata</text>
+<rect x="1190.00" y="318.31" width="12.00" height="37.03" fill="#596777"/>
+<text x="1214" y="342.3843243243243" font-size="18" text-anchor="start" fill="#182230">F3 · Data identifier in metadata</text>
+<rect x="1190.00" y="390.34" width="12.00" height="37.03" fill="#596777"/>
+<text x="1214" y="414.41135135135136" font-size="18" text-anchor="start" fill="#182230">F4 · Searchable registration</text>
+<rect x="1190.00" y="462.36" width="12.00" height="46.28" fill="#596777"/>
+<text x="1214" y="491.0667567567568" font-size="18" text-anchor="start" fill="#182230">A1 · Standardized retrieval</text>
+<rect x="1190.00" y="543.65" width="12.00" height="46.28" fill="#596777"/>
+<text x="1214" y="572.3505405405406" font-size="18" text-anchor="start" fill="#182230">A1.1 · Open, free protocols</text>
+<rect x="1190.00" y="624.93" width="12.00" height="55.54" fill="#596777"/>
+<text x="1214" y="658.2627027027027" font-size="18" text-anchor="start" fill="#182230">A1.2 · Authentication &amp; authorization</text>
+<rect x="1190.00" y="715.47" width="12.00" height="37.03" fill="#596777"/>
+<text x="1214" y="739.5464864864864" font-size="18" text-anchor="start" fill="#182230">A2 · Persistent metadata</text>
+<rect x="1190.00" y="787.50" width="12.00" height="46.28" fill="#596777"/>
+<text x="1214" y="816.2018918918918" font-size="18" text-anchor="start" fill="#182230">I1 · Shared knowledge representation</text>
+<rect x="1190.00" y="868.78" width="12.00" height="37.03" fill="#596777"/>
+<text x="1214" y="892.8572972972972" font-size="18" text-anchor="start" fill="#182230">I2 · FAIR vocabularies</text>
+<rect x="1190.00" y="940.81" width="12.00" height="46.28" fill="#596777"/>
+<text x="1214" y="969.5127027027027" font-size="18" text-anchor="start" fill="#182230">I3 · Qualified references</text>
+<rect x="1190.00" y="1022.09" width="12.00" height="55.54" fill="#596777"/>
+<text x="1214" y="1055.4248648648647" font-size="18" text-anchor="start" fill="#182230">R1 · Rich reuse descriptions</text>
+<rect x="1190.00" y="1112.64" width="12.00" height="55.54" fill="#596777"/>
+<text x="1214" y="1145.9654054054054" font-size="18" text-anchor="start" fill="#182230">R1.1 · Usage licence</text>
+<rect x="1190.00" y="1203.18" width="12.00" height="46.28" fill="#596777"/>
+<text x="1214" y="1231.8775675675677" font-size="18" text-anchor="start" fill="#182230">R1.2 · Detailed provenance</text>
+<rect x="1190.00" y="1284.46" width="12.00" height="55.54" fill="#596777"/>
+<text x="1214" y="1317.7897297297297" font-size="18" text-anchor="start" fill="#182230">R1.3 · Community standards</text>
+<text x="30" y="1400.64" font-size="17" text-anchor="start" fill="#182230">† Additional DMBOK topic. Original 61 links: implementation-oriented proposal; 13 added links: activity-derived proposal.</text>
+<text x="30" y="1429.64" font-size="17" text-anchor="start" fill="#182230">Each ribbon represents one mapping—not strength, implementation maturity or demonstrated compliance.</text>
+<text x="30" y="1458.64" font-size="17" text-anchor="start" fill="#182230">Source: Sankey v1.3.0 data; DAMA Segments High Level v1.18.0; updated FAIR activity workbook V3.</text>
+</g></svg>
