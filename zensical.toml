@@ -25,6 +25,8 @@ nav = [
     { "Data Quality Management" = "dama/segments/10-data-quality-management.md" },
     { "Data Integration & Interoperability" = "dama/segments/11-data-integration-interoperability.md" },
     { "Data Management Maturity Assessment" = "dama/segments/12-data-management-maturity-assessment.md" },
+    { "Big Data & Data Science" = "dama/segments/13-big-data-data-science.md" },
+    { "Data Handling Ethics" = "dama/segments/14-data-handling-ethics.md" },
   ] },
   { "FAIR alignment" = [
     { "Alignment gaps" = "dama/fair-alignment-gaps.md" },

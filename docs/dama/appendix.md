@@ -6,7 +6,7 @@ Activity Technical  Drivers
 
 | DAMA Knowledge Area | Techniques | Tools | Metrics |
 |---|---|---|---|
-| **Data Handling Ethics** | Communication Plan Checklists; Annual Ethics Statement Affirmations; Ethical Risk Model | Wikis, Knowledge Bases, Intranet Sites; Microblogs, other internal communication tools | Number of Employees Trained; Compliance /non-compliance Incidents; Corporate Executive Involvement |
+| **[Data Handling Ethics][dama-14]** | Communication Plan Checklists; Annual Ethics Statement Affirmations; Ethical Risk Model | Wikis, Knowledge Bases, Intranet Sites; Microblogs, other internal communication tools | Number of Employees Trained; Compliance /non-compliance Incidents; Corporate Executive Involvement |
 | **[Data Governance & Stewardship][dama-01]** | Concise Messaging; Contact List; Logo | Websites; Business Glossary Tools; Workflow Tools; Document Management Tools; Data Governance Scorecards | Compliance to regulatory and internal data policies; Value; Effectiveness; Sustainability |
 | **[Data Architecture][dama-02]** | Lifecycle Reviews; Diagramming Clarity | Data modeling tools; Asset management software; Graphical design applications | Architecture standards compliance rates; Trends in implementation; Business value metrics |
 | **Data Modeling & Design** | Naming conventions; Forward/reverse engineering; Approach determination | Data modeling tools; Lineage tools; Data profiling tools; Metadata repositories; Data model patterns; Industry data models | Data model validation measurement |
@@ -18,7 +18,7 @@ Activity Technical  Drivers
 | **[Data Warehouse & Business Intelligence][dama-07]** | Prototypes to Drive Requirements; Self Service BI; Queryable Audit Data | Metadata Repositories; Data Integration Tools; Business Intelligence Tools | Usage Metrics; Subject Area Coverage Percentages; Response/Performance Metrics |
 | **[Metadata Management][dama-09]** | Data Lineage and Impact Analysis; Metadata for Big Data Ingest | Metadata Repository Management Tools; Metadata Repositories in other Tools; Integration Tools | Metadata Coverage Scorecard; Metadata Quality Scorecard; Metadata Repository Activities |
 | **[Data Quality Management][dama-10]** | Data Quality Metrics; Profiling; Preventive and Corrective Actions; Root Cause Analysis; Corrections | Data Profiling Tools; Business Rule Engine; Data Parsing and Formatting; Data Transformation and Standardization; Data Enrichment; Incident Management | Return on Investment; Levels of Quality; Data Quality Scorecard; Data Issues Reports; Service Level Conformance; Data Quality Plan Progress |
-| **Big Data & Data Science** | Analytic Modeling; Machine Learning Techniques; Big Data Modeling; Columnar Compression; Advanced Supervised Learning | MPP Shared-Nothing Technologies; Distributed File-based Databases; In-memory Computing and Databases; In-database Algorithms; Big Data Cloud Solutions; Statistical Computing and Graphical Languages; Data Visualization Tools | Technical Usage Metrics; Loading and Scanning Metrics; Learnings and Stories; Response and Performance Metrics; Data Loading and Scanning Metrics |
+| **[Big Data & Data Science][dama-13]** | Analytic Modeling; Machine Learning Techniques; Big Data Modeling; Columnar Compression; Advanced Supervised Learning | MPP Shared-Nothing Technologies; Distributed File-based Databases; In-memory Computing and Databases; In-database Algorithms; Big Data Cloud Solutions; Statistical Computing and Graphical Languages; Data Visualization Tools | Technical Usage Metrics; Loading and Scanning Metrics; Learnings and Stories; Response and Performance Metrics; Data Loading and Scanning Metrics |
 | **[Data Management Maturity Assessment][dama-12]** | Data Management Maturity Frameworks Selection; Using DAMA-DMBOK; Reference Existing Benchmarks | Data Management Maturity Frameworks; Communications Plan; Collaboration Tools; Knowledge Management and Metadata Repositories; Data Profiling Tools | DMMA Local and Total Ratings; Resource Utilization; Risk Exposure; Spend Management; Inputs to DMMA; Rate of Change |
 
 [dama-01]: segments/01-data-governance.md
@@ -32,3 +32,5 @@ Activity Technical  Drivers
 [dama-10]: segments/10-data-quality-management.md
 [dama-11]: segments/11-data-integration-interoperability.md
 [dama-12]: segments/12-data-management-maturity-assessment.md
+[dama-13]: segments/13-big-data-data-science.md
+[dama-14]: segments/14-data-handling-ethics.md

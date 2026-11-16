@@ -18,6 +18,8 @@ Build the documentation site with `.venv/bin/zensical build --strict`. The gener
 
 `scripts/split_dama_segments.py` splits `artefacts/DAMA_Segments_High_Level_v1.17.0.md` at its H2 headings into 20 pages under `docs/dama/`. The source table of contents becomes site navigation. Run `.venv/bin/python scripts/split_dama_segments.py` after updating that source file, then build the site.
 
+The Big Data & Data Science and Data Handling Ethics pages are extracted from `artefacts/DAMA_Segments_High_Level_v1.18.0.md`. Their diagrams and the V3 workbook are served locally from `docs/assets/`. The splitter above still targets v1.17.0 and does not regenerate these two pages.
+
 The FAIR alignment page embeds the standalone diagram from `artefacts/DAMA_FAIR_Sankey_v1.2.0.zip` after a reader chooses to load it. The worksheet download comes from `artefacts/DAMA-PDOC_FAIR-MASTER_2026-10-13.xlsx`.
 
 The Ontologies page is adapted from `artefacts/ontologies.md`. Its relationship diagram is a local SVG generated from `scripts/ontologies.dot` with `dot -Tsvg scripts/ontologies.dot -o docs/assets/images/ontologies.svg`.

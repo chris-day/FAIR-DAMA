@@ -14,6 +14,8 @@
 | [Data Quality Management][dama-10] | None identified | [F2][fair-f2], [R1][fair-r1] |
 | [Data Integration & Interoperability][dama-11] | [F2][fair-f2], [F4][fair-f4], [A1.2][fair-a1.2], [R1][fair-r1], [R1.2][fair-r1.2] | [A1][fair-a1], [A1.1][fair-a1.1], [A1.2][fair-a1.2], [A2][fair-a2], [I1][fair-i1], [I3][fair-i3], [R1][fair-r1], [R1.2][fair-r1.2], [R1.3][fair-r1.3] |
 | [Data Management Maturity Assessment][dama-12] | | |
+| [Big Data & Data Science][dama-13] | [R1][fair-r1] | [F2][fair-f2], [A1][fair-a1], [A1.1][fair-a1.1], [A1.2][fair-a1.2], [I1][fair-i1], [I3][fair-i3], [R1][fair-r1], [R1.1][fair-r1.1], [R1.2][fair-r1.2], [R1.3][fair-r1.3] |
+| [Data Handling Ethics][dama-14] | | [A1.2][fair-a1.2], [R1.1][fair-r1.1] |
 
 [fair-f1]: fair-principles.md#f1-globally-unique-persistent-identification
 [fair-f2]: fair-principles.md#f2-rich-metadata-describing-data
@@ -43,3 +45,5 @@
 [dama-10]: segments/10-data-quality-management.md
 [dama-11]: segments/11-data-integration-interoperability.md
 [dama-12]: segments/12-data-management-maturity-assessment.md
+[dama-13]: segments/13-big-data-data-science.md
+[dama-14]: segments/14-data-handling-ethics.md

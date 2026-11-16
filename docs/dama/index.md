@@ -36,6 +36,8 @@ Duplicate images have been consolidated into eleven blocks. **Activities** corre
 
 Activity codes: **P — Planning; C — Control; D — Development; O — Operational.**
 
+Version 1.18.0 adds [Big Data & Data Science][dama-13] and [Data Handling Ethics][dama-14] from the supplied diagrams and V3 workbook. They are additional DMBOK topics, not additions to the 11 core knowledge areas; the existing Sankey and its mapping counts retain their 11-area scope.
+
 Version 1.9.0 adds [Data Management Maturity Assessment][dama-12] as section 12 from the supplied table. It supports assessment across the knowledge areas and has no assigned FAIR IDs; the principle coverage totals are unchanged.
 
 Version 1.8.0 adds [Data Integration & Interoperability][dama-11] as section 11, using the user-supplied table rather than a new workbook extraction. Original ten-segment aggregates remain the historical baseline; the summary and gap update include the additional section.
@@ -49,3 +51,5 @@ Version 1.1.0 adds FAIR Alignment sections. The [Data Management][dama-00] overv
 [dama-00]: segments/00-data-management.md
 [dama-11]: segments/11-data-integration-interoperability.md
 [dama-12]: segments/12-data-management-maturity-assessment.md
+[dama-13]: segments/13-big-data-data-science.md
+[dama-14]: segments/14-data-handling-ethics.md
