@@ -1,57 +1,1591 @@
-# Load with dama-ontology.ttl and fair-ontology.ttl for the source definitions.
-# These are proposed contributions. Each describes a practice and a FAIR target.
-@prefix map: <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-fair-mapping.ttl#> .
 @prefix dama: <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-ontology.ttl#> .
-@prefix fair: <https://w3id.org/fair/principles/terms/> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix fair: <https://w3id.org/fair/principles/terms/> .
+@prefix map: <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-fair-mapping.ttl#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix persona: <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 dcterms:creator a owl:AnnotationProperty .
 
-<https://orcid.org/0000-0001-5095-7052> rdfs:label "Chris Day"@en .
+dcterms:source a owl:AnnotationProperty .
+
+dcterms:title a owl:AnnotationProperty .
 
 <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-fair-mapping.ttl> a owl:Ontology ;
     dcterms:creator <https://orcid.org/0000-0001-5095-7052> ;
+    dcterms:modified "2026-11-16"^^xsd:date ;
+    dcterms:source <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/DAMA_Segments_High_Level_v1.18.0.md>,
+        <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-ontology.ttl>,
+        fair:FAIR-Vocabulary ;
     dcterms:title "DAMA to FAIR Contribution Ontology"@en ;
-    dcterms:source <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-ontology.ttl>, fair:FAIR-Vocabulary .
+    owl:versionInfo "1.1.0" .
 
-dcterms:title a owl:AnnotationProperty .
-dcterms:source a owl:AnnotationProperty .
-map:rationale a owl:AnnotationProperty .
+map:AssignProvenanceResponsibilityToR1_2 a owl:NamedIndividual,
+        map:IndirectContribution ;
+    dcterms:source dama:DataGovernance,
+        fair:R1.2 ;
+    map:fromPractice map:AssignProvenanceResponsibility ;
+    map:rationale "Assigning responsibility enables the publication of detailed dataset provenance."@en ;
+    map:targetsPrinciple fair:R1.2 ;
+    map:viaPractice map:PublishProvenance .
+
+map:AttachUsageLicenseToR1_1 a owl:NamedIndividual,
+        map:DirectContribution ;
+    dcterms:source dama:MetadataManagement,
+        fair:R1.1 ;
+    map:applicabilityCondition "The license applies to the resource and is clear and accessible."@en ;
+    map:fromPractice map:AttachUsageLicense ;
+    map:rationale "The published license states the terms under which the data or metadata may be used."@en ;
+    map:targetsPrinciple fair:R1.1 .
+
+map:ConfigureRetrievalAuthorizationToA1_2 a owl:NamedIndividual,
+        map:DirectContribution ;
+    dcterms:source dama:DataSecurity,
+        fair:A1.2 ;
+    map:applicabilityCondition "Access control is needed and the retrieval protocol supports both authentication and authorization."@en ;
+    map:fromPractice map:ConfigureRetrievalAuthorization ;
+    map:rationale "The retrieval configuration provides evidence that the protocol supports authentication and authorization."@en ;
+    map:targetsPrinciple fair:A1.2 .
+
+map:IncludeDatasetIdentifierToF3 a owl:NamedIndividual,
+        map:DirectContribution ;
+    dcterms:source dama:MetadataManagement,
+        fair:F3 ;
+    map:applicabilityCondition "The identifier in the metadata is the identifier of the described data."@en ;
+    map:fromPractice map:IncludeDatasetIdentifier ;
+    map:rationale "The metadata record explicitly identifies the data it describes."@en ;
+    map:targetsPrinciple fair:F3 .
+
+map:IndexInSearchableCatalogToF4 a owl:NamedIndividual,
+        map:DirectContribution ;
+    dcterms:source dama:MetadataManagement,
+        fair:F4 ;
+    map:applicabilityCondition "The catalog is searchable and contains an index entry for the relevant data or metadata."@en ;
+    map:fromPractice map:IndexInSearchableCatalog ;
+    map:rationale "A searchable catalog entry provides evidence that the data or metadata have been indexed."@en ;
+    map:targetsPrinciple fair:F4 .
+
+map:PublishProvenanceToR1_2 a owl:NamedIndividual,
+        map:DirectContribution ;
+    dcterms:source dama:MetadataManagement,
+        fair:R1.2 ;
+    map:applicabilityCondition "Detailed provenance is associated with the data or metadata."@en ;
+    map:fromPractice map:PublishProvenance ;
+    map:rationale "The provenance record provides evidence about the origins and history of the data."@en ;
+    map:targetsPrinciple fair:R1.2 .
+
+map:PublishSharedRepresentationToI1 a owl:NamedIndividual,
+        map:DirectContribution ;
+    dcterms:source dama:DataIntegrationAndInteroperability,
+        fair:I1 ;
+    map:applicabilityCondition "The language is formal, accessible, shared and broadly applicable."@en ;
+    map:fromPractice map:PublishSharedRepresentation ;
+    map:rationale "The published representation provides evidence of the knowledge representation language used."@en ;
+    map:targetsPrinciple fair:I1 .
+
+map:SetDataSecurityPolicyToA1_2 a owl:NamedIndividual,
+        map:IndirectContribution ;
+    dcterms:source dama:DataSecurity,
+        fair:A1.2 ;
+    map:applicabilityCondition "The policy applies to the retrieval service and calls for authentication and authorization where needed."@en ;
+    map:fromPractice map:SetDataSecurityPolicy ;
+    map:rationale "The policy drives the configuration of authentication and authorization for data or metadata retrieval."@en ;
+    map:targetsPrinciple fair:A1.2 ;
+    map:viaPractice map:ConfigureRetrievalAuthorization .
+
+map:SetLicensingPolicyToR1_1 a owl:NamedIndividual,
+        map:IndirectContribution ;
+    dcterms:source dama:DataGovernance,
+        fair:R1.1 ;
+    map:fromPractice map:SetLicensingPolicy ;
+    map:rationale "The policy enables a publishing practice that attaches the applicable usage license."@en ;
+    map:targetsPrinciple fair:R1.1 ;
+    map:viaPractice map:AttachUsageLicense .
+
+<https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-fair-mapping.ttl#activity/DataHandlingEthics/row-6> a owl:NamedIndividual,
+        map:SourceActivity ;
+    rdfs:label "Execute the Training and Communications Plan"@en ;
+    dcterms:identifier "DataHandlingEthics!A6:L6" ;
+    dcterms:source <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/DAMAV2Images/01_DataHandlingEthics.webp>,
+        <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/DAMA-PDOC_FAIR-MASTER_2026-11-16_V3.xlsx#DataHandlingEthics!A6:L6> ;
+    map:alignmentBasis "Activity-derived proposal; source image plus interpreted associations"@en ;
+    map:assessmentStatus "Proposed; no implementation or compliance asserted"@en ;
+    map:deliverables "Communication Plan; Ethics Training Program; Awareness to Ethical Data Issues"@en ;
+    map:directSupportExplanation "No direct FAIR requirement is established by this ethical-practice activity or its named deliverables. Ethical responsibility and FAIR fulfilment are related but distinct."@en ;
+    map:evidenceRequirement "Inspect training objectives, materials and attendance as process evidence. Before assigning any FAIR ID, identify explicit FAIR requirements taught and separately test their implementation on resources. Training completion alone does not demonstrate FAIR fulfilment."@en ;
+    map:inTopic dama:DataHandlingEthics ;
+    map:indirectSupportExplanation "Training and communications can improve ethical behavior and awareness, but the image supplies no principle-specific training content."@en ;
+    map:lifecycleCode "D"@en ;
+    map:proposedApprovingPersona <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#profile/data-governance-bodies> ;
+    map:proposedContributingPersona <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#profile/coordinating-data-stewards>,
+        <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#profile/employees>,
+        <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#profile/executives>,
+        <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#profile/subject-matter-experts> ;
+    map:proposedResponsiblePersona <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#profile/change-managers>,
+        <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#profile/dm-services> ;
+    map:relevantDeliverables "Communication Plan; Ethics Training Program; Awareness to Ethical Data Issues"@en ;
+    map:sourceRow 6 ;
+    map:sourceWorksheet "DataHandlingEthics" .
+
+map:alignedPrinciple a owl:ObjectProperty ;
+    rdfs:label "aligned FAIR principle"@en ;
+    rdfs:domain map:AreaAlignmentAssessment ;
+    rdfs:range fair:FAIR-SubPrinciple .
+
+map:alignmentBasis a owl:AnnotationProperty ;
+    rdfs:label "alignment basis"@en .
+
+map:alignmentType a owl:AnnotationProperty ;
+    rdfs:label "alignment type"@en .
+
 map:applicabilityCondition a owl:AnnotationProperty .
 
-map:Practice a owl:Class ;
-    rdfs:label "DAMA-related practice"@en .
+<https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-fair-mapping.ttl#area-alignment/big-data-data-science/direct/R1> a owl:NamedIndividual,
+        map:AreaAlignmentAssessment ;
+    rdfs:label "Big Data & Data Science → R1 (Direct)"@en ;
+    dcterms:source <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/DAMA_FAIR_Sankey_v1.3.0.zip> ;
+    map:alignedPrinciple fair:R1 ;
+    map:alignmentBasis "Activity-derived proposal (additional topic)"@en ;
+    map:alignmentType "Direct" ;
+    map:assessmentStatus "Proposed; no implementation or compliance asserted"@en ;
+    map:deliverables "Data Analysis and Hypotheses"@en ;
+    map:derivedFromActivity <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-fair-mapping.ttl#activity/BigDataDataScience/row-6> ;
+    map:fromTopic dama:BigDataAndDataScience ;
+    map:rationale "Inferred potential direct support: documented hypotheses and methods can supply accurate, relevant methodological context for reusing the associated analytical data. The diagram does not establish that these descriptions are complete or associated with identifiable resources."@en .
 
-map:FAIRContribution a owl:Class ;
-    rdfs:label "FAIR contribution assertion"@en ;
-    owl:disjointUnionOf ( map:DirectContribution map:IndirectContribution ) ;
-    rdfs:subClassOf
-        [ a owl:Restriction ; owl:onProperty map:fromPractice ;
-          owl:someValuesFrom map:Practice ],
-        [ a owl:Restriction ; owl:onProperty map:targetsPrinciple ;
-          owl:someValuesFrom fair:FAIR-SubPrinciple ] .
+<https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-fair-mapping.ttl#area-alignment/big-data-data-science/indirect/A1> a owl:NamedIndividual,
+        map:AreaAlignmentAssessment ;
+    rdfs:label "Big Data & Data Science → A1 (Indirect)"@en ;
+    dcterms:source <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/DAMA_FAIR_Sankey_v1.3.0.zip> ;
+    map:alignedPrinciple fair:A1 ;
+    map:alignmentBasis "Activity-derived proposal (additional topic)"@en ;
+    map:alignmentType "Indirect" ;
+    map:assessmentStatus "Proposed; no implementation or compliance asserted"@en ;
+    map:deliverables "Big Data Landscape; Operations Plan; Model Performance; Model Enhancement Plan"@en ;
+    map:derivedFromActivity <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-fair-mapping.ttl#activity/BigDataDataScience/row-10>,
+        <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-fair-mapping.ttl#activity/BigDataDataScience/row-3> ;
+    map:fromTopic dama:BigDataAndDataScience ;
+    map:rationale "Platform design can enable standardized retrieval, open protocols and controlled access if these are explicitly commissioned and implemented. Operations can sustain identifier-based access and record versioned inputs, model changes and execution history when those controls are explicitly included in the operations plan."@en .
 
-map:DirectContribution a owl:Class ;
-    rdfs:label "Direct contribution"@en ;
-    rdfs:comment "The source practice produces or verifies evidence addressing the target FAIR subprinciple."@en .
+<https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-fair-mapping.ttl#area-alignment/big-data-data-science/indirect/A1.1> a owl:NamedIndividual,
+        map:AreaAlignmentAssessment ;
+    rdfs:label "Big Data & Data Science → A1.1 (Indirect)"@en ;
+    dcterms:source <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/DAMA_FAIR_Sankey_v1.3.0.zip> ;
+    map:alignedPrinciple fair:A1.1 ;
+    map:alignmentBasis "Activity-derived proposal (additional topic)"@en ;
+    map:alignmentType "Indirect" ;
+    map:assessmentStatus "Proposed; no implementation or compliance asserted"@en ;
+    map:deliverables "Big Data Landscape; Operations Plan"@en ;
+    map:derivedFromActivity <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-fair-mapping.ttl#activity/BigDataDataScience/row-3> ;
+    map:fromTopic dama:BigDataAndDataScience ;
+    map:rationale "Platform design can enable standardized retrieval, open protocols and controlled access if these are explicitly commissioned and implemented."@en .
 
-map:IndirectContribution a owl:Class ;
-    rdfs:label "Indirect contribution"@en ;
-    rdfs:comment "The source practice enables an intermediate practice that provides or verifies the evidence."@en ;
-    rdfs:subClassOf [ a owl:Restriction ; owl:onProperty map:viaPractice ;
-                      owl:someValuesFrom map:Practice ] .
+<https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-fair-mapping.ttl#area-alignment/big-data-data-science/indirect/A1.2> a owl:NamedIndividual,
+        map:AreaAlignmentAssessment ;
+    rdfs:label "Big Data & Data Science → A1.2 (Indirect)"@en ;
+    dcterms:source <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/DAMA_FAIR_Sankey_v1.3.0.zip> ;
+    map:alignedPrinciple fair:A1.2 ;
+    map:alignmentBasis "Activity-derived proposal (additional topic)"@en ;
+    map:alignmentType "Indirect" ;
+    map:assessmentStatus "Proposed; no implementation or compliance asserted"@en ;
+    map:deliverables "Big Data Landscape; Operations Plan"@en ;
+    map:derivedFromActivity <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-fair-mapping.ttl#activity/BigDataDataScience/row-3> ;
+    map:fromTopic dama:BigDataAndDataScience ;
+    map:rationale "Platform design can enable standardized retrieval, open protocols and controlled access if these are explicitly commissioned and implemented."@en .
+
+<https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-fair-mapping.ttl#area-alignment/big-data-data-science/indirect/F2> a owl:NamedIndividual,
+        map:AreaAlignmentAssessment ;
+    rdfs:label "Big Data & Data Science → F2 (Indirect)"@en ;
+    dcterms:source <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/DAMA_FAIR_Sankey_v1.3.0.zip> ;
+    map:alignedPrinciple fair:F2 ;
+    map:alignmentBasis "Activity-derived proposal (additional topic)"@en ;
+    map:alignmentType "Indirect" ;
+    map:assessmentStatus "Proposed; no implementation or compliance asserted"@en ;
+    map:deliverables "Acquired Data Sources; Data Insights and Findings"@en ;
+    map:derivedFromActivity <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-fair-mapping.ttl#activity/BigDataDataScience/row-5>,
+        <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-fair-mapping.ttl#activity/BigDataDataScience/row-9> ;
+    map:fromTopic dama:BigDataAndDataScience ;
+    map:rationale "Ingestion can capture resource descriptions, source versions, acquisition times and transformations if metadata capture is added as an explicit requirement. Communications can make discovery and reuse context available if findings are accompanied by accurate descriptions linked to the analytical resources."@en .
+
+<https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-fair-mapping.ttl#area-alignment/big-data-data-science/indirect/I1> a owl:NamedIndividual,
+        map:AreaAlignmentAssessment ;
+    rdfs:label "Big Data & Data Science → I1 (Indirect)"@en ;
+    dcterms:source <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/DAMA_FAIR_Sankey_v1.3.0.zip> ;
+    map:alignedPrinciple fair:I1 ;
+    map:alignmentBasis "Activity-derived proposal (additional topic)"@en ;
+    map:alignmentType "Indirect" ;
+    map:assessmentStatus "Proposed; no implementation or compliance asserted"@en ;
+    map:deliverables "Data Analysis and Hypotheses"@en ;
+    map:derivedFromActivity <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-fair-mapping.ttl#activity/BigDataDataScience/row-7> ;
+    map:fromTopic dama:BigDataAndDataScience ;
+    map:rationale "Integration can preserve provenance and implement explicit semantic representations and typed links when these requirements are included in the integration design."@en .
+
+<https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-fair-mapping.ttl#area-alignment/big-data-data-science/indirect/I3> a owl:NamedIndividual,
+        map:AreaAlignmentAssessment ;
+    rdfs:label "Big Data & Data Science → I3 (Indirect)"@en ;
+    dcterms:source <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/DAMA_FAIR_Sankey_v1.3.0.zip> ;
+    map:alignedPrinciple fair:I3 ;
+    map:alignmentBasis "Activity-derived proposal (additional topic)"@en ;
+    map:alignmentType "Indirect" ;
+    map:assessmentStatus "Proposed; no implementation or compliance asserted"@en ;
+    map:deliverables "Data Analysis and Hypotheses"@en ;
+    map:derivedFromActivity <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-fair-mapping.ttl#activity/BigDataDataScience/row-7> ;
+    map:fromTopic dama:BigDataAndDataScience ;
+    map:rationale "Integration can preserve provenance and implement explicit semantic representations and typed links when these requirements are included in the integration design."@en .
+
+<https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-fair-mapping.ttl#area-alignment/big-data-data-science/indirect/R1> a owl:NamedIndividual,
+        map:AreaAlignmentAssessment ;
+    rdfs:label "Big Data & Data Science → R1 (Indirect)"@en ;
+    dcterms:source <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/DAMA_FAIR_Sankey_v1.3.0.zip> ;
+    map:alignedPrinciple fair:R1 ;
+    map:alignmentBasis "Activity-derived proposal (additional topic)"@en ;
+    map:alignmentType "Indirect" ;
+    map:assessmentStatus "Proposed; no implementation or compliance asserted"@en ;
+    map:deliverables "Data Insights and Findings"@en ;
+    map:derivedFromActivity <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-fair-mapping.ttl#activity/BigDataDataScience/row-8>,
+        <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-fair-mapping.ttl#activity/BigDataDataScience/row-9> ;
+    map:fromTopic dama:BigDataAndDataScience ;
+    map:rationale "Exploration can enrich reuse descriptions and provenance if assumptions, limitations, source versions, model versions and analytical steps are recorded with the resulting resources. Communications can make discovery and reuse context available if findings are accompanied by accurate descriptions linked to the analytical resources."@en .
+
+<https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-fair-mapping.ttl#area-alignment/big-data-data-science/indirect/R1.1> a owl:NamedIndividual,
+        map:AreaAlignmentAssessment ;
+    rdfs:label "Big Data & Data Science → R1.1 (Indirect)"@en ;
+    dcterms:source <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/DAMA_FAIR_Sankey_v1.3.0.zip> ;
+    map:alignedPrinciple fair:R1.1 ;
+    map:alignmentBasis "Activity-derived proposal (additional topic)"@en ;
+    map:alignmentType "Indirect" ;
+    map:assessmentStatus "Proposed; no implementation or compliance asserted"@en ;
+    map:deliverables "Data Sourcing Plan"@en ;
+    map:derivedFromActivity <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-fair-mapping.ttl#activity/BigDataDataScience/row-4> ;
+    map:fromTopic dama:BigDataAndDataScience ;
+    map:rationale "Source evaluation can record origin, permitted reuse and descriptive context, enabling provenance and licensing requirements when resource-linked records and accessible terms are retained."@en .
+
+<https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-fair-mapping.ttl#area-alignment/big-data-data-science/indirect/R1.2> a owl:NamedIndividual,
+        map:AreaAlignmentAssessment ;
+    rdfs:label "Big Data & Data Science → R1.2 (Indirect)"@en ;
+    dcterms:source <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/DAMA_FAIR_Sankey_v1.3.0.zip> ;
+    map:alignedPrinciple fair:R1.2 ;
+    map:alignmentBasis "Activity-derived proposal (additional topic)"@en ;
+    map:alignmentType "Indirect" ;
+    map:assessmentStatus "Proposed; no implementation or compliance asserted"@en ;
+    map:deliverables "Data Sourcing Plan; Acquired Data Sources; Data Analysis and Hypotheses; Data Insights and Findings; Operations Plan; Model Performance; Model Enhancement Plan"@en ;
+    map:derivedFromActivity <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-fair-mapping.ttl#activity/BigDataDataScience/row-10>,
+        <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-fair-mapping.ttl#activity/BigDataDataScience/row-4>,
+        <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-fair-mapping.ttl#activity/BigDataDataScience/row-5>,
+        <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-fair-mapping.ttl#activity/BigDataDataScience/row-6>,
+        <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-fair-mapping.ttl#activity/BigDataDataScience/row-7>,
+        <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-fair-mapping.ttl#activity/BigDataDataScience/row-8> ;
+    map:fromTopic dama:BigDataAndDataScience ;
+    map:rationale "Source evaluation can record origin, permitted reuse and descriptive context, enabling provenance and licensing requirements when resource-linked records and accessible terms are retained. Ingestion can capture resource descriptions, source versions, acquisition times and transformations if metadata capture is added as an explicit requirement. Versioned methods and input records can enable provenance when linked to the resulting data and model outputs. Integration can preserve provenance and implement explicit semantic representations and typed links when these requirements are included in the integration design. Exploration can enrich reuse descriptions and provenance if assumptions, limitations, source versions, model versions and analytical steps are recorded with the resulting resources. Operations can sustain identifier-based access and record versioned inputs, model changes and execution history when those controls are explicitly included in the operations plan."@en .
+
+<https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-fair-mapping.ttl#area-alignment/big-data-data-science/indirect/R1.3> a owl:NamedIndividual,
+        map:AreaAlignmentAssessment ;
+    rdfs:label "Big Data & Data Science → R1.3 (Indirect)"@en ;
+    dcterms:source <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/DAMA_FAIR_Sankey_v1.3.0.zip> ;
+    map:alignedPrinciple fair:R1.3 ;
+    map:alignmentBasis "Activity-derived proposal (additional topic)"@en ;
+    map:alignmentType "Indirect" ;
+    map:assessmentStatus "Proposed; no implementation or compliance asserted"@en ;
+    map:deliverables "Big Data Strategy & Standards"@en ;
+    map:derivedFromActivity <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-fair-mapping.ttl#activity/BigDataDataScience/row-2> ;
+    map:fromTopic dama:BigDataAndDataScience ;
+    map:rationale "Standards selection can commission domain-relevant community conformance if named external standards, versions and acceptance tests are explicitly adopted. Internal IT standards alone are insufficient."@en .
+
+<https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-fair-mapping.ttl#area-alignment/data-architecture/enabling/A1> a owl:NamedIndividual,
+        map:AreaAlignmentAssessment ;
+    rdfs:label "Data Architecture → A1 (Enabling)"@en ;
+    dcterms:source <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/DAMA_FAIR_Sankey_v1.3.0.zip> ;
+    map:alignedPrinciple fair:A1 ;
+    map:alignmentBasis "Implementation-oriented proposal (11 core areas)"@en ;
+    map:alignmentType "Enabling" ;
+    map:assessmentStatus "Proposed; no implementation or compliance asserted"@en ;
+    map:deliverables "Access architecture; endpoint conventions; service contracts."@en ;
+    map:fromTopic dama:DataArchitecture ;
+    map:rationale "Define how identifiers, resolvers and retrieval services work together."@en .
+
+<https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-fair-mapping.ttl#area-alignment/data-architecture/enabling/A1.1> a owl:NamedIndividual,
+        map:AreaAlignmentAssessment ;
+    rdfs:label "Data Architecture → A1.1 (Enabling)"@en ;
+    dcterms:source <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/DAMA_FAIR_Sankey_v1.3.0.zip> ;
+    map:alignedPrinciple fair:A1.1 ;
+    map:alignmentBasis "Implementation-oriented proposal (11 core areas)"@en ;
+    map:alignmentType "Enabling" ;
+    map:assessmentStatus "Proposed; no implementation or compliance asserted"@en ;
+    map:deliverables "Approved protocol catalog; protocol-selection criteria; interoperability architecture."@en ;
+    map:fromTopic dama:DataArchitecture ;
+    map:rationale "Select protocols without proprietary implementation dependencies."@en .
+
+<https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-fair-mapping.ttl#area-alignment/data-architecture/enabling/I1> a owl:NamedIndividual,
+        map:AreaAlignmentAssessment ;
+    rdfs:label "Data Architecture → I1 (Enabling)"@en ;
+    dcterms:source <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/DAMA_FAIR_Sankey_v1.3.0.zip> ;
+    map:alignedPrinciple fair:I1 ;
+    map:alignmentBasis "Implementation-oriented proposal (11 core areas)"@en ;
+    map:alignmentType "Enabling" ;
+    map:assessmentStatus "Proposed; no implementation or compliance asserted"@en ;
+    map:deliverables "Approved representation languages; semantic architecture; interoperability patterns."@en ;
+    map:fromTopic dama:DataArchitecture ;
+    map:rationale "Establish enterprise conventions for knowledge representation."@en .
+
+<https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-fair-mapping.ttl#area-alignment/data-governance/enabling/A1.1> a owl:NamedIndividual,
+        map:AreaAlignmentAssessment ;
+    rdfs:label "Data Governance → A1.1 (Enabling)"@en ;
+    dcterms:source <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/DAMA_FAIR_Sankey_v1.3.0.zip> ;
+    map:alignedPrinciple fair:A1.1 ;
+    map:alignmentBasis "Implementation-oriented proposal (11 core areas)"@en ;
+    map:alignmentType "Enabling" ;
+    map:assessmentStatus "Proposed; no implementation or compliance asserted"@en ;
+    map:deliverables "Checks for freely available specifications and unrestricted implementation; exception review."@en ;
+    map:fromTopic dama:DataGovernance ;
+    map:rationale "Require protocol openness in procurement and service approval."@en .
+
+<https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-fair-mapping.ttl#area-alignment/data-governance/enabling/A1.2> a owl:NamedIndividual,
+        map:AreaAlignmentAssessment ;
+    rdfs:label "Data Governance → A1.2 (Enabling)"@en ;
+    dcterms:source <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/DAMA_FAIR_Sankey_v1.3.0.zip> ;
+    map:alignedPrinciple fair:A1.2 ;
+    map:alignmentBasis "Implementation-oriented proposal (11 core areas)"@en ;
+    map:alignmentType "Enabling" ;
+    map:assessmentStatus "Proposed; no implementation or compliance asserted"@en ;
+    map:deliverables "Access policies; approval responsibilities; periodic entitlement reviews."@en ;
+    map:fromTopic dama:DataGovernance ;
+    map:rationale "Assign decision rights for access approval and review."@en .
+
+<https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-fair-mapping.ttl#area-alignment/data-governance/enabling/A2> a owl:NamedIndividual,
+        map:AreaAlignmentAssessment ;
+    rdfs:label "Data Governance → A2 (Enabling)"@en ;
+    dcterms:source <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/DAMA_FAIR_Sankey_v1.3.0.zip> ;
+    map:alignedPrinciple fair:A2 ;
+    map:alignmentBasis "Implementation-oriented proposal (11 core areas)"@en ;
+    map:alignmentType "Enabling" ;
+    map:assessmentStatus "Proposed; no implementation or compliance asserted"@en ;
+    map:deliverables "Metadata retention policy; decommissioning criteria; preservation responsibilities."@en ;
+    map:fromTopic dama:DataGovernance ;
+    map:rationale "Define metadata survival obligations and ownership."@en .
+
+<https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-fair-mapping.ttl#area-alignment/data-governance/enabling/F1> a owl:NamedIndividual,
+        map:AreaAlignmentAssessment ;
+    rdfs:label "Data Governance → F1 (Enabling)"@en ;
+    dcterms:source <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/DAMA_FAIR_Sankey_v1.3.0.zip> ;
+    map:alignedPrinciple fair:F1 ;
+    map:alignmentBasis "Implementation-oriented proposal (11 core areas)"@en ;
+    map:alignmentType "Enabling" ;
+    map:assessmentStatus "Proposed; no implementation or compliance asserted"@en ;
+    map:deliverables "Identifier policy; accountable custodians; funded persistence arrangements."@en ;
+    map:fromTopic dama:DataGovernance ;
+    map:rationale "Establish ownership and long-term commitments for identification."@en .
+
+<https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-fair-mapping.ttl#area-alignment/data-governance/enabling/I2> a owl:NamedIndividual,
+        map:AreaAlignmentAssessment ;
+    rdfs:label "Data Governance → I2 (Enabling)"@en ;
+    dcterms:source <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/DAMA_FAIR_Sankey_v1.3.0.zip> ;
+    map:alignedPrinciple fair:I2 ;
+    map:alignmentBasis "Implementation-oriented proposal (11 core areas)"@en ;
+    map:alignmentType "Enabling" ;
+    map:assessmentStatus "Proposed; no implementation or compliance asserted"@en ;
+    map:deliverables "Vocabulary lifecycle policy; approved sources; replacement and retirement procedures."@en ;
+    map:fromTopic dama:DataGovernance ;
+    map:rationale "Assign vocabulary stewardship and approval responsibilities."@en .
+
+<https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-fair-mapping.ttl#area-alignment/data-governance/enabling/R1.1> a owl:NamedIndividual,
+        map:AreaAlignmentAssessment ;
+    rdfs:label "Data Governance → R1.1 (Enabling)"@en ;
+    dcterms:source <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/DAMA_FAIR_Sankey_v1.3.0.zip> ;
+    map:alignedPrinciple fair:R1.1 ;
+    map:alignmentBasis "Implementation-oriented proposal (11 core areas)"@en ;
+    map:alignmentType "Enabling" ;
+    map:assessmentStatus "Proposed; no implementation or compliance asserted"@en ;
+    map:deliverables "Rights assessment; licence-selection policy; approval and exception records."@en ;
+    map:fromTopic dama:DataGovernance ;
+    map:rationale "Establish authority and processes for approving usage terms."@en .
+
+<https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-fair-mapping.ttl#area-alignment/data-governance/enabling/R1.3> a owl:NamedIndividual,
+        map:AreaAlignmentAssessment ;
+    rdfs:label "Data Governance → R1.3 (Enabling)"@en ;
+    dcterms:source <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/DAMA_FAIR_Sankey_v1.3.0.zip> ;
+    map:alignedPrinciple fair:R1.3 ;
+    map:alignmentBasis "Implementation-oriented proposal (11 core areas)"@en ;
+    map:alignmentType "Enabling" ;
+    map:assessmentStatus "Proposed; no implementation or compliance asserted"@en ;
+    map:deliverables "Standards register; adoption policy; documented exceptions and versions."@en ;
+    map:fromTopic dama:DataGovernance ;
+    map:rationale "Identify applicable domain standards and assign responsibility for adoption."@en .
+
+<https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-fair-mapping.ttl#area-alignment/data-handling-ethics/indirect/A1.2> a owl:NamedIndividual,
+        map:AreaAlignmentAssessment ;
+    rdfs:label "Data Handling Ethics → A1.2 (Indirect)"@en ;
+    dcterms:source <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/DAMA_FAIR_Sankey_v1.3.0.zip> ;
+    map:alignedPrinciple fair:A1.2 ;
+    map:alignmentBasis "Activity-derived proposal (additional topic)"@en ;
+    map:alignmentType "Indirect" ;
+    map:assessmentStatus "Proposed; no implementation or compliance asserted"@en ;
+    map:deliverables "Current Practices and Gaps; Ethical Data Handling Strategy; Ethical Corporate Statements on Data; Updated Policies; Aligned Incentives, KPIs, and Targets; Ethical Data Handling Reporting"@en ;
+    map:derivedFromActivity <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-fair-mapping.ttl#activity/DataHandlingEthics/row-2>,
+        <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-fair-mapping.ttl#activity/DataHandlingEthics/row-3>,
+        <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-fair-mapping.ttl#activity/DataHandlingEthics/row-4>,
+        <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-fair-mapping.ttl#activity/DataHandlingEthics/row-5>,
+        <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-fair-mapping.ttl#activity/DataHandlingEthics/row-7>,
+        <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-fair-mapping.ttl#activity/DataHandlingEthics/row-8> ;
+    map:fromTopic dama:DataHandlingEthics ;
+    map:rationale "Review can identify gaps in authorized access and permitted reuse if the review criteria explicitly include them. Risk assessment can establish requirements for controlled access and clear reuse permissions; neither requirement is specified by the activity label alone. The strategy can commission authentication, authorization and resource-specific usage licensing when those obligations are explicitly stated. Remediation can address gaps in access controls and reuse permissions only where those gaps and the affected resources are identified. Mitigation can commission access-authorization and reuse-permission controls when the ethical risk assessment identifies those specific requirements. Monitoring can sustain explicitly defined authorization and licensing controls. General ethics compliance incidents do not establish a FAIR-specific result."@en .
+
+<https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-fair-mapping.ttl#area-alignment/data-handling-ethics/indirect/R1.1> a owl:NamedIndividual,
+        map:AreaAlignmentAssessment ;
+    rdfs:label "Data Handling Ethics → R1.1 (Indirect)"@en ;
+    dcterms:source <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/DAMA_FAIR_Sankey_v1.3.0.zip> ;
+    map:alignedPrinciple fair:R1.1 ;
+    map:alignmentBasis "Activity-derived proposal (additional topic)"@en ;
+    map:alignmentType "Indirect" ;
+    map:assessmentStatus "Proposed; no implementation or compliance asserted"@en ;
+    map:deliverables "Current Practices and Gaps; Ethical Data Handling Strategy; Ethical Corporate Statements on Data; Updated Policies; Aligned Incentives, KPIs, and Targets; Ethical Data Handling Reporting"@en ;
+    map:derivedFromActivity <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-fair-mapping.ttl#activity/DataHandlingEthics/row-2>,
+        <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-fair-mapping.ttl#activity/DataHandlingEthics/row-3>,
+        <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-fair-mapping.ttl#activity/DataHandlingEthics/row-4>,
+        <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-fair-mapping.ttl#activity/DataHandlingEthics/row-5>,
+        <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-fair-mapping.ttl#activity/DataHandlingEthics/row-7>,
+        <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-fair-mapping.ttl#activity/DataHandlingEthics/row-8> ;
+    map:fromTopic dama:DataHandlingEthics ;
+    map:rationale "Review can identify gaps in authorized access and permitted reuse if the review criteria explicitly include them. Risk assessment can establish requirements for controlled access and clear reuse permissions; neither requirement is specified by the activity label alone. The strategy can commission authentication, authorization and resource-specific usage licensing when those obligations are explicitly stated. Remediation can address gaps in access controls and reuse permissions only where those gaps and the affected resources are identified. Mitigation can commission access-authorization and reuse-permission controls when the ethical risk assessment identifies those specific requirements. Monitoring can sustain explicitly defined authorization and licensing controls. General ethics compliance incidents do not establish a FAIR-specific result."@en .
+
+<https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-fair-mapping.ttl#area-alignment/data-integration-interoperability/direct/A1> a owl:NamedIndividual,
+        map:AreaAlignmentAssessment ;
+    rdfs:label "Data Integration & Interoperability → A1 (Direct)"@en ;
+    dcterms:source <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/DAMA_FAIR_Sankey_v1.3.0.zip> ;
+    map:alignedPrinciple fair:A1 ;
+    map:alignmentBasis "Implementation-oriented proposal (11 core areas)"@en ;
+    map:alignmentType "Direct" ;
+    map:assessmentStatus "Proposed; no implementation or compliance asserted"@en ;
+    map:deliverables "Identifier-based retrieval APIs; documented protocol bindings; retrieval tests."@en ;
+    map:fromTopic dama:DataIntegrationAndInteroperability ;
+    map:rationale "Connect identifiers to standardized retrieval interfaces."@en .
+
+<https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-fair-mapping.ttl#area-alignment/data-integration-interoperability/direct/A1.1> a owl:NamedIndividual,
+        map:AreaAlignmentAssessment ;
+    rdfs:label "Data Integration & Interoperability → A1.1 (Direct)"@en ;
+    dcterms:source <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/DAMA_FAIR_Sankey_v1.3.0.zip> ;
+    map:alignedPrinciple fair:A1.1 ;
+    map:alignmentBasis "Implementation-oriented proposal (11 core areas)"@en ;
+    map:alignmentType "Direct" ;
+    map:assessmentStatus "Proposed; no implementation or compliance asserted"@en ;
+    map:deliverables "HTTP/HTTPS interfaces; documented protocol behavior; independent-client interoperability tests."@en ;
+    map:fromTopic dama:DataIntegrationAndInteroperability ;
+    map:rationale "Implement retrieval through protocols that independent clients can implement freely."@en .
+
+<https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-fair-mapping.ttl#area-alignment/data-integration-interoperability/direct/A1.2> a owl:NamedIndividual,
+        map:AreaAlignmentAssessment ;
+    rdfs:label "Data Integration & Interoperability → A1.2 (Direct)"@en ;
+    dcterms:source <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/DAMA_FAIR_Sankey_v1.3.0.zip> ;
+    map:alignedPrinciple fair:A1.2 ;
+    map:alignmentBasis "Implementation-oriented proposal (11 core areas)"@en ;
+    map:alignmentType "Direct" ;
+    map:assessmentStatus "Proposed; no implementation or compliance asserted"@en ;
+    map:deliverables "Supported authentication flows; token validation; documented access responses."@en ;
+    map:fromTopic dama:DataIntegrationAndInteroperability ;
+    map:rationale "Integrate protected access into data and metadata interfaces."@en .
+
+<https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-fair-mapping.ttl#area-alignment/data-integration-interoperability/direct/F3> a owl:NamedIndividual,
+        map:AreaAlignmentAssessment ;
+    rdfs:label "Data Integration & Interoperability → F3 (Direct)"@en ;
+    dcterms:source <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/DAMA_FAIR_Sankey_v1.3.0.zip> ;
+    map:alignedPrinciple fair:F3 ;
+    map:alignmentBasis "Implementation-oriented proposal (11 core areas)"@en ;
+    map:alignmentType "Direct" ;
+    map:assessmentStatus "Proposed; no implementation or compliance asserted"@en ;
+    map:deliverables "Identifier-preserving mappings; round-trip exchange tests."@en ;
+    map:fromTopic dama:DataIntegrationAndInteroperability ;
+    map:rationale "Preserve identifiers through metadata harvesting and exchange."@en .
+
+<https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-fair-mapping.ttl#area-alignment/data-integration-interoperability/direct/F4> a owl:NamedIndividual,
+        map:AreaAlignmentAssessment ;
+    rdfs:label "Data Integration & Interoperability → F4 (Direct)"@en ;
+    dcterms:source <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/DAMA_FAIR_Sankey_v1.3.0.zip> ;
+    map:alignedPrinciple fair:F4 ;
+    map:alignmentBasis "Implementation-oriented proposal (11 core areas)"@en ;
+    map:alignmentType "Direct" ;
+    map:assessmentStatus "Proposed; no implementation or compliance asserted"@en ;
+    map:deliverables "Harvesting connectors; indexing pipelines; update and deletion synchronization."@en ;
+    map:fromTopic dama:DataIntegrationAndInteroperability ;
+    map:rationale "Feed and synchronize metadata with discovery services."@en .
+
+<https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-fair-mapping.ttl#area-alignment/data-integration-interoperability/direct/I1> a owl:NamedIndividual,
+        map:AreaAlignmentAssessment ;
+    rdfs:label "Data Integration & Interoperability → I1 (Direct)"@en ;
+    dcterms:source <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/DAMA_FAIR_Sankey_v1.3.0.zip> ;
+    map:alignedPrinciple fair:I1 ;
+    map:alignmentBasis "Implementation-oriented proposal (11 core areas)"@en ;
+    map:alignmentType "Direct" ;
+    map:assessmentStatus "Proposed; no implementation or compliance asserted"@en ;
+    map:deliverables "Semantic mappings; transformation tests; independently parseable outputs."@en ;
+    map:fromTopic dama:DataIntegrationAndInteroperability ;
+    map:rationale "Preserve meaning when exchanging representations."@en .
+
+<https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-fair-mapping.ttl#area-alignment/data-integration-interoperability/direct/I3> a owl:NamedIndividual,
+        map:AreaAlignmentAssessment ;
+    rdfs:label "Data Integration & Interoperability → I3 (Direct)"@en ;
+    dcterms:source <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/DAMA_FAIR_Sankey_v1.3.0.zip> ;
+    map:alignedPrinciple fair:I3 ;
+    map:alignmentBasis "Implementation-oriented proposal (11 core areas)"@en ;
+    map:alignmentType "Direct" ;
+    map:assessmentStatus "Proposed; no implementation or compliance asserted"@en ;
+    map:deliverables "Relationship mappings; linked-resource interfaces; reference-preservation tests."@en ;
+    map:fromTopic dama:DataIntegrationAndInteroperability ;
+    map:rationale "Preserve and exchange qualified links across systems."@en .
+
+<https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-fair-mapping.ttl#area-alignment/data-integration-interoperability/direct/R1.1> a owl:NamedIndividual,
+        map:AreaAlignmentAssessment ;
+    rdfs:label "Data Integration & Interoperability → R1.1 (Direct)"@en ;
+    dcterms:source <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/DAMA_FAIR_Sankey_v1.3.0.zip> ;
+    map:alignedPrinciple fair:R1.1 ;
+    map:alignmentBasis "Implementation-oriented proposal (11 core areas)"@en ;
+    map:alignmentType "Direct" ;
+    map:assessmentStatus "Proposed; no implementation or compliance asserted"@en ;
+    map:deliverables "Licence fields in distribution metadata; licence-preservation checks."@en ;
+    map:fromTopic dama:DataIntegrationAndInteroperability ;
+    map:rationale "Carry licence information with published and exchanged resources."@en .
+
+<https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-fair-mapping.ttl#area-alignment/data-integration-interoperability/direct/R1.2> a owl:NamedIndividual,
+        map:AreaAlignmentAssessment ;
+    rdfs:label "Data Integration & Interoperability → R1.2 (Direct)"@en ;
+    dcterms:source <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/DAMA_FAIR_Sankey_v1.3.0.zip> ;
+    map:alignedPrinciple fair:R1.2 ;
+    map:alignmentBasis "Implementation-oriented proposal (11 core areas)"@en ;
+    map:alignmentType "Direct" ;
+    map:assessmentStatus "Proposed; no implementation or compliance asserted"@en ;
+    map:deliverables "Source-to-target lineage; transformation versions; execution identifiers."@en ;
+    map:fromTopic dama:DataIntegrationAndInteroperability ;
+    map:rationale "Capture transformations and movement between resources."@en .
+
+<https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-fair-mapping.ttl#area-alignment/data-integration-interoperability/direct/R1.3> a owl:NamedIndividual,
+        map:AreaAlignmentAssessment ;
+    rdfs:label "Data Integration & Interoperability → R1.3 (Direct)"@en ;
+    dcterms:source <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/DAMA_FAIR_Sankey_v1.3.0.zip> ;
+    map:alignedPrinciple fair:R1.3 ;
+    map:alignmentBasis "Implementation-oriented proposal (11 core areas)"@en ;
+    map:alignmentType "Direct" ;
+    map:assessmentStatus "Proposed; no implementation or compliance asserted"@en ;
+    map:deliverables "Standard exchange interfaces; implementation guides; interoperability tests."@en ;
+    map:fromTopic dama:DataIntegrationAndInteroperability ;
+    map:rationale "Exchange resources according to domain standards."@en .
+
+<https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-fair-mapping.ttl#area-alignment/data-modeling-design/direct/F2> a owl:NamedIndividual,
+        map:AreaAlignmentAssessment ;
+    rdfs:label "Data Modeling & Design → F2 (Direct)"@en ;
+    dcterms:source <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/DAMA_FAIR_Sankey_v1.3.0.zip> ;
+    map:alignedPrinciple fair:F2 ;
+    map:alignmentBasis "Implementation-oriented proposal (11 core areas)"@en ;
+    map:alignmentType "Direct" ;
+    map:assessmentStatus "Proposed; no implementation or compliance asserted"@en ;
+    map:deliverables "Implemented metadata schemas; field definitions; cardinalities; validation rules."@en ;
+    map:fromTopic dama:DataModelingAndDesign ;
+    map:rationale "Structure metadata fields and relationships for consistent interpretation."@en .
+
+<https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-fair-mapping.ttl#area-alignment/data-modeling-design/direct/F3> a owl:NamedIndividual,
+        map:AreaAlignmentAssessment ;
+    rdfs:label "Data Modeling & Design → F3 (Direct)"@en ;
+    dcterms:source <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/DAMA_FAIR_Sankey_v1.3.0.zip> ;
+    map:alignedPrinciple fair:F3 ;
+    map:alignmentBasis "Implementation-oriented proposal (11 core areas)"@en ;
+    map:alignmentType "Direct" ;
+    map:assessmentStatus "Proposed; no implementation or compliance asserted"@en ;
+    map:deliverables "Explicit “describes” relationship; version-specific resource references."@en ;
+    map:fromTopic dama:DataModelingAndDesign ;
+    map:rationale "Model an unambiguous relationship between metadata and the described resource."@en .
+
+<https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-fair-mapping.ttl#area-alignment/data-modeling-design/direct/I1> a owl:NamedIndividual,
+        map:AreaAlignmentAssessment ;
+    rdfs:label "Data Modeling & Design → I1 (Direct)"@en ;
+    dcterms:source <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/DAMA_FAIR_Sankey_v1.3.0.zip> ;
+    map:alignedPrinciple fair:I1 ;
+    map:alignmentBasis "Implementation-oriented proposal (11 core areas)"@en ;
+    map:alignmentType "Direct" ;
+    map:assessmentStatus "Proposed; no implementation or compliance asserted"@en ;
+    map:deliverables "Implemented semantic models; RDF/OWL where appropriate; explicit relation definitions."@en ;
+    map:fromTopic dama:DataModelingAndDesign ;
+    map:rationale "Express meaning and relationships using an appropriate formal representation."@en .
+
+<https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-fair-mapping.ttl#area-alignment/data-modeling-design/direct/I3> a owl:NamedIndividual,
+        map:AreaAlignmentAssessment ;
+    rdfs:label "Data Modeling & Design → I3 (Direct)"@en ;
+    dcterms:source <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/DAMA_FAIR_Sankey_v1.3.0.zip> ;
+    map:alignedPrinciple fair:I3 ;
+    map:alignmentBasis "Implementation-oriented proposal (11 core areas)"@en ;
+    map:alignmentType "Direct" ;
+    map:assessmentStatus "Proposed; no implementation or compliance asserted"@en ;
+    map:deliverables "Typed relationships such as “derived from,” “is version of” and “is part of.”"@en ;
+    map:fromTopic dama:DataModelingAndDesign ;
+    map:rationale "Specify the meaning of relationships between identified resources."@en .
+
+<https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-fair-mapping.ttl#area-alignment/data-modeling-design/direct/R1> a owl:NamedIndividual,
+        map:AreaAlignmentAssessment ;
+    rdfs:label "Data Modeling & Design → R1 (Direct)"@en ;
+    dcterms:source <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/DAMA_FAIR_Sankey_v1.3.0.zip> ;
+    map:alignedPrinciple fair:R1 ;
+    map:alignmentBasis "Implementation-oriented proposal (11 core areas)"@en ;
+    map:alignmentType "Direct" ;
+    map:assessmentStatus "Proposed; no implementation or compliance asserted"@en ;
+    map:deliverables "Data dictionaries; unit definitions; constraints; missing-value conventions."@en ;
+    map:fromTopic dama:DataModelingAndDesign ;
+    map:rationale "Make interpretation requirements explicit."@en .
+
+<https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-fair-mapping.ttl#area-alignment/data-modeling-design/direct/R1.3> a owl:NamedIndividual,
+        map:AreaAlignmentAssessment ;
+    rdfs:label "Data Modeling & Design → R1.3 (Direct)"@en ;
+    dcterms:source <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/DAMA_FAIR_Sankey_v1.3.0.zip> ;
+    map:alignedPrinciple fair:R1.3 ;
+    map:alignmentBasis "Implementation-oriented proposal (11 core areas)"@en ;
+    map:alignmentType "Direct" ;
+    map:assessmentStatus "Proposed; no implementation or compliance asserted"@en ;
+    map:deliverables "Conformant schemas; domain model mappings; standard units and representations."@en ;
+    map:fromTopic dama:DataModelingAndDesign ;
+    map:rationale "Implement community information models and constraints."@en .
+
+<https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-fair-mapping.ttl#area-alignment/data-quality-management/direct/F2> a owl:NamedIndividual,
+        map:AreaAlignmentAssessment ;
+    rdfs:label "Data Quality Management → F2 (Direct)"@en ;
+    dcterms:source <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/DAMA_FAIR_Sankey_v1.3.0.zip> ;
+    map:alignedPrinciple fair:F2 ;
+    map:alignmentBasis "Implementation-oriented proposal (11 core areas)"@en ;
+    map:alignmentType "Direct" ;
+    map:assessmentStatus "Proposed; no implementation or compliance asserted"@en ;
+    map:deliverables "Required-field checks; description-quality rules; remediation reports."@en ;
+    map:fromTopic dama:DataQualityManagement ;
+    map:rationale "Assess completeness and usefulness of discovery metadata."@en .
+
+<https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-fair-mapping.ttl#area-alignment/data-quality-management/direct/F3> a owl:NamedIndividual,
+        map:AreaAlignmentAssessment ;
+    rdfs:label "Data Quality Management → F3 (Direct)"@en ;
+    dcterms:source <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/DAMA_FAIR_Sankey_v1.3.0.zip> ;
+    map:alignedPrinciple fair:F3 ;
+    map:alignmentBasis "Implementation-oriented proposal (11 core areas)"@en ;
+    map:alignmentType "Direct" ;
+    map:assessmentStatus "Proposed; no implementation or compliance asserted"@en ;
+    map:deliverables "Missing-identifier checks; mismatched-reference detection; identifier consistency tests."@en ;
+    map:fromTopic dama:DataQualityManagement ;
+    map:rationale "Verify identifier presence and correct resource association."@en .
+
+<https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-fair-mapping.ttl#area-alignment/data-quality-management/direct/I2> a owl:NamedIndividual,
+        map:AreaAlignmentAssessment ;
+    rdfs:label "Data Quality Management → I2 (Direct)"@en ;
+    dcterms:source <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/DAMA_FAIR_Sankey_v1.3.0.zip> ;
+    map:alignedPrinciple fair:I2 ;
+    map:alignmentBasis "Implementation-oriented proposal (11 core areas)"@en ;
+    map:alignmentType "Direct" ;
+    map:assessmentStatus "Proposed; no implementation or compliance asserted"@en ;
+    map:deliverables "Term-validity checks; vocabulary assessment; deprecated-term detection."@en ;
+    map:fromTopic dama:DataQualityManagement ;
+    map:rationale "Check actual vocabulary use and the FAIR properties of referenced vocabularies."@en .
+
+<https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-fair-mapping.ttl#area-alignment/data-quality-management/direct/R1> a owl:NamedIndividual,
+        map:AreaAlignmentAssessment ;
+    rdfs:label "Data Quality Management → R1 (Direct)"@en ;
+    dcterms:source <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/DAMA_FAIR_Sankey_v1.3.0.zip> ;
+    map:alignedPrinciple fair:R1 ;
+    map:alignmentBasis "Implementation-oriented proposal (11 core areas)"@en ;
+    map:alignmentType "Direct" ;
+    map:assessmentStatus "Proposed; no implementation or compliance asserted"@en ;
+    map:deliverables "Metadata accuracy checks; quality statements; documented limitations."@en ;
+    map:fromTopic dama:DataQualityManagement ;
+    map:rationale "Validate descriptive attributes and communicate relevant quality limitations."@en .
+
+<https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-fair-mapping.ttl#area-alignment/data-quality-management/direct/R1.3> a owl:NamedIndividual,
+        map:AreaAlignmentAssessment ;
+    rdfs:label "Data Quality Management → R1.3 (Direct)"@en ;
+    dcterms:source <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/DAMA_FAIR_Sankey_v1.3.0.zip> ;
+    map:alignedPrinciple fair:R1.3 ;
+    map:alignmentBasis "Implementation-oriented proposal (11 core areas)"@en ;
+    map:alignmentType "Direct" ;
+    map:assessmentStatus "Proposed; no implementation or compliance asserted"@en ;
+    map:deliverables "Conformance rules; validation reports; remediation records."@en ;
+    map:fromTopic dama:DataQualityManagement ;
+    map:rationale "Validate actual resources against those standards."@en .
+
+<https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-fair-mapping.ttl#area-alignment/data-security/direct/A1.2> a owl:NamedIndividual,
+        map:AreaAlignmentAssessment ;
+    rdfs:label "Data Security → A1.2 (Direct)"@en ;
+    dcterms:source <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/DAMA_FAIR_Sankey_v1.3.0.zip> ;
+    map:alignedPrinciple fair:A1.2 ;
+    map:alignmentBasis "Implementation-oriented proposal (11 core areas)"@en ;
+    map:alignmentType "Direct" ;
+    map:assessmentStatus "Proposed; no implementation or compliance asserted"@en ;
+    map:deliverables "Authentication services; authorization policies; access-control tests."@en ;
+    map:fromTopic dama:DataSecurity ;
+    map:rationale "Provide identity verification and access decisions within the retrieval process."@en .
+
+<https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-fair-mapping.ttl#area-alignment/data-storage-operations/direct/A1> a owl:NamedIndividual,
+        map:AreaAlignmentAssessment ;
+    rdfs:label "Data Storage & Operations → A1 (Direct)"@en ;
+    dcterms:source <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/DAMA_FAIR_Sankey_v1.3.0.zip> ;
+    map:alignedPrinciple fair:A1 ;
+    map:alignmentBasis "Implementation-oriented proposal (11 core areas)"@en ;
+    map:alignmentType "Direct" ;
+    map:assessmentStatus "Proposed; no implementation or compliance asserted"@en ;
+    map:deliverables "Retrieval endpoints; resolver-to-resource routing; availability monitoring."@en ;
+    map:fromTopic dama:DataStorageAndOperations ;
+    map:rationale "Operate the services that return identified resources."@en .
+
+<https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-fair-mapping.ttl#area-alignment/data-storage-operations/direct/A2> a owl:NamedIndividual,
+        map:AreaAlignmentAssessment ;
+    rdfs:label "Data Storage & Operations → A2 (Direct)"@en ;
+    dcterms:source <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/DAMA_FAIR_Sankey_v1.3.0.zip> ;
+    map:alignedPrinciple fair:A2 ;
+    map:alignmentBasis "Implementation-oriented proposal (11 core areas)"@en ;
+    map:alignmentType "Direct" ;
+    map:assessmentStatus "Proposed; no implementation or compliance asserted"@en ;
+    map:deliverables "Separate metadata retention; service continuity; post-deletion retrieval tests."@en ;
+    map:fromTopic dama:DataStorageAndOperations ;
+    map:rationale "Preserve metadata services independently of data retention."@en .
+
+<https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-fair-mapping.ttl#area-alignment/data-storage-operations/direct/F1> a owl:NamedIndividual,
+        map:AreaAlignmentAssessment ;
+    rdfs:label "Data Storage & Operations → F1 (Direct)"@en ;
+    dcterms:source <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/DAMA_FAIR_Sankey_v1.3.0.zip> ;
+    map:alignedPrinciple fair:F1 ;
+    map:alignmentBasis "Implementation-oriented proposal (11 core areas)"@en ;
+    map:alignmentType "Direct" ;
+    map:assessmentStatus "Proposed; no implementation or compliance asserted"@en ;
+    map:deliverables "Maintained resolver services; redirect records; persistence monitoring."@en ;
+    map:fromTopic dama:DataStorageAndOperations ;
+    map:rationale "Sustain identifier services through migrations and retirement."@en .
+
+<https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-fair-mapping.ttl#area-alignment/data-storage-operations/direct/R1.2> a owl:NamedIndividual,
+        map:AreaAlignmentAssessment ;
+    rdfs:label "Data Storage & Operations → R1.2 (Direct)"@en ;
+    dcterms:source <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/DAMA_FAIR_Sankey_v1.3.0.zip> ;
+    map:alignedPrinciple fair:R1.2 ;
+    map:alignmentBasis "Implementation-oriented proposal (11 core areas)"@en ;
+    map:alignmentType "Direct" ;
+    map:assessmentStatus "Proposed; no implementation or compliance asserted"@en ;
+    map:deliverables "Ingestion records; version history; retained provenance logs and links."@en ;
+    map:fromTopic dama:DataStorageAndOperations ;
+    map:rationale "Preserve operational evidence linked to resource versions."@en .
+
+<https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-fair-mapping.ttl#area-alignment/data-warehousing-business-intelligence/direct/F4> a owl:NamedIndividual,
+        map:AreaAlignmentAssessment ;
+    rdfs:label "Data Warehousing & Business Intelligence → F4 (Direct)"@en ;
+    dcterms:source <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/DAMA_FAIR_Sankey_v1.3.0.zip> ;
+    map:alignedPrinciple fair:F4 ;
+    map:alignmentBasis "Implementation-oriented proposal (11 core areas)"@en ;
+    map:alignmentType "Direct" ;
+    map:assessmentStatus "Proposed; no implementation or compliance asserted"@en ;
+    map:deliverables "Searchable inventories of datasets, reports and semantic models with stable resource references."@en ;
+    map:fromTopic dama:DataWarehousingAndBusinessIntelligence ;
+    map:rationale "Register published analytical resources for discovery."@en .
+
+<https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-fair-mapping.ttl#area-alignment/data-warehousing-business-intelligence/direct/R1> a owl:NamedIndividual,
+        map:AreaAlignmentAssessment ;
+    rdfs:label "Data Warehousing & Business Intelligence → R1 (Direct)"@en ;
+    dcterms:source <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/DAMA_FAIR_Sankey_v1.3.0.zip> ;
+    map:alignedPrinciple fair:R1 ;
+    map:alignmentBasis "Implementation-oriented proposal (11 core areas)"@en ;
+    map:alignmentType "Direct" ;
+    map:assessmentStatus "Proposed; no implementation or compliance asserted"@en ;
+    map:deliverables "Metric definitions; calculation logic; dimensional context; refresh and coverage statements."@en ;
+    map:fromTopic dama:DataWarehousingAndBusinessIntelligence ;
+    map:rationale "Explain how analytical outputs should be interpreted and reused."@en .
+
+<https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-fair-mapping.ttl#area-alignment/data-warehousing-business-intelligence/direct/R1.2> a owl:NamedIndividual,
+        map:AreaAlignmentAssessment ;
+    rdfs:label "Data Warehousing & Business Intelligence → R1.2 (Direct)"@en ;
+    dcterms:source <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/DAMA_FAIR_Sankey_v1.3.0.zip> ;
+    map:alignedPrinciple fair:R1.2 ;
+    map:alignmentBasis "Implementation-oriented proposal (11 core areas)"@en ;
+    map:alignmentType "Direct" ;
+    map:assessmentStatus "Proposed; no implementation or compliance asserted"@en ;
+    map:deliverables "Dataset and column lineage; calculation history; source snapshots."@en ;
+    map:fromTopic dama:DataWarehousingAndBusinessIntelligence ;
+    map:rationale "Explain derivation of analytical datasets and measures."@en .
+
+<https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-fair-mapping.ttl#area-alignment/documents-content-management/direct/A2> a owl:NamedIndividual,
+        map:AreaAlignmentAssessment ;
+    rdfs:label "Documents & Content Management → A2 (Direct)"@en ;
+    dcterms:source <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/DAMA_FAIR_Sankey_v1.3.0.zip> ;
+    map:alignedPrinciple fair:A2 ;
+    map:alignmentBasis "Implementation-oriented proposal (11 core areas)"@en ;
+    map:alignmentType "Direct" ;
+    map:assessmentStatus "Proposed; no implementation or compliance asserted"@en ;
+    map:deliverables "Disposition records linked to retained metadata; archival descriptions."@en ;
+    map:fromTopic dama:DocumentsAndContentManagement ;
+    map:rationale "Retain descriptive records when content is disposed of."@en .
+
+<https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-fair-mapping.ttl#area-alignment/documents-content-management/direct/F2> a owl:NamedIndividual,
+        map:AreaAlignmentAssessment ;
+    rdfs:label "Documents & Content Management → F2 (Direct)"@en ;
+    dcterms:source <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/DAMA_FAIR_Sankey_v1.3.0.zip> ;
+    map:alignedPrinciple fair:F2 ;
+    map:alignmentBasis "Implementation-oriented proposal (11 core areas)"@en ;
+    map:alignmentType "Direct" ;
+    map:assessmentStatus "Proposed; no implementation or compliance asserted"@en ;
+    map:deliverables "Populated content metadata; document classifications; searchable descriptions."@en ;
+    map:fromTopic dama:DocumentsAndContentManagement ;
+    map:rationale "Apply descriptive metadata to documents and other content."@en .
+
+<https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-fair-mapping.ttl#area-alignment/documents-content-management/direct/F4> a owl:NamedIndividual,
+        map:AreaAlignmentAssessment ;
+    rdfs:label "Documents & Content Management → F4 (Direct)"@en ;
+    dcterms:source <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/DAMA_FAIR_Sankey_v1.3.0.zip> ;
+    map:alignedPrinciple fair:F4 ;
+    map:alignmentBasis "Implementation-oriented proposal (11 core areas)"@en ;
+    map:alignmentType "Direct" ;
+    map:assessmentStatus "Proposed; no implementation or compliance asserted"@en ;
+    map:deliverables "Content indexes; document search; metadata-based filtering."@en ;
+    map:fromTopic dama:DocumentsAndContentManagement ;
+    map:rationale "Make managed content discoverable through indexed descriptions."@en .
+
+<https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-fair-mapping.ttl#area-alignment/documents-content-management/direct/R1.1> a owl:NamedIndividual,
+        map:AreaAlignmentAssessment ;
+    rdfs:label "Documents & Content Management → R1.1 (Direct)"@en ;
+    dcterms:source <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/DAMA_FAIR_Sankey_v1.3.0.zip> ;
+    map:alignedPrinciple fair:R1.1 ;
+    map:alignmentBasis "Implementation-oriented proposal (11 core areas)"@en ;
+    map:alignmentType "Direct" ;
+    map:assessmentStatus "Proposed; no implementation or compliance asserted"@en ;
+    map:deliverables "Accessible licence documents; resource-to-licence links; retained licence versions."@en ;
+    map:fromTopic dama:DocumentsAndContentManagement ;
+    map:rationale "Publish and retain the applicable licence text and version."@en .
+
+<https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-fair-mapping.ttl#area-alignment/metadata-management/direct/A1> a owl:NamedIndividual,
+        map:AreaAlignmentAssessment ;
+    rdfs:label "Metadata Management → A1 (Direct)"@en ;
+    dcterms:source <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/DAMA_FAIR_Sankey_v1.3.0.zip> ;
+    map:alignedPrinciple fair:A1 ;
+    map:alignmentBasis "Implementation-oriented proposal (11 core areas)"@en ;
+    map:alignmentType "Direct" ;
+    map:assessmentStatus "Proposed; no implementation or compliance asserted"@en ;
+    map:deliverables "Retrievable metadata records; distribution and access-service descriptions."@en ;
+    map:fromTopic dama:MetadataManagement ;
+    map:rationale "Support retrieval of metadata and describe data access routes."@en .
+
+<https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-fair-mapping.ttl#area-alignment/metadata-management/direct/A1.1> a owl:NamedIndividual,
+        map:AreaAlignmentAssessment ;
+    rdfs:label "Metadata Management → A1.1 (Direct)"@en ;
+    dcterms:source <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/DAMA_FAIR_Sankey_v1.3.0.zip> ;
+    map:alignedPrinciple fair:A1.1 ;
+    map:alignmentBasis "Implementation-oriented proposal (11 core areas)"@en ;
+    map:alignmentType "Direct" ;
+    map:assessmentStatus "Proposed; no implementation or compliance asserted"@en ;
+    map:deliverables "Metadata retrieval over HTTPS; harvesting interfaces using open protocol specifications."@en ;
+    map:fromTopic dama:MetadataManagement ;
+    map:rationale "Expose metadata through qualifying protocols."@en .
+
+<https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-fair-mapping.ttl#area-alignment/metadata-management/direct/A1.2> a owl:NamedIndividual,
+        map:AreaAlignmentAssessment ;
+    rdfs:label "Metadata Management → A1.2 (Direct)"@en ;
+    dcterms:source <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/DAMA_FAIR_Sankey_v1.3.0.zip> ;
+    map:alignedPrinciple fair:A1.2 ;
+    map:alignmentBasis "Implementation-oriented proposal (11 core areas)"@en ;
+    map:alignmentType "Direct" ;
+    map:assessmentStatus "Proposed; no implementation or compliance asserted"@en ;
+    map:deliverables "Machine-readable access requirements; authorization-service references."@en ;
+    map:fromTopic dama:MetadataManagement ;
+    map:rationale "Describe access conditions and the procedure for obtaining access."@en .
+
+<https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-fair-mapping.ttl#area-alignment/metadata-management/direct/A2> a owl:NamedIndividual,
+        map:AreaAlignmentAssessment ;
+    rdfs:label "Metadata Management → A2 (Direct)"@en ;
+    dcterms:source <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/DAMA_FAIR_Sankey_v1.3.0.zip> ;
+    map:alignedPrinciple fair:A2 ;
+    map:alignmentBasis "Implementation-oriented proposal (11 core areas)"@en ;
+    map:alignmentType "Direct" ;
+    map:assessmentStatus "Proposed; no implementation or compliance asserted"@en ;
+    map:deliverables "Persistent metadata records; withdrawal status; tombstone records."@en ;
+    map:fromTopic dama:MetadataManagement ;
+    map:rationale "Retain an accessible description of withdrawn or unavailable data."@en .
+
+<https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-fair-mapping.ttl#area-alignment/metadata-management/direct/F1> a owl:NamedIndividual,
+        map:AreaAlignmentAssessment ;
+    rdfs:label "Metadata Management → F1 (Direct)"@en ;
+    dcterms:source <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/DAMA_FAIR_Sankey_v1.3.0.zip> ;
+    map:alignedPrinciple fair:F1 ;
+    map:alignmentBasis "Implementation-oriented proposal (11 core areas)"@en ;
+    map:alignmentType "Direct" ;
+    map:assessmentStatus "Proposed; no implementation or compliance asserted"@en ;
+    map:deliverables "Identifier register; separate data and metadata identifiers; version identification rules."@en ;
+    map:fromTopic dama:MetadataManagement ;
+    map:rationale "Assign and maintain identifiers for data and metadata resources."@en .
+
+<https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-fair-mapping.ttl#area-alignment/metadata-management/direct/F2> a owl:NamedIndividual,
+        map:AreaAlignmentAssessment ;
+    rdfs:label "Metadata Management → F2 (Direct)"@en ;
+    dcterms:source <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/DAMA_FAIR_Sankey_v1.3.0.zip> ;
+    map:alignedPrinciple fair:F2 ;
+    map:alignmentBasis "Implementation-oriented proposal (11 core areas)"@en ;
+    map:alignmentType "Direct" ;
+    map:assessmentStatus "Proposed; no implementation or compliance asserted"@en ;
+    map:deliverables "Metadata profiles covering subject, creator, scope, coverage, format and access conditions."@en ;
+    map:fromTopic dama:MetadataManagement ;
+    map:rationale "Capture sufficient description to discover and understand a resource."@en .
+
+<https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-fair-mapping.ttl#area-alignment/metadata-management/direct/F3> a owl:NamedIndividual,
+        map:AreaAlignmentAssessment ;
+    rdfs:label "Metadata Management → F3 (Direct)"@en ;
+    dcterms:source <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/DAMA_FAIR_Sankey_v1.3.0.zip> ;
+    map:alignedPrinciple fair:F3 ;
+    map:alignmentBasis "Implementation-oriented proposal (11 core areas)"@en ;
+    map:alignmentType "Direct" ;
+    map:assessmentStatus "Proposed; no implementation or compliance asserted"@en ;
+    map:deliverables "Mandatory resource-identifier field; distinction between metadata-record ID and data ID."@en ;
+    map:fromTopic dama:MetadataManagement ;
+    map:rationale "Record the data identifier explicitly in its metadata."@en .
+
+<https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-fair-mapping.ttl#area-alignment/metadata-management/direct/F4> a owl:NamedIndividual,
+        map:AreaAlignmentAssessment ;
+    rdfs:label "Metadata Management → F4 (Direct)"@en ;
+    dcterms:source <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/DAMA_FAIR_Sankey_v1.3.0.zip> ;
+    map:alignedPrinciple fair:F4 ;
+    map:alignmentBasis "Implementation-oriented proposal (11 core areas)"@en ;
+    map:alignmentType "Direct" ;
+    map:assessmentStatus "Proposed; no implementation or compliance asserted"@en ;
+    map:deliverables "Catalog records; discovery indexes; searchable metadata interfaces."@en ;
+    map:fromTopic dama:MetadataManagement ;
+    map:rationale "Register resources in searchable catalogs."@en .
+
+<https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-fair-mapping.ttl#area-alignment/metadata-management/direct/I1> a owl:NamedIndividual,
+        map:AreaAlignmentAssessment ;
+    rdfs:label "Metadata Management → I1 (Direct)"@en ;
+    dcterms:source <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/DAMA_FAIR_Sankey_v1.3.0.zip> ;
+    map:alignedPrinciple fair:I1 ;
+    map:alignmentBasis "Implementation-oriented proposal (11 core areas)"@en ;
+    map:alignmentType "Direct" ;
+    map:assessmentStatus "Proposed; no implementation or compliance asserted"@en ;
+    map:deliverables "Semantic metadata profiles; documented representation specifications."@en ;
+    map:fromTopic dama:MetadataManagement ;
+    map:rationale "Publish metadata in a shared, machine-interpretable representation."@en .
+
+<https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-fair-mapping.ttl#area-alignment/metadata-management/direct/I2> a owl:NamedIndividual,
+        map:AreaAlignmentAssessment ;
+    rdfs:label "Metadata Management → I2 (Direct)"@en ;
+    dcterms:source <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/DAMA_FAIR_Sankey_v1.3.0.zip> ;
+    map:alignedPrinciple fair:I2 ;
+    map:alignmentBasis "Implementation-oriented proposal (11 core areas)"@en ;
+    map:alignmentType "Direct" ;
+    map:assessmentStatus "Proposed; no implementation or compliance asserted"@en ;
+    map:deliverables "Vocabulary bindings; vocabulary registry; recorded term and scheme versions."@en ;
+    map:fromTopic dama:MetadataManagement ;
+    map:rationale "Reference identified vocabulary terms in metadata."@en .
+
+<https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-fair-mapping.ttl#area-alignment/metadata-management/direct/I3> a owl:NamedIndividual,
+        map:AreaAlignmentAssessment ;
+    rdfs:label "Metadata Management → I3 (Direct)"@en ;
+    dcterms:source <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/DAMA_FAIR_Sankey_v1.3.0.zip> ;
+    map:alignedPrinciple fair:I3 ;
+    map:alignmentBasis "Implementation-oriented proposal (11 core areas)"@en ;
+    map:alignmentType "Direct" ;
+    map:assessmentStatus "Proposed; no implementation or compliance asserted"@en ;
+    map:deliverables "Related-resource metadata; relation types; contextual qualifiers."@en ;
+    map:fromTopic dama:MetadataManagement ;
+    map:rationale "Record explicit, meaningful links to related resources."@en .
+
+<https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-fair-mapping.ttl#area-alignment/metadata-management/direct/R1> a owl:NamedIndividual,
+        map:AreaAlignmentAssessment ;
+    rdfs:label "Metadata Management → R1 (Direct)"@en ;
+    dcterms:source <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/DAMA_FAIR_Sankey_v1.3.0.zip> ;
+    map:alignedPrinciple fair:R1 ;
+    map:alignmentBasis "Implementation-oriented proposal (11 core areas)"@en ;
+    map:alignmentType "Direct" ;
+    map:assessmentStatus "Proposed; no implementation or compliance asserted"@en ;
+    map:deliverables "Descriptions of meaning, methods, units, scope, limitations and intended use."@en ;
+    map:fromTopic dama:MetadataManagement ;
+    map:rationale "Capture the context a consumer needs to assess reuse."@en .
+
+<https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-fair-mapping.ttl#area-alignment/metadata-management/direct/R1.1> a owl:NamedIndividual,
+        map:AreaAlignmentAssessment ;
+    rdfs:label "Metadata Management → R1.1 (Direct)"@en ;
+    dcterms:source <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/DAMA_FAIR_Sankey_v1.3.0.zip> ;
+    map:alignedPrinciple fair:R1.1 ;
+    map:alignmentBasis "Implementation-oriented proposal (11 core areas)"@en ;
+    map:alignmentType "Direct" ;
+    map:assessmentStatus "Proposed; no implementation or compliance asserted"@en ;
+    map:deliverables "Licence identifier or URI; machine-readable licence field; explicit applicability to data and metadata."@en ;
+    map:fromTopic dama:MetadataManagement ;
+    map:rationale "Associate each resource with an accessible licence."@en .
+
+<https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-fair-mapping.ttl#area-alignment/metadata-management/direct/R1.2> a owl:NamedIndividual,
+        map:AreaAlignmentAssessment ;
+    rdfs:label "Metadata Management → R1.2 (Direct)"@en ;
+    dcterms:source <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/DAMA_FAIR_Sankey_v1.3.0.zip> ;
+    map:alignedPrinciple fair:R1.2 ;
+    map:alignmentBasis "Implementation-oriented proposal (11 core areas)"@en ;
+    map:alignmentType "Direct" ;
+    map:assessmentStatus "Proposed; no implementation or compliance asserted"@en ;
+    map:deliverables "Provenance records identifying sources, agents, activities, dates and versions."@en ;
+    map:fromTopic dama:MetadataManagement ;
+    map:rationale "Associate resources with their origins and processing history."@en .
+
+<https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-fair-mapping.ttl#area-alignment/metadata-management/direct/R1.3> a owl:NamedIndividual,
+        map:AreaAlignmentAssessment ;
+    rdfs:label "Metadata Management → R1.3 (Direct)"@en ;
+    dcterms:source <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/DAMA_FAIR_Sankey_v1.3.0.zip> ;
+    map:alignedPrinciple fair:R1.3 ;
+    map:alignmentBasis "Implementation-oriented proposal (11 core areas)"@en ;
+    map:alignmentType "Direct" ;
+    map:assessmentStatus "Proposed; no implementation or compliance asserted"@en ;
+    map:deliverables "Community metadata profiles; required descriptive elements; conformance declarations."@en ;
+    map:fromTopic dama:MetadataManagement ;
+    map:rationale "Apply the relevant community metadata requirements."@en .
+
+<https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-fair-mapping.ttl#area-alignment/reference-master-data-management/direct/F1> a owl:NamedIndividual,
+        map:AreaAlignmentAssessment ;
+    rdfs:label "Reference & Master Data Management → F1 (Direct)"@en ;
+    dcterms:source <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/DAMA_FAIR_Sankey_v1.3.0.zip> ;
+    map:alignedPrinciple fair:F1 ;
+    map:alignmentBasis "Implementation-oriented proposal (11 core areas)"@en ;
+    map:alignmentType "Direct" ;
+    map:assessmentStatus "Proposed; no implementation or compliance asserted"@en ;
+    map:deliverables "Governed namespaces; identifier crosswalks; non-reassignment rules. Internal keys alone do not establish global uniqueness or persistence."@en ;
+    map:fromTopic dama:ReferenceAndMasterDataManagement ;
+    map:rationale "Maintain stable entity identifiers and mappings between identifier systems."@en .
+
+<https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-fair-mapping.ttl#area-alignment/reference-master-data-management/direct/I2> a owl:NamedIndividual,
+        map:AreaAlignmentAssessment ;
+    rdfs:label "Reference & Master Data Management → I2 (Direct)"@en ;
+    dcterms:source <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/DAMA_FAIR_Sankey_v1.3.0.zip> ;
+    map:alignedPrinciple fair:I2 ;
+    map:alignmentBasis "Implementation-oriented proposal (11 core areas)"@en ;
+    map:alignmentType "Direct" ;
+    map:assessmentStatus "Proposed; no implementation or compliance asserted"@en ;
+    map:deliverables "Persistent term identifiers; accessible vocabulary versions; licences and provenance."@en ;
+    map:fromTopic dama:ReferenceAndMasterDataManagement ;
+    map:rationale "Manage and publish reusable vocabularies and code lists as FAIR resources."@en .
+
+<https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-fair-mapping.ttl#area-alignment/reference-master-data-management/direct/I3> a owl:NamedIndividual,
+        map:AreaAlignmentAssessment ;
+    rdfs:label "Reference & Master Data Management → I3 (Direct)"@en ;
+    dcterms:source <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/DAMA_FAIR_Sankey_v1.3.0.zip> ;
+    map:alignedPrinciple fair:I3 ;
+    map:alignmentBasis "Implementation-oriented proposal (11 core areas)"@en ;
+    map:alignmentType "Direct" ;
+    map:assessmentStatus "Proposed; no implementation or compliance asserted"@en ;
+    map:deliverables "Qualified entity links; crosswalk semantics; hierarchy and affiliation records."@en ;
+    map:fromTopic dama:ReferenceAndMasterDataManagement ;
+    map:rationale "Express governed identity and hierarchical relationships."@en .
+
+map:assessmentStatus a owl:AnnotationProperty ;
+    rdfs:label "assessment status"@en .
+
+<https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-fair-mapping.ttl#contribution/BigDataDataScience/row-10/indirect/A1> a owl:NamedIndividual,
+        map:IndirectContribution ;
+    rdfs:label "Deploy and Monitor → A1"@en ;
+    dcterms:source <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/DAMA-PDOC_FAIR-MASTER_2026-11-16_V3.xlsx#BigDataDataScience!A10:L10> ;
+    map:alignmentBasis "Activity-derived proposal"@en ;
+    map:applicabilityCondition "Test standardized retrieval of identified resources and inspect version-linked deployment and execution provenance. Monitoring predictive accuracy or infrastructure utilization alone is insufficient."@en ;
+    map:assessmentStatus "Proposed; no implementation or compliance asserted"@en ;
+    map:evidenceRequirement "Test standardized retrieval of identified resources and inspect version-linked deployment and execution provenance. Monitoring predictive accuracy or infrastructure utilization alone is insufficient."@en ;
+    map:fromPractice <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-fair-mapping.ttl#activity/BigDataDataScience/row-10> ;
+    map:rationale "Operations can sustain identifier-based access and record versioned inputs, model changes and execution history when those controls are explicitly included in the operations plan."@en ;
+    map:targetsPrinciple fair:A1 ;
+    map:viaPractice map:EnableIdentifierBasedRetrieval .
+
+<https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-fair-mapping.ttl#contribution/BigDataDataScience/row-10/indirect/R1.2> a owl:NamedIndividual,
+        map:IndirectContribution ;
+    rdfs:label "Deploy and Monitor → R1.2"@en ;
+    dcterms:source <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/DAMA-PDOC_FAIR-MASTER_2026-11-16_V3.xlsx#BigDataDataScience!A10:L10> ;
+    map:alignmentBasis "Activity-derived proposal"@en ;
+    map:applicabilityCondition "Test standardized retrieval of identified resources and inspect version-linked deployment and execution provenance. Monitoring predictive accuracy or infrastructure utilization alone is insufficient."@en ;
+    map:assessmentStatus "Proposed; no implementation or compliance asserted"@en ;
+    map:evidenceRequirement "Test standardized retrieval of identified resources and inspect version-linked deployment and execution provenance. Monitoring predictive accuracy or infrastructure utilization alone is insufficient."@en ;
+    map:fromPractice <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-fair-mapping.ttl#activity/BigDataDataScience/row-10> ;
+    map:rationale "Operations can sustain identifier-based access and record versioned inputs, model changes and execution history when those controls are explicitly included in the operations plan."@en ;
+    map:targetsPrinciple fair:R1.2 ;
+    map:viaPractice map:PublishProvenance .
+
+<https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-fair-mapping.ttl#contribution/BigDataDataScience/row-2/indirect/R1.3> a owl:NamedIndividual,
+        map:IndirectContribution ;
+    rdfs:label "Define Big Data Strategy & Business Needs → R1.3"@en ;
+    dcterms:source <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/DAMA-PDOC_FAIR-MASTER_2026-11-16_V3.xlsx#BigDataDataScience!A2:L2> ;
+    map:alignmentBasis "Activity-derived proposal"@en ;
+    map:applicabilityCondition "Inspect approved standards and their domain relevance, then validate actual data and metadata against the applicable community specifications. Strategy approval alone does not demonstrate conformance."@en ;
+    map:assessmentStatus "Proposed; no implementation or compliance asserted"@en ;
+    map:evidenceRequirement "Inspect approved standards and their domain relevance, then validate actual data and metadata against the applicable community specifications. Strategy approval alone does not demonstrate conformance."@en ;
+    map:fromPractice <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-fair-mapping.ttl#activity/BigDataDataScience/row-2> ;
+    map:rationale "Standards selection can commission domain-relevant community conformance if named external standards, versions and acceptance tests are explicitly adopted. Internal IT standards alone are insufficient."@en ;
+    map:targetsPrinciple fair:R1.3 ;
+    map:viaPractice map:ValidateCommunityStandards .
+
+<https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-fair-mapping.ttl#contribution/BigDataDataScience/row-3/indirect/A1> a owl:NamedIndividual,
+        map:IndirectContribution ;
+    rdfs:label "Establish Big Data Environments → A1"@en ;
+    dcterms:source <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/DAMA-PDOC_FAIR-MASTER_2026-11-16_V3.xlsx#BigDataDataScience!A3:L3> ;
+    map:alignmentBasis "Activity-derived proposal"@en ;
+    map:applicabilityCondition "Test retrieval of identified data and metadata through a specified standard protocol; inspect freely implementable protocol specifications; test required authentication and authorization. Platform availability alone is insufficient."@en ;
+    map:assessmentStatus "Proposed; no implementation or compliance asserted"@en ;
+    map:evidenceRequirement "Test retrieval of identified data and metadata through a specified standard protocol; inspect freely implementable protocol specifications; test required authentication and authorization. Platform availability alone is insufficient."@en ;
+    map:fromPractice <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-fair-mapping.ttl#activity/BigDataDataScience/row-3> ;
+    map:rationale "Platform design can enable standardized retrieval, open protocols and controlled access if these are explicitly commissioned and implemented."@en ;
+    map:targetsPrinciple fair:A1 ;
+    map:viaPractice map:EnableIdentifierBasedRetrieval .
+
+<https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-fair-mapping.ttl#contribution/BigDataDataScience/row-3/indirect/A1.1> a owl:NamedIndividual,
+        map:IndirectContribution ;
+    rdfs:label "Establish Big Data Environments → A1.1"@en ;
+    dcterms:source <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/DAMA-PDOC_FAIR-MASTER_2026-11-16_V3.xlsx#BigDataDataScience!A3:L3> ;
+    map:alignmentBasis "Activity-derived proposal"@en ;
+    map:applicabilityCondition "Test retrieval of identified data and metadata through a specified standard protocol; inspect freely implementable protocol specifications; test required authentication and authorization. Platform availability alone is insufficient."@en ;
+    map:assessmentStatus "Proposed; no implementation or compliance asserted"@en ;
+    map:evidenceRequirement "Test retrieval of identified data and metadata through a specified standard protocol; inspect freely implementable protocol specifications; test required authentication and authorization. Platform availability alone is insufficient."@en ;
+    map:fromPractice <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-fair-mapping.ttl#activity/BigDataDataScience/row-3> ;
+    map:rationale "Platform design can enable standardized retrieval, open protocols and controlled access if these are explicitly commissioned and implemented."@en ;
+    map:targetsPrinciple fair:A1.1 ;
+    map:viaPractice map:ImplementOpenRetrievalProtocol .
+
+<https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-fair-mapping.ttl#contribution/BigDataDataScience/row-3/indirect/A1.2> a owl:NamedIndividual,
+        map:IndirectContribution ;
+    rdfs:label "Establish Big Data Environments → A1.2"@en ;
+    dcterms:source <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/DAMA-PDOC_FAIR-MASTER_2026-11-16_V3.xlsx#BigDataDataScience!A3:L3> ;
+    map:alignmentBasis "Activity-derived proposal"@en ;
+    map:applicabilityCondition "Test retrieval of identified data and metadata through a specified standard protocol; inspect freely implementable protocol specifications; test required authentication and authorization. Platform availability alone is insufficient."@en ;
+    map:assessmentStatus "Proposed; no implementation or compliance asserted"@en ;
+    map:evidenceRequirement "Test retrieval of identified data and metadata through a specified standard protocol; inspect freely implementable protocol specifications; test required authentication and authorization. Platform availability alone is insufficient."@en ;
+    map:fromPractice <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-fair-mapping.ttl#activity/BigDataDataScience/row-3> ;
+    map:rationale "Platform design can enable standardized retrieval, open protocols and controlled access if these are explicitly commissioned and implemented."@en ;
+    map:targetsPrinciple fair:A1.2 ;
+    map:viaPractice map:ConfigureRetrievalAuthorization .
+
+<https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-fair-mapping.ttl#contribution/BigDataDataScience/row-4/indirect/R1.1> a owl:NamedIndividual,
+        map:IndirectContribution ;
+    rdfs:label "Choose Data Sources → R1.1"@en ;
+    dcterms:source <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/DAMA-PDOC_FAIR-MASTER_2026-11-16_V3.xlsx#BigDataDataScience!A4:L4> ;
+    map:alignmentBasis "Activity-derived proposal"@en ;
+    map:applicabilityCondition "Trace selected source versions to providers and acquisition context; inspect accessible usage licences linked to each resource. A commercial purchase or access agreement alone is not a FAIR usage licence."@en ;
+    map:assessmentStatus "Proposed; no implementation or compliance asserted"@en ;
+    map:evidenceRequirement "Trace selected source versions to providers and acquisition context; inspect accessible usage licences linked to each resource. A commercial purchase or access agreement alone is not a FAIR usage licence."@en ;
+    map:fromPractice <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-fair-mapping.ttl#activity/BigDataDataScience/row-4> ;
+    map:rationale "Source evaluation can record origin, permitted reuse and descriptive context, enabling provenance and licensing requirements when resource-linked records and accessible terms are retained."@en ;
+    map:targetsPrinciple fair:R1.1 ;
+    map:viaPractice map:AttachUsageLicense .
+
+<https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-fair-mapping.ttl#contribution/BigDataDataScience/row-4/indirect/R1.2> a owl:NamedIndividual,
+        map:IndirectContribution ;
+    rdfs:label "Choose Data Sources → R1.2"@en ;
+    dcterms:source <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/DAMA-PDOC_FAIR-MASTER_2026-11-16_V3.xlsx#BigDataDataScience!A4:L4> ;
+    map:alignmentBasis "Activity-derived proposal"@en ;
+    map:applicabilityCondition "Trace selected source versions to providers and acquisition context; inspect accessible usage licences linked to each resource. A commercial purchase or access agreement alone is not a FAIR usage licence."@en ;
+    map:assessmentStatus "Proposed; no implementation or compliance asserted"@en ;
+    map:evidenceRequirement "Trace selected source versions to providers and acquisition context; inspect accessible usage licences linked to each resource. A commercial purchase or access agreement alone is not a FAIR usage licence."@en ;
+    map:fromPractice <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-fair-mapping.ttl#activity/BigDataDataScience/row-4> ;
+    map:rationale "Source evaluation can record origin, permitted reuse and descriptive context, enabling provenance and licensing requirements when resource-linked records and accessible terms are retained."@en ;
+    map:targetsPrinciple fair:R1.2 ;
+    map:viaPractice map:PublishProvenance .
+
+<https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-fair-mapping.ttl#contribution/BigDataDataScience/row-5/indirect/F2> a owl:NamedIndividual,
+        map:IndirectContribution ;
+    rdfs:label "Acquire & Ingest Data Sources → F2"@en ;
+    dcterms:source <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/DAMA-PDOC_FAIR-MASTER_2026-11-16_V3.xlsx#BigDataDataScience!A5:L5> ;
+    map:alignmentBasis "Activity-derived proposal"@en ;
+    map:applicabilityCondition "Inspect descriptions linked to ingested resources and provenance records identifying sources, versions, agents, acquisition times and transformations. Successful loading and scanning alone are insufficient."@en ;
+    map:assessmentStatus "Proposed; no implementation or compliance asserted"@en ;
+    map:evidenceRequirement "Inspect descriptions linked to ingested resources and provenance records identifying sources, versions, agents, acquisition times and transformations. Successful loading and scanning alone are insufficient."@en ;
+    map:fromPractice <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-fair-mapping.ttl#activity/BigDataDataScience/row-5> ;
+    map:rationale "Ingestion can capture resource descriptions, source versions, acquisition times and transformations if metadata capture is added as an explicit requirement."@en ;
+    map:targetsPrinciple fair:F2 ;
+    map:viaPractice map:PublishRichDiscoveryMetadata .
+
+<https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-fair-mapping.ttl#contribution/BigDataDataScience/row-5/indirect/R1.2> a owl:NamedIndividual,
+        map:IndirectContribution ;
+    rdfs:label "Acquire & Ingest Data Sources → R1.2"@en ;
+    dcterms:source <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/DAMA-PDOC_FAIR-MASTER_2026-11-16_V3.xlsx#BigDataDataScience!A5:L5> ;
+    map:alignmentBasis "Activity-derived proposal"@en ;
+    map:applicabilityCondition "Inspect descriptions linked to ingested resources and provenance records identifying sources, versions, agents, acquisition times and transformations. Successful loading and scanning alone are insufficient."@en ;
+    map:assessmentStatus "Proposed; no implementation or compliance asserted"@en ;
+    map:evidenceRequirement "Inspect descriptions linked to ingested resources and provenance records identifying sources, versions, agents, acquisition times and transformations. Successful loading and scanning alone are insufficient."@en ;
+    map:fromPractice <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-fair-mapping.ttl#activity/BigDataDataScience/row-5> ;
+    map:rationale "Ingestion can capture resource descriptions, source versions, acquisition times and transformations if metadata capture is added as an explicit requirement."@en ;
+    map:targetsPrinciple fair:R1.2 ;
+    map:viaPractice map:PublishProvenance .
+
+<https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-fair-mapping.ttl#contribution/BigDataDataScience/row-6/direct/R1> a owl:NamedIndividual,
+        map:DirectContribution ;
+    rdfs:label "Develop Hypotheses & Methods → R1"@en ;
+    dcterms:source <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/DAMA-PDOC_FAIR-MASTER_2026-11-16_V3.xlsx#BigDataDataScience!A6:L6> ;
+    map:alignmentBasis "Activity-derived proposal"@en ;
+    map:applicabilityCondition "For R1, inspect resource-linked descriptions of hypotheses, methods, assumptions, units, scope and limitations, and verify their accuracy and relevance for reuse. For R1.2, additionally inspect input versions, methods, agents and execution history. An unexplained model or hypothesis list is insufficient."@en ;
+    map:assessmentStatus "Proposed; no implementation or compliance asserted"@en ;
+    map:evidenceRequirement "For R1, inspect resource-linked descriptions of hypotheses, methods, assumptions, units, scope and limitations, and verify their accuracy and relevance for reuse. For R1.2, additionally inspect input versions, methods, agents and execution history. An unexplained model or hypothesis list is insufficient."@en ;
+    map:fromPractice <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-fair-mapping.ttl#activity/BigDataDataScience/row-6> ;
+    map:rationale "Inferred potential direct support: documented hypotheses and methods can supply accurate, relevant methodological context for reusing the associated analytical data. The diagram does not establish that these descriptions are complete or associated with identifiable resources."@en ;
+    map:targetsPrinciple fair:R1 .
+
+<https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-fair-mapping.ttl#contribution/BigDataDataScience/row-6/indirect/R1.2> a owl:NamedIndividual,
+        map:IndirectContribution ;
+    rdfs:label "Develop Hypotheses & Methods → R1.2"@en ;
+    dcterms:source <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/DAMA-PDOC_FAIR-MASTER_2026-11-16_V3.xlsx#BigDataDataScience!A6:L6> ;
+    map:alignmentBasis "Activity-derived proposal"@en ;
+    map:applicabilityCondition "For R1, inspect resource-linked descriptions of hypotheses, methods, assumptions, units, scope and limitations, and verify their accuracy and relevance for reuse. For R1.2, additionally inspect input versions, methods, agents and execution history. An unexplained model or hypothesis list is insufficient."@en ;
+    map:assessmentStatus "Proposed; no implementation or compliance asserted"@en ;
+    map:evidenceRequirement "For R1, inspect resource-linked descriptions of hypotheses, methods, assumptions, units, scope and limitations, and verify their accuracy and relevance for reuse. For R1.2, additionally inspect input versions, methods, agents and execution history. An unexplained model or hypothesis list is insufficient."@en ;
+    map:fromPractice <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-fair-mapping.ttl#activity/BigDataDataScience/row-6> ;
+    map:rationale "Versioned methods and input records can enable provenance when linked to the resulting data and model outputs."@en ;
+    map:targetsPrinciple fair:R1.2 ;
+    map:viaPractice map:PublishProvenance .
+
+<https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-fair-mapping.ttl#contribution/BigDataDataScience/row-7/indirect/I1> a owl:NamedIndividual,
+        map:IndirectContribution ;
+    rdfs:label "Integrate/Align Data For Analysis → I1"@en ;
+    dcterms:source <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/DAMA-PDOC_FAIR-MASTER_2026-11-16_V3.xlsx#BigDataDataScience!A7:L7> ;
+    map:alignmentBasis "Activity-derived proposal"@en ;
+    map:applicabilityCondition "Inspect shared formal representations and identifiable resources with typed relations; trace transformations to source versions. Matching columns, feature vectors and internal keys alone are insufficient."@en ;
+    map:assessmentStatus "Proposed; no implementation or compliance asserted"@en ;
+    map:evidenceRequirement "Inspect shared formal representations and identifiable resources with typed relations; trace transformations to source versions. Matching columns, feature vectors and internal keys alone are insufficient."@en ;
+    map:fromPractice <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-fair-mapping.ttl#activity/BigDataDataScience/row-7> ;
+    map:rationale "Integration can preserve provenance and implement explicit semantic representations and typed links when these requirements are included in the integration design."@en ;
+    map:targetsPrinciple fair:I1 ;
+    map:viaPractice map:PublishSharedRepresentation .
+
+<https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-fair-mapping.ttl#contribution/BigDataDataScience/row-7/indirect/I3> a owl:NamedIndividual,
+        map:IndirectContribution ;
+    rdfs:label "Integrate/Align Data For Analysis → I3"@en ;
+    dcterms:source <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/DAMA-PDOC_FAIR-MASTER_2026-11-16_V3.xlsx#BigDataDataScience!A7:L7> ;
+    map:alignmentBasis "Activity-derived proposal"@en ;
+    map:applicabilityCondition "Inspect shared formal representations and identifiable resources with typed relations; trace transformations to source versions. Matching columns, feature vectors and internal keys alone are insufficient."@en ;
+    map:assessmentStatus "Proposed; no implementation or compliance asserted"@en ;
+    map:evidenceRequirement "Inspect shared formal representations and identifiable resources with typed relations; trace transformations to source versions. Matching columns, feature vectors and internal keys alone are insufficient."@en ;
+    map:fromPractice <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-fair-mapping.ttl#activity/BigDataDataScience/row-7> ;
+    map:rationale "Integration can preserve provenance and implement explicit semantic representations and typed links when these requirements are included in the integration design."@en ;
+    map:targetsPrinciple fair:I3 ;
+    map:viaPractice map:PublishQualifiedResourceReferences .
+
+<https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-fair-mapping.ttl#contribution/BigDataDataScience/row-7/indirect/R1.2> a owl:NamedIndividual,
+        map:IndirectContribution ;
+    rdfs:label "Integrate/Align Data For Analysis → R1.2"@en ;
+    dcterms:source <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/DAMA-PDOC_FAIR-MASTER_2026-11-16_V3.xlsx#BigDataDataScience!A7:L7> ;
+    map:alignmentBasis "Activity-derived proposal"@en ;
+    map:applicabilityCondition "Inspect shared formal representations and identifiable resources with typed relations; trace transformations to source versions. Matching columns, feature vectors and internal keys alone are insufficient."@en ;
+    map:assessmentStatus "Proposed; no implementation or compliance asserted"@en ;
+    map:evidenceRequirement "Inspect shared formal representations and identifiable resources with typed relations; trace transformations to source versions. Matching columns, feature vectors and internal keys alone are insufficient."@en ;
+    map:fromPractice <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-fair-mapping.ttl#activity/BigDataDataScience/row-7> ;
+    map:rationale "Integration can preserve provenance and implement explicit semantic representations and typed links when these requirements are included in the integration design."@en ;
+    map:targetsPrinciple fair:R1.2 ;
+    map:viaPractice map:PublishProvenance .
+
+<https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-fair-mapping.ttl#contribution/BigDataDataScience/row-8/indirect/R1> a owl:NamedIndividual,
+        map:IndirectContribution ;
+    rdfs:label "Explore Data Using Models → R1"@en ;
+    dcterms:source <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/DAMA-PDOC_FAIR-MASTER_2026-11-16_V3.xlsx#BigDataDataScience!A8:L8> ;
+    map:alignmentBasis "Activity-derived proposal"@en ;
+    map:applicabilityCondition "Inspect resource-linked descriptions of analytical context and limitations and a traceable execution record linking inputs, model versions and outputs. Performance scores alone are insufficient."@en ;
+    map:assessmentStatus "Proposed; no implementation or compliance asserted"@en ;
+    map:evidenceRequirement "Inspect resource-linked descriptions of analytical context and limitations and a traceable execution record linking inputs, model versions and outputs. Performance scores alone are insufficient."@en ;
+    map:fromPractice <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-fair-mapping.ttl#activity/BigDataDataScience/row-8> ;
+    map:rationale "Exploration can enrich reuse descriptions and provenance if assumptions, limitations, source versions, model versions and analytical steps are recorded with the resulting resources."@en ;
+    map:targetsPrinciple fair:R1 ;
+    map:viaPractice map:PublishRichReuseDescriptions .
+
+<https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-fair-mapping.ttl#contribution/BigDataDataScience/row-8/indirect/R1.2> a owl:NamedIndividual,
+        map:IndirectContribution ;
+    rdfs:label "Explore Data Using Models → R1.2"@en ;
+    dcterms:source <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/DAMA-PDOC_FAIR-MASTER_2026-11-16_V3.xlsx#BigDataDataScience!A8:L8> ;
+    map:alignmentBasis "Activity-derived proposal"@en ;
+    map:applicabilityCondition "Inspect resource-linked descriptions of analytical context and limitations and a traceable execution record linking inputs, model versions and outputs. Performance scores alone are insufficient."@en ;
+    map:assessmentStatus "Proposed; no implementation or compliance asserted"@en ;
+    map:evidenceRequirement "Inspect resource-linked descriptions of analytical context and limitations and a traceable execution record linking inputs, model versions and outputs. Performance scores alone are insufficient."@en ;
+    map:fromPractice <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-fair-mapping.ttl#activity/BigDataDataScience/row-8> ;
+    map:rationale "Exploration can enrich reuse descriptions and provenance if assumptions, limitations, source versions, model versions and analytical steps are recorded with the resulting resources."@en ;
+    map:targetsPrinciple fair:R1.2 ;
+    map:viaPractice map:PublishProvenance .
+
+<https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-fair-mapping.ttl#contribution/BigDataDataScience/row-9/indirect/F2> a owl:NamedIndividual,
+        map:IndirectContribution ;
+    rdfs:label "Communicate Output to Stakeholders → F2"@en ;
+    dcterms:source <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/DAMA-PDOC_FAIR-MASTER_2026-11-16_V3.xlsx#BigDataDataScience!A9:L9> ;
+    map:alignmentBasis "Activity-derived proposal"@en ;
+    map:applicabilityCondition "Inspect resource-linked discovery and reuse descriptions covering meaning, methods, coverage, assumptions and limitations. A presentation without associated resource descriptions is insufficient."@en ;
+    map:assessmentStatus "Proposed; no implementation or compliance asserted"@en ;
+    map:evidenceRequirement "Inspect resource-linked discovery and reuse descriptions covering meaning, methods, coverage, assumptions and limitations. A presentation without associated resource descriptions is insufficient."@en ;
+    map:fromPractice <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-fair-mapping.ttl#activity/BigDataDataScience/row-9> ;
+    map:rationale "Communications can make discovery and reuse context available if findings are accompanied by accurate descriptions linked to the analytical resources."@en ;
+    map:targetsPrinciple fair:F2 ;
+    map:viaPractice map:PublishRichDiscoveryMetadata .
+
+<https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-fair-mapping.ttl#contribution/BigDataDataScience/row-9/indirect/R1> a owl:NamedIndividual,
+        map:IndirectContribution ;
+    rdfs:label "Communicate Output to Stakeholders → R1"@en ;
+    dcterms:source <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/DAMA-PDOC_FAIR-MASTER_2026-11-16_V3.xlsx#BigDataDataScience!A9:L9> ;
+    map:alignmentBasis "Activity-derived proposal"@en ;
+    map:applicabilityCondition "Inspect resource-linked discovery and reuse descriptions covering meaning, methods, coverage, assumptions and limitations. A presentation without associated resource descriptions is insufficient."@en ;
+    map:assessmentStatus "Proposed; no implementation or compliance asserted"@en ;
+    map:evidenceRequirement "Inspect resource-linked discovery and reuse descriptions covering meaning, methods, coverage, assumptions and limitations. A presentation without associated resource descriptions is insufficient."@en ;
+    map:fromPractice <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-fair-mapping.ttl#activity/BigDataDataScience/row-9> ;
+    map:rationale "Communications can make discovery and reuse context available if findings are accompanied by accurate descriptions linked to the analytical resources."@en ;
+    map:targetsPrinciple fair:R1 ;
+    map:viaPractice map:PublishRichReuseDescriptions .
+
+<https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-fair-mapping.ttl#contribution/DataHandlingEthics/row-2/indirect/A1.2> a owl:NamedIndividual,
+        map:IndirectContribution ;
+    rdfs:label "Review Data-Handling Practices → A1.2"@en ;
+    dcterms:source <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/DAMA-PDOC_FAIR-MASTER_2026-11-16_V3.xlsx#DataHandlingEthics!A2:L2> ;
+    map:alignmentBasis "Activity-derived proposal"@en ;
+    map:applicabilityCondition "Inspect approved policy or control requirements that explicitly distinguish access authorization from permitted reuse. Test any resulting authentication and authorization procedure for identified resources (A1.2) and inspect the clear, accessible usage licence attached to data and metadata (R1.1). An ethics statement, privacy notice or generic compliance metric alone is insufficient."@en ;
+    map:assessmentStatus "Proposed; no implementation or compliance asserted"@en ;
+    map:evidenceRequirement "Inspect approved policy or control requirements that explicitly distinguish access authorization from permitted reuse. Test any resulting authentication and authorization procedure for identified resources (A1.2) and inspect the clear, accessible usage licence attached to data and metadata (R1.1). An ethics statement, privacy notice or generic compliance metric alone is insufficient."@en ;
+    map:fromPractice <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-fair-mapping.ttl#activity/DataHandlingEthics/row-2> ;
+    map:rationale "Review can identify gaps in authorized access and permitted reuse if the review criteria explicitly include them."@en ;
+    map:targetsPrinciple fair:A1.2 ;
+    map:viaPractice map:ConfigureRetrievalAuthorization .
+
+<https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-fair-mapping.ttl#contribution/DataHandlingEthics/row-2/indirect/R1.1> a owl:NamedIndividual,
+        map:IndirectContribution ;
+    rdfs:label "Review Data-Handling Practices → R1.1"@en ;
+    dcterms:source <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/DAMA-PDOC_FAIR-MASTER_2026-11-16_V3.xlsx#DataHandlingEthics!A2:L2> ;
+    map:alignmentBasis "Activity-derived proposal"@en ;
+    map:applicabilityCondition "Inspect approved policy or control requirements that explicitly distinguish access authorization from permitted reuse. Test any resulting authentication and authorization procedure for identified resources (A1.2) and inspect the clear, accessible usage licence attached to data and metadata (R1.1). An ethics statement, privacy notice or generic compliance metric alone is insufficient."@en ;
+    map:assessmentStatus "Proposed; no implementation or compliance asserted"@en ;
+    map:evidenceRequirement "Inspect approved policy or control requirements that explicitly distinguish access authorization from permitted reuse. Test any resulting authentication and authorization procedure for identified resources (A1.2) and inspect the clear, accessible usage licence attached to data and metadata (R1.1). An ethics statement, privacy notice or generic compliance metric alone is insufficient."@en ;
+    map:fromPractice <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-fair-mapping.ttl#activity/DataHandlingEthics/row-2> ;
+    map:rationale "Review can identify gaps in authorized access and permitted reuse if the review criteria explicitly include them."@en ;
+    map:targetsPrinciple fair:R1.1 ;
+    map:viaPractice map:AttachUsageLicense .
+
+<https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-fair-mapping.ttl#contribution/DataHandlingEthics/row-3/indirect/A1.2> a owl:NamedIndividual,
+        map:IndirectContribution ;
+    rdfs:label "Identify Principles, Practices, and Risk Factors → A1.2"@en ;
+    dcterms:source <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/DAMA-PDOC_FAIR-MASTER_2026-11-16_V3.xlsx#DataHandlingEthics!A3:L3> ;
+    map:alignmentBasis "Activity-derived proposal"@en ;
+    map:applicabilityCondition "Inspect approved policy or control requirements that explicitly distinguish access authorization from permitted reuse. Test any resulting authentication and authorization procedure for identified resources (A1.2) and inspect the clear, accessible usage licence attached to data and metadata (R1.1). An ethics statement, privacy notice or generic compliance metric alone is insufficient."@en ;
+    map:assessmentStatus "Proposed; no implementation or compliance asserted"@en ;
+    map:evidenceRequirement "Inspect approved policy or control requirements that explicitly distinguish access authorization from permitted reuse. Test any resulting authentication and authorization procedure for identified resources (A1.2) and inspect the clear, accessible usage licence attached to data and metadata (R1.1). An ethics statement, privacy notice or generic compliance metric alone is insufficient."@en ;
+    map:fromPractice <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-fair-mapping.ttl#activity/DataHandlingEthics/row-3> ;
+    map:rationale "Risk assessment can establish requirements for controlled access and clear reuse permissions; neither requirement is specified by the activity label alone."@en ;
+    map:targetsPrinciple fair:A1.2 ;
+    map:viaPractice map:ConfigureRetrievalAuthorization .
+
+<https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-fair-mapping.ttl#contribution/DataHandlingEthics/row-3/indirect/R1.1> a owl:NamedIndividual,
+        map:IndirectContribution ;
+    rdfs:label "Identify Principles, Practices, and Risk Factors → R1.1"@en ;
+    dcterms:source <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/DAMA-PDOC_FAIR-MASTER_2026-11-16_V3.xlsx#DataHandlingEthics!A3:L3> ;
+    map:alignmentBasis "Activity-derived proposal"@en ;
+    map:applicabilityCondition "Inspect approved policy or control requirements that explicitly distinguish access authorization from permitted reuse. Test any resulting authentication and authorization procedure for identified resources (A1.2) and inspect the clear, accessible usage licence attached to data and metadata (R1.1). An ethics statement, privacy notice or generic compliance metric alone is insufficient."@en ;
+    map:assessmentStatus "Proposed; no implementation or compliance asserted"@en ;
+    map:evidenceRequirement "Inspect approved policy or control requirements that explicitly distinguish access authorization from permitted reuse. Test any resulting authentication and authorization procedure for identified resources (A1.2) and inspect the clear, accessible usage licence attached to data and metadata (R1.1). An ethics statement, privacy notice or generic compliance metric alone is insufficient."@en ;
+    map:fromPractice <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-fair-mapping.ttl#activity/DataHandlingEthics/row-3> ;
+    map:rationale "Risk assessment can establish requirements for controlled access and clear reuse permissions; neither requirement is specified by the activity label alone."@en ;
+    map:targetsPrinciple fair:R1.1 ;
+    map:viaPractice map:AttachUsageLicense .
+
+<https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-fair-mapping.ttl#contribution/DataHandlingEthics/row-4/indirect/A1.2> a owl:NamedIndividual,
+        map:IndirectContribution ;
+    rdfs:label "Create an Ethical Data Handling Strategy → A1.2"@en ;
+    dcterms:source <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/DAMA-PDOC_FAIR-MASTER_2026-11-16_V3.xlsx#DataHandlingEthics!A4:L4> ;
+    map:alignmentBasis "Activity-derived proposal"@en ;
+    map:applicabilityCondition "Inspect approved policy or control requirements that explicitly distinguish access authorization from permitted reuse. Test any resulting authentication and authorization procedure for identified resources (A1.2) and inspect the clear, accessible usage licence attached to data and metadata (R1.1). An ethics statement, privacy notice or generic compliance metric alone is insufficient."@en ;
+    map:assessmentStatus "Proposed; no implementation or compliance asserted"@en ;
+    map:evidenceRequirement "Inspect approved policy or control requirements that explicitly distinguish access authorization from permitted reuse. Test any resulting authentication and authorization procedure for identified resources (A1.2) and inspect the clear, accessible usage licence attached to data and metadata (R1.1). An ethics statement, privacy notice or generic compliance metric alone is insufficient."@en ;
+    map:fromPractice <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-fair-mapping.ttl#activity/DataHandlingEthics/row-4> ;
+    map:rationale "The strategy can commission authentication, authorization and resource-specific usage licensing when those obligations are explicitly stated."@en ;
+    map:targetsPrinciple fair:A1.2 ;
+    map:viaPractice map:ConfigureRetrievalAuthorization .
+
+<https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-fair-mapping.ttl#contribution/DataHandlingEthics/row-4/indirect/R1.1> a owl:NamedIndividual,
+        map:IndirectContribution ;
+    rdfs:label "Create an Ethical Data Handling Strategy → R1.1"@en ;
+    dcterms:source <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/DAMA-PDOC_FAIR-MASTER_2026-11-16_V3.xlsx#DataHandlingEthics!A4:L4> ;
+    map:alignmentBasis "Activity-derived proposal"@en ;
+    map:applicabilityCondition "Inspect approved policy or control requirements that explicitly distinguish access authorization from permitted reuse. Test any resulting authentication and authorization procedure for identified resources (A1.2) and inspect the clear, accessible usage licence attached to data and metadata (R1.1). An ethics statement, privacy notice or generic compliance metric alone is insufficient."@en ;
+    map:assessmentStatus "Proposed; no implementation or compliance asserted"@en ;
+    map:evidenceRequirement "Inspect approved policy or control requirements that explicitly distinguish access authorization from permitted reuse. Test any resulting authentication and authorization procedure for identified resources (A1.2) and inspect the clear, accessible usage licence attached to data and metadata (R1.1). An ethics statement, privacy notice or generic compliance metric alone is insufficient."@en ;
+    map:fromPractice <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-fair-mapping.ttl#activity/DataHandlingEthics/row-4> ;
+    map:rationale "The strategy can commission authentication, authorization and resource-specific usage licensing when those obligations are explicitly stated."@en ;
+    map:targetsPrinciple fair:R1.1 ;
+    map:viaPractice map:AttachUsageLicense .
+
+<https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-fair-mapping.ttl#contribution/DataHandlingEthics/row-5/indirect/A1.2> a owl:NamedIndividual,
+        map:IndirectContribution ;
+    rdfs:label "Identify and Remediate Gaps in Existing Practices → A1.2"@en ;
+    dcterms:source <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/DAMA-PDOC_FAIR-MASTER_2026-11-16_V3.xlsx#DataHandlingEthics!A5:L5> ;
+    map:alignmentBasis "Activity-derived proposal"@en ;
+    map:applicabilityCondition "Inspect approved policy or control requirements that explicitly distinguish access authorization from permitted reuse. Test any resulting authentication and authorization procedure for identified resources (A1.2) and inspect the clear, accessible usage licence attached to data and metadata (R1.1). An ethics statement, privacy notice or generic compliance metric alone is insufficient."@en ;
+    map:assessmentStatus "Proposed; no implementation or compliance asserted"@en ;
+    map:evidenceRequirement "Inspect approved policy or control requirements that explicitly distinguish access authorization from permitted reuse. Test any resulting authentication and authorization procedure for identified resources (A1.2) and inspect the clear, accessible usage licence attached to data and metadata (R1.1). An ethics statement, privacy notice or generic compliance metric alone is insufficient."@en ;
+    map:fromPractice <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-fair-mapping.ttl#activity/DataHandlingEthics/row-5> ;
+    map:rationale "Remediation can address gaps in access controls and reuse permissions only where those gaps and the affected resources are identified."@en ;
+    map:targetsPrinciple fair:A1.2 ;
+    map:viaPractice map:ConfigureRetrievalAuthorization .
+
+<https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-fair-mapping.ttl#contribution/DataHandlingEthics/row-5/indirect/R1.1> a owl:NamedIndividual,
+        map:IndirectContribution ;
+    rdfs:label "Identify and Remediate Gaps in Existing Practices → R1.1"@en ;
+    dcterms:source <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/DAMA-PDOC_FAIR-MASTER_2026-11-16_V3.xlsx#DataHandlingEthics!A5:L5> ;
+    map:alignmentBasis "Activity-derived proposal"@en ;
+    map:applicabilityCondition "Inspect approved policy or control requirements that explicitly distinguish access authorization from permitted reuse. Test any resulting authentication and authorization procedure for identified resources (A1.2) and inspect the clear, accessible usage licence attached to data and metadata (R1.1). An ethics statement, privacy notice or generic compliance metric alone is insufficient."@en ;
+    map:assessmentStatus "Proposed; no implementation or compliance asserted"@en ;
+    map:evidenceRequirement "Inspect approved policy or control requirements that explicitly distinguish access authorization from permitted reuse. Test any resulting authentication and authorization procedure for identified resources (A1.2) and inspect the clear, accessible usage licence attached to data and metadata (R1.1). An ethics statement, privacy notice or generic compliance metric alone is insufficient."@en ;
+    map:fromPractice <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-fair-mapping.ttl#activity/DataHandlingEthics/row-5> ;
+    map:rationale "Remediation can address gaps in access controls and reuse permissions only where those gaps and the affected resources are identified."@en ;
+    map:targetsPrinciple fair:R1.1 ;
+    map:viaPractice map:AttachUsageLicense .
+
+<https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-fair-mapping.ttl#contribution/DataHandlingEthics/row-7/indirect/A1.2> a owl:NamedIndividual,
+        map:IndirectContribution ;
+    rdfs:label "Implement Risk Mitigation → A1.2"@en ;
+    dcterms:source <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/DAMA-PDOC_FAIR-MASTER_2026-11-16_V3.xlsx#DataHandlingEthics!A7:L7> ;
+    map:alignmentBasis "Activity-derived proposal"@en ;
+    map:applicabilityCondition "Inspect approved policy or control requirements that explicitly distinguish access authorization from permitted reuse. Test any resulting authentication and authorization procedure for identified resources (A1.2) and inspect the clear, accessible usage licence attached to data and metadata (R1.1). An ethics statement, privacy notice or generic compliance metric alone is insufficient."@en ;
+    map:assessmentStatus "Proposed; no implementation or compliance asserted"@en ;
+    map:evidenceRequirement "Inspect approved policy or control requirements that explicitly distinguish access authorization from permitted reuse. Test any resulting authentication and authorization procedure for identified resources (A1.2) and inspect the clear, accessible usage licence attached to data and metadata (R1.1). An ethics statement, privacy notice or generic compliance metric alone is insufficient."@en ;
+    map:fromPractice <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-fair-mapping.ttl#activity/DataHandlingEthics/row-7> ;
+    map:rationale "Mitigation can commission access-authorization and reuse-permission controls when the ethical risk assessment identifies those specific requirements."@en ;
+    map:targetsPrinciple fair:A1.2 ;
+    map:viaPractice map:ConfigureRetrievalAuthorization .
+
+<https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-fair-mapping.ttl#contribution/DataHandlingEthics/row-7/indirect/R1.1> a owl:NamedIndividual,
+        map:IndirectContribution ;
+    rdfs:label "Implement Risk Mitigation → R1.1"@en ;
+    dcterms:source <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/DAMA-PDOC_FAIR-MASTER_2026-11-16_V3.xlsx#DataHandlingEthics!A7:L7> ;
+    map:alignmentBasis "Activity-derived proposal"@en ;
+    map:applicabilityCondition "Inspect approved policy or control requirements that explicitly distinguish access authorization from permitted reuse. Test any resulting authentication and authorization procedure for identified resources (A1.2) and inspect the clear, accessible usage licence attached to data and metadata (R1.1). An ethics statement, privacy notice or generic compliance metric alone is insufficient."@en ;
+    map:assessmentStatus "Proposed; no implementation or compliance asserted"@en ;
+    map:evidenceRequirement "Inspect approved policy or control requirements that explicitly distinguish access authorization from permitted reuse. Test any resulting authentication and authorization procedure for identified resources (A1.2) and inspect the clear, accessible usage licence attached to data and metadata (R1.1). An ethics statement, privacy notice or generic compliance metric alone is insufficient."@en ;
+    map:fromPractice <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-fair-mapping.ttl#activity/DataHandlingEthics/row-7> ;
+    map:rationale "Mitigation can commission access-authorization and reuse-permission controls when the ethical risk assessment identifies those specific requirements."@en ;
+    map:targetsPrinciple fair:R1.1 ;
+    map:viaPractice map:AttachUsageLicense .
+
+<https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-fair-mapping.ttl#contribution/DataHandlingEthics/row-8/indirect/A1.2> a owl:NamedIndividual,
+        map:IndirectContribution ;
+    rdfs:label "Implement Monitoring Plan → A1.2"@en ;
+    dcterms:source <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/DAMA-PDOC_FAIR-MASTER_2026-11-16_V3.xlsx#DataHandlingEthics!A8:L8> ;
+    map:alignmentBasis "Activity-derived proposal"@en ;
+    map:applicabilityCondition "Inspect approved policy or control requirements that explicitly distinguish access authorization from permitted reuse. Test any resulting authentication and authorization procedure for identified resources (A1.2) and inspect the clear, accessible usage licence attached to data and metadata (R1.1). An ethics statement, privacy notice or generic compliance metric alone is insufficient."@en ;
+    map:assessmentStatus "Proposed; no implementation or compliance asserted"@en ;
+    map:evidenceRequirement "Inspect approved policy or control requirements that explicitly distinguish access authorization from permitted reuse. Test any resulting authentication and authorization procedure for identified resources (A1.2) and inspect the clear, accessible usage licence attached to data and metadata (R1.1). An ethics statement, privacy notice or generic compliance metric alone is insufficient."@en ;
+    map:fromPractice <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-fair-mapping.ttl#activity/DataHandlingEthics/row-8> ;
+    map:rationale "Monitoring can sustain explicitly defined authorization and licensing controls. General ethics compliance incidents do not establish a FAIR-specific result."@en ;
+    map:targetsPrinciple fair:A1.2 ;
+    map:viaPractice map:ConfigureRetrievalAuthorization .
+
+<https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-fair-mapping.ttl#contribution/DataHandlingEthics/row-8/indirect/R1.1> a owl:NamedIndividual,
+        map:IndirectContribution ;
+    rdfs:label "Implement Monitoring Plan → R1.1"@en ;
+    dcterms:source <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/DAMA-PDOC_FAIR-MASTER_2026-11-16_V3.xlsx#DataHandlingEthics!A8:L8> ;
+    map:alignmentBasis "Activity-derived proposal"@en ;
+    map:applicabilityCondition "Inspect approved policy or control requirements that explicitly distinguish access authorization from permitted reuse. Test any resulting authentication and authorization procedure for identified resources (A1.2) and inspect the clear, accessible usage licence attached to data and metadata (R1.1). An ethics statement, privacy notice or generic compliance metric alone is insufficient."@en ;
+    map:assessmentStatus "Proposed; no implementation or compliance asserted"@en ;
+    map:evidenceRequirement "Inspect approved policy or control requirements that explicitly distinguish access authorization from permitted reuse. Test any resulting authentication and authorization procedure for identified resources (A1.2) and inspect the clear, accessible usage licence attached to data and metadata (R1.1). An ethics statement, privacy notice or generic compliance metric alone is insufficient."@en ;
+    map:fromPractice <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-fair-mapping.ttl#activity/DataHandlingEthics/row-8> ;
+    map:rationale "Monitoring can sustain explicitly defined authorization and licensing controls. General ethics compliance incidents do not establish a FAIR-specific result."@en ;
+    map:targetsPrinciple fair:R1.1 ;
+    map:viaPractice map:AttachUsageLicense .
+
+map:deliverables a owl:AnnotationProperty ;
+    rdfs:label "deliverables"@en .
+
+map:derivedFromActivity a owl:ObjectProperty ;
+    rdfs:label "derived from source activity"@en ;
+    rdfs:domain map:AreaAlignmentAssessment ;
+    rdfs:range map:SourceActivity .
+
+map:directSupportExplanation a owl:AnnotationProperty ;
+    rdfs:label "direct support explanation"@en .
+
+map:evidenceForPrinciple a owl:ObjectProperty ;
+    rdfs:label "provides evidence for principle"@en ;
+    rdfs:domain map:Practice ;
+    rdfs:range fair:FAIR-SubPrinciple .
+
+map:evidenceRequirement a owl:AnnotationProperty ;
+    rdfs:label "evidence requirement"@en .
+
+map:fromTopic a owl:ObjectProperty ;
+    rdfs:label "from management topic"@en ;
+    rdfs:domain map:AreaAlignmentAssessment ;
+    rdfs:range dama:ManagementTopic .
 
 map:inKnowledgeArea a owl:ObjectProperty ;
     rdfs:domain map:Practice ;
-    rdfs:range dama:KnowledgeArea .
+    rdfs:range dama:KnowledgeArea ;
+    rdfs:subPropertyOf map:inTopic .
 
-map:fromPractice a owl:ObjectProperty, owl:FunctionalProperty ;
+map:indirectSupportExplanation a owl:AnnotationProperty ;
+    rdfs:label "indirect support explanation"@en .
+
+map:lifecycleCode a owl:AnnotationProperty ;
+    rdfs:label "lifecycle code"@en .
+
+map:proposedApprovingPersona a owl:ObjectProperty ;
+    rdfs:label "proposed approving persona"@en ;
+    rdfs:domain map:SourceActivity ;
+    rdfs:range persona:Persona .
+
+map:proposedContributingPersona a owl:ObjectProperty ;
+    rdfs:label "proposed contributing persona"@en ;
+    rdfs:domain map:SourceActivity ;
+    rdfs:range persona:Persona .
+
+map:proposedResponsiblePersona a owl:ObjectProperty ;
+    rdfs:label "proposed responsible persona"@en ;
+    rdfs:domain map:SourceActivity ;
+    rdfs:range persona:Persona .
+
+map:rationale a owl:AnnotationProperty .
+
+map:relevantDeliverables a owl:AnnotationProperty ;
+    rdfs:label "relevant deliverables"@en .
+
+map:sourceRow a owl:AnnotationProperty ;
+    rdfs:label "source row"@en .
+
+map:sourceWorksheet a owl:AnnotationProperty ;
+    rdfs:label "source worksheet"@en .
+
+map:AssignProvenanceResponsibility a owl:NamedIndividual,
+        map:Practice ;
+    rdfs:label "Assign responsibility for documenting provenance"@en ;
+    map:inKnowledgeArea dama:DataGovernance .
+
+map:ImplementOpenRetrievalProtocol a owl:NamedIndividual,
+        map:Practice ;
+    rdfs:label "Implement an open, free, universally implementable retrieval protocol"@en ;
+    map:assessmentStatus "Proposed evidence-producing practice; implementation not asserted"@en ;
+    map:evidenceForPrinciple fair:A1.1 ;
+    map:inKnowledgeArea dama:DataIntegrationAndInteroperability .
+
+map:IncludeDatasetIdentifier a owl:NamedIndividual,
+        map:Practice ;
+    rdfs:label "Include the dataset identifier in its metadata"@en ;
+    map:inKnowledgeArea dama:MetadataManagement .
+
+map:IndexInSearchableCatalog a owl:NamedIndividual,
+        map:Practice ;
+    rdfs:label "Index data or metadata in a searchable catalog"@en ;
+    map:inKnowledgeArea dama:MetadataManagement .
+
+map:PublishQualifiedResourceReferences a owl:NamedIndividual,
+        map:Practice ;
+    rdfs:label "Publish explicit typed references to related identified resources"@en ;
+    map:assessmentStatus "Proposed evidence-producing practice; implementation not asserted"@en ;
+    map:evidenceForPrinciple fair:I3 ;
+    map:inKnowledgeArea dama:MetadataManagement .
+
+map:SetDataSecurityPolicy a owl:NamedIndividual,
+        map:Practice ;
+    rdfs:label "Set a data security policy"@en ;
+    map:inKnowledgeArea dama:DataSecurity .
+
+map:SetLicensingPolicy a owl:NamedIndividual,
+        map:Practice ;
+    rdfs:label "Set a data licensing policy"@en ;
+    map:inKnowledgeArea dama:DataGovernance .
+
+map:ValidateCommunityStandards a owl:NamedIndividual,
+        map:Practice ;
+    rdfs:label "Validate resources against applicable domain community standards"@en ;
+    map:assessmentStatus "Proposed evidence-producing practice; implementation not asserted"@en ;
+    map:evidenceForPrinciple fair:R1.3 ;
+    map:inKnowledgeArea dama:DataQualityManagement .
+
+map:fromPractice a owl:FunctionalProperty,
+        owl:ObjectProperty ;
     rdfs:domain map:FAIRContribution ;
     rdfs:range map:Practice .
 
-map:targetsPrinciple a owl:ObjectProperty, owl:FunctionalProperty ;
+map:inTopic a owl:ObjectProperty ;
+    rdfs:label "in management topic"@en ;
+    rdfs:domain map:Practice ;
+    rdfs:range dama:ManagementTopic .
+
+map:targetsPrinciple a owl:FunctionalProperty,
+        owl:ObjectProperty ;
     rdfs:domain map:FAIRContribution ;
     rdfs:range fair:FAIR-SubPrinciple .
 
@@ -59,104 +1593,455 @@ map:viaPractice a owl:ObjectProperty ;
     rdfs:domain map:IndirectContribution ;
     rdfs:range map:Practice .
 
-# Practices are local examples associated with the DAMA knowledge areas.
-map:PublishProvenance a owl:NamedIndividual, map:Practice ;
-    rdfs:label "Publish detailed dataset provenance"@en ;
-    map:inKnowledgeArea dama:MetadataManagement .
+<https://orcid.org/0000-0001-5095-7052> rdfs:label "Chris Day"@en .
 
-map:AssignProvenanceResponsibility a owl:NamedIndividual, map:Practice ;
-    rdfs:label "Assign responsibility for documenting provenance"@en ;
-    map:inKnowledgeArea dama:DataGovernance .
-
-map:IncludeDatasetIdentifier a owl:NamedIndividual, map:Practice ;
-    rdfs:label "Include the dataset identifier in its metadata"@en ;
-    map:inKnowledgeArea dama:MetadataManagement .
-
-map:PublishSharedRepresentation a owl:NamedIndividual, map:Practice ;
-    rdfs:label "Publish data or metadata in a shared representation"@en ;
+map:EnableIdentifierBasedRetrieval a owl:NamedIndividual,
+        map:Practice ;
+    rdfs:label "Implement retrieval by identifier through a standardized protocol"@en ;
+    map:assessmentStatus "Proposed evidence-producing practice; implementation not asserted"@en ;
+    map:evidenceForPrinciple fair:A1 ;
     map:inKnowledgeArea dama:DataIntegrationAndInteroperability .
 
-map:AttachUsageLicense a owl:NamedIndividual, map:Practice ;
+map:PublishRichDiscoveryMetadata a owl:NamedIndividual,
+        map:Practice ;
+    rdfs:label "Publish rich resource discovery descriptions"@en ;
+    map:assessmentStatus "Proposed evidence-producing practice; implementation not asserted"@en ;
+    map:evidenceForPrinciple fair:F2 ;
+    map:inKnowledgeArea dama:MetadataManagement .
+
+map:PublishRichReuseDescriptions a owl:NamedIndividual,
+        map:Practice ;
+    rdfs:label "Publish accurate and relevant resource descriptions for reuse"@en ;
+    map:assessmentStatus "Proposed evidence-producing practice; implementation not asserted"@en ;
+    map:evidenceForPrinciple fair:R1 ;
+    map:inKnowledgeArea dama:MetadataManagement .
+
+map:PublishSharedRepresentation a owl:NamedIndividual,
+        map:Practice ;
+    rdfs:label "Publish data or metadata in a shared representation"@en ;
+    map:evidenceForPrinciple fair:I1 ;
+    map:inKnowledgeArea dama:DataIntegrationAndInteroperability .
+
+<https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-fair-mapping.ttl#activity/BigDataDataScience/row-2> a owl:NamedIndividual,
+        map:SourceActivity ;
+    rdfs:label "Define Big Data Strategy & Business Needs"@en ;
+    dcterms:identifier "BigDataDataScience!A2:L2" ;
+    dcterms:source <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/DAMAV2Images/13_BigDataDataScience.webp>,
+        <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/DAMA-PDOC_FAIR-MASTER_2026-11-16_V3.xlsx#BigDataDataScience!A2:L2> ;
+    map:alignmentBasis "Activity-derived proposal; source image plus interpreted associations"@en ;
+    map:assessmentStatus "Proposed; no implementation or compliance asserted"@en ;
+    map:deliverables "Big Data Strategy & Standards"@en ;
+    map:directSupportExplanation "A strategy is an enabling decision record; it does not itself establish FAIR properties of data or metadata."@en ;
+    map:evidenceRequirement "Inspect approved standards and their domain relevance, then validate actual data and metadata against the applicable community specifications. Strategy approval alone does not demonstrate conformance."@en ;
+    map:inTopic dama:BigDataAndDataScience ;
+    map:indirectSupportExplanation "Standards selection can commission domain-relevant community conformance if named external standards, versions and acceptance tests are explicitly adopted. Internal IT standards alone are insufficient."@en ;
+    map:lifecycleCode "P"@en ;
+    map:proposedApprovingPersona <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#profile/business-executives>,
+        <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#profile/it-executives> ;
+    map:proposedContributingPersona <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#profile/data-quality-and-governance-specialists>,
+        <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#profile/data-scientists>,
+        <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#profile/information-consumers> ;
+    map:proposedResponsiblePersona <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#profile/analytic-design-lead>,
+        <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#profile/big-data-platform-architects> ;
+    map:relevantDeliverables "Big Data Strategy & Standards"@en ;
+    map:sourceRow 2 ;
+    map:sourceWorksheet "BigDataDataScience" .
+
+map:FAIRContribution a owl:Class ;
+    rdfs:label "FAIR contribution assertion"@en ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty map:fromPractice ;
+            owl:someValuesFrom map:Practice ],
+        [ a owl:Restriction ;
+            owl:onProperty map:targetsPrinciple ;
+            owl:someValuesFrom fair:FAIR-SubPrinciple ] ;
+    owl:disjointUnionOf ( map:DirectContribution map:IndirectContribution ) .
+
+<https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-fair-mapping.ttl#activity/BigDataDataScience/row-10> a owl:NamedIndividual,
+        map:SourceActivity ;
+    rdfs:label "Deploy and Monitor"@en ;
+    dcterms:identifier "BigDataDataScience!A10:L10" ;
+    dcterms:source <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/DAMAV2Images/13_BigDataDataScience.webp>,
+        <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/DAMA-PDOC_FAIR-MASTER_2026-11-16_V3.xlsx#BigDataDataScience!A10:L10> ;
+    map:alignmentBasis "Activity-derived proposal; source image plus interpreted associations"@en ;
+    map:assessmentStatus "Proposed; no implementation or compliance asserted"@en ;
+    map:deliverables "Operations Plan; Model Performance; Model Enhancement Plan"@en ;
+    map:directSupportExplanation "Deployment, availability and model performance do not directly establish a FAIR principle."@en ;
+    map:evidenceRequirement "Test standardized retrieval of identified resources and inspect version-linked deployment and execution provenance. Monitoring predictive accuracy or infrastructure utilization alone is insufficient."@en ;
+    map:inTopic dama:BigDataAndDataScience ;
+    map:indirectSupportExplanation "Operations can sustain identifier-based access and record versioned inputs, model changes and execution history when those controls are explicitly included in the operations plan."@en ;
+    map:lifecycleCode "O,C"@en ;
+    map:proposedApprovingPersona <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#profile/business-executives>,
+        <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#profile/it-executives> ;
+    map:proposedContributingPersona <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#profile/analytic-design-lead>,
+        <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#profile/data-quality-and-governance-specialists>,
+        <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#profile/ingestion-architects>,
+        <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#profile/metadata-specialists> ;
+    map:proposedResponsiblePersona <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#profile/big-data-platform-architects>,
+        <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#profile/data-scientists> ;
+    map:relevantDeliverables "Operations Plan; Model Performance; Model Enhancement Plan"@en ;
+    map:sourceRow 10 ;
+    map:sourceWorksheet "BigDataDataScience" .
+
+<https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-fair-mapping.ttl#activity/BigDataDataScience/row-4> a owl:NamedIndividual,
+        map:SourceActivity ;
+    rdfs:label "Choose Data Sources"@en ;
+    dcterms:identifier "BigDataDataScience!A4:L4" ;
+    dcterms:source <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/DAMAV2Images/13_BigDataDataScience.webp>,
+        <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/DAMA-PDOC_FAIR-MASTER_2026-11-16_V3.xlsx#BigDataDataScience!A4:L4> ;
+    map:alignmentBasis "Activity-derived proposal; source image plus interpreted associations"@en ;
+    map:assessmentStatus "Proposed; no implementation or compliance asserted"@en ;
+    map:deliverables "Data Sourcing Plan"@en ;
+    map:directSupportExplanation "Selecting sources does not by itself publish resource descriptions, provenance or usage licences."@en ;
+    map:evidenceRequirement "Trace selected source versions to providers and acquisition context; inspect accessible usage licences linked to each resource. A commercial purchase or access agreement alone is not a FAIR usage licence."@en ;
+    map:inTopic dama:BigDataAndDataScience ;
+    map:indirectSupportExplanation "Source evaluation can record origin, permitted reuse and descriptive context, enabling provenance and licensing requirements when resource-linked records and accessible terms are retained."@en ;
+    map:lifecycleCode "P"@en ;
+    map:proposedApprovingPersona <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#profile/analytic-design-lead> ;
+    map:proposedContributingPersona <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#profile/data-producers>,
+        <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#profile/data-quality-and-governance-specialists>,
+        <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#profile/data-smes>,
+        <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#profile/data-suppliers> ;
+    map:proposedResponsiblePersona <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#profile/data-curators>,
+        <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#profile/data-scientists> ;
+    map:relevantDeliverables "Data Sourcing Plan"@en ;
+    map:sourceRow 4 ;
+    map:sourceWorksheet "BigDataDataScience" .
+
+<https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-fair-mapping.ttl#activity/BigDataDataScience/row-5> a owl:NamedIndividual,
+        map:SourceActivity ;
+    rdfs:label "Acquire & Ingest Data Sources"@en ;
+    dcterms:identifier "BigDataDataScience!A5:L5" ;
+    dcterms:source <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/DAMAV2Images/13_BigDataDataScience.webp>,
+        <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/DAMA-PDOC_FAIR-MASTER_2026-11-16_V3.xlsx#BigDataDataScience!A5:L5> ;
+    map:alignmentBasis "Activity-derived proposal; source image plus interpreted associations"@en ;
+    map:assessmentStatus "Proposed; no implementation or compliance asserted"@en ;
+    map:deliverables "Acquired Data Sources"@en ;
+    map:directSupportExplanation "Ingesting data is not direct evidence of rich metadata or provenance; the diagram does not explicitly specify their capture."@en ;
+    map:evidenceRequirement "Inspect descriptions linked to ingested resources and provenance records identifying sources, versions, agents, acquisition times and transformations. Successful loading and scanning alone are insufficient."@en ;
+    map:inTopic dama:BigDataAndDataScience ;
+    map:indirectSupportExplanation "Ingestion can capture resource descriptions, source versions, acquisition times and transformations if metadata capture is added as an explicit requirement."@en ;
+    map:lifecycleCode "D"@en ;
+    map:proposedApprovingPersona <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#profile/big-data-platform-architects> ;
+    map:proposedContributingPersona <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#profile/data-producers>,
+        <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#profile/data-scientists>,
+        <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#profile/data-suppliers>,
+        <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#profile/metadata-specialists> ;
+    map:proposedResponsiblePersona <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#profile/data-curators>,
+        <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#profile/ingestion-architects> ;
+    map:relevantDeliverables "Acquired Data Sources"@en ;
+    map:sourceRow 5 ;
+    map:sourceWorksheet "BigDataDataScience" .
+
+<https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-fair-mapping.ttl#activity/BigDataDataScience/row-6> a owl:NamedIndividual,
+        map:SourceActivity ;
+    rdfs:label "Develop Hypotheses & Methods"@en ;
+    dcterms:identifier "BigDataDataScience!A6:L6" ;
+    dcterms:source <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/DAMAV2Images/13_BigDataDataScience.webp>,
+        <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/DAMA-PDOC_FAIR-MASTER_2026-11-16_V3.xlsx#BigDataDataScience!A6:L6> ;
+    map:alignmentBasis "Activity-derived proposal; source image plus interpreted associations"@en ;
+    map:assessmentStatus "Proposed; no implementation or compliance asserted"@en ;
+    map:deliverables "Data Analysis and Hypotheses"@en ;
+    map:directSupportExplanation "Inferred potential direct support: documented hypotheses and methods can supply accurate, relevant methodological context for reusing the associated analytical data. The diagram does not establish that these descriptions are complete or associated with identifiable resources."@en ;
+    map:evidenceRequirement "For R1, inspect resource-linked descriptions of hypotheses, methods, assumptions, units, scope and limitations, and verify their accuracy and relevance for reuse. For R1.2, additionally inspect input versions, methods, agents and execution history. An unexplained model or hypothesis list is insufficient."@en ;
+    map:inTopic dama:BigDataAndDataScience ;
+    map:indirectSupportExplanation "Versioned methods and input records can enable provenance when linked to the resulting data and model outputs."@en ;
+    map:lifecycleCode "D"@en ;
+    map:proposedApprovingPersona <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#profile/analytic-design-lead> ;
+    map:proposedContributingPersona <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#profile/data-curators>,
+        <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#profile/data-smes>,
+        <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#profile/metadata-specialists> ;
+    map:proposedResponsiblePersona <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#profile/data-scientists> ;
+    map:relevantDeliverables "Data Analysis and Hypotheses"@en ;
+    map:sourceRow 6 ;
+    map:sourceWorksheet "BigDataDataScience" .
+
+<https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-fair-mapping.ttl#activity/BigDataDataScience/row-8> a owl:NamedIndividual,
+        map:SourceActivity ;
+    rdfs:label "Explore Data Using Models"@en ;
+    dcterms:identifier "BigDataDataScience!A8:L8" ;
+    dcterms:source <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/DAMAV2Images/13_BigDataDataScience.webp>,
+        <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/DAMA-PDOC_FAIR-MASTER_2026-11-16_V3.xlsx#BigDataDataScience!A8:L8> ;
+    map:alignmentBasis "Activity-derived proposal; source image plus interpreted associations"@en ;
+    map:assessmentStatus "Proposed; no implementation or compliance asserted"@en ;
+    map:deliverables "Data Insights and Findings"@en ;
+    map:directSupportExplanation "Exploratory analysis and model accuracy do not inherently establish FAIR descriptions or provenance."@en ;
+    map:evidenceRequirement "Inspect resource-linked descriptions of analytical context and limitations and a traceable execution record linking inputs, model versions and outputs. Performance scores alone are insufficient."@en ;
+    map:inTopic dama:BigDataAndDataScience ;
+    map:indirectSupportExplanation "Exploration can enrich reuse descriptions and provenance if assumptions, limitations, source versions, model versions and analytical steps are recorded with the resulting resources."@en ;
+    map:lifecycleCode "D"@en ;
+    map:proposedApprovingPersona <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#profile/analytic-design-lead> ;
+    map:proposedContributingPersona <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#profile/business-partners>,
+        <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#profile/data-curators>,
+        <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#profile/data-smes> ;
+    map:proposedResponsiblePersona <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#profile/data-scientists> ;
+    map:relevantDeliverables "Data Insights and Findings"@en ;
+    map:sourceRow 8 ;
+    map:sourceWorksheet "BigDataDataScience" .
+
+<https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-fair-mapping.ttl#activity/BigDataDataScience/row-9> a owl:NamedIndividual,
+        map:SourceActivity ;
+    rdfs:label "Communicate Output to Stakeholders"@en ;
+    dcterms:identifier "BigDataDataScience!A9:L9" ;
+    dcterms:source <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/DAMAV2Images/13_BigDataDataScience.webp>,
+        <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/DAMA-PDOC_FAIR-MASTER_2026-11-16_V3.xlsx#BigDataDataScience!A9:L9> ;
+    map:alignmentBasis "Activity-derived proposal; source image plus interpreted associations"@en ;
+    map:assessmentStatus "Proposed; no implementation or compliance asserted"@en ;
+    map:deliverables "Data Insights and Findings"@en ;
+    map:directSupportExplanation "Communicating a chart, presentation or finding does not automatically create rich resource metadata, a searchable registration or standardized retrieval."@en ;
+    map:evidenceRequirement "Inspect resource-linked discovery and reuse descriptions covering meaning, methods, coverage, assumptions and limitations. A presentation without associated resource descriptions is insufficient."@en ;
+    map:inTopic dama:BigDataAndDataScience ;
+    map:indirectSupportExplanation "Communications can make discovery and reuse context available if findings are accompanied by accurate descriptions linked to the analytical resources."@en ;
+    map:lifecycleCode "D"@en ;
+    map:proposedApprovingPersona <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#profile/business-executives> ;
+    map:proposedContributingPersona <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#profile/business-partners>,
+        <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#profile/intermediaries>,
+        <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#profile/metadata-specialists>,
+        <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#profile/stakeholders> ;
+    map:proposedResponsiblePersona <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#profile/analytic-design-lead>,
+        <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#profile/data-scientists> ;
+    map:relevantDeliverables "Data Insights and Findings"@en ;
+    map:sourceRow 9 ;
+    map:sourceWorksheet "BigDataDataScience" .
+
+<https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-fair-mapping.ttl#activity/DataHandlingEthics/row-2> a owl:NamedIndividual,
+        map:SourceActivity ;
+    rdfs:label "Review Data-Handling Practices"@en ;
+    dcterms:identifier "DataHandlingEthics!A2:L2" ;
+    dcterms:source <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/DAMAV2Images/01_DataHandlingEthics.webp>,
+        <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/DAMA-PDOC_FAIR-MASTER_2026-11-16_V3.xlsx#DataHandlingEthics!A2:L2> ;
+    map:alignmentBasis "Activity-derived proposal; source image plus interpreted associations"@en ;
+    map:assessmentStatus "Proposed; no implementation or compliance asserted"@en ;
+    map:deliverables "Current Practices and Gaps"@en ;
+    map:directSupportExplanation "No direct FAIR requirement is established by this ethical-practice activity or its named deliverables. Ethical responsibility and FAIR fulfilment are related but distinct."@en ;
+    map:evidenceRequirement "Inspect approved policy or control requirements that explicitly distinguish access authorization from permitted reuse. Test any resulting authentication and authorization procedure for identified resources (A1.2) and inspect the clear, accessible usage licence attached to data and metadata (R1.1). An ethics statement, privacy notice or generic compliance metric alone is insufficient."@en ;
+    map:inTopic dama:DataHandlingEthics ;
+    map:indirectSupportExplanation "Review can identify gaps in authorized access and permitted reuse if the review criteria explicitly include them."@en ;
+    map:lifecycleCode "P"@en ;
+    map:proposedApprovingPersona <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#profile/data-governance-bodies> ;
+    map:proposedContributingPersona <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#profile/data-providers>,
+        <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#profile/data-stewards>,
+        <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#profile/regulators>,
+        <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#profile/subject-matter-experts> ;
+    map:proposedResponsiblePersona <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#profile/coordinating-data-stewards>,
+        <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#profile/dm-services> ;
+    map:relevantDeliverables "Current Practices and Gaps"@en ;
+    map:sourceRow 2 ;
+    map:sourceWorksheet "DataHandlingEthics" .
+
+<https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-fair-mapping.ttl#activity/DataHandlingEthics/row-3> a owl:NamedIndividual,
+        map:SourceActivity ;
+    rdfs:label "Identify Principles, Practices, and Risk Factors"@en ;
+    dcterms:identifier "DataHandlingEthics!A3:L3" ;
+    dcterms:source <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/DAMAV2Images/01_DataHandlingEthics.webp>,
+        <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/DAMA-PDOC_FAIR-MASTER_2026-11-16_V3.xlsx#DataHandlingEthics!A3:L3> ;
+    map:alignmentBasis "Activity-derived proposal; source image plus interpreted associations"@en ;
+    map:assessmentStatus "Proposed; no implementation or compliance asserted"@en ;
+    map:deliverables "Current Practices and Gaps; Ethical Data Handling Strategy"@en ;
+    map:directSupportExplanation "No direct FAIR requirement is established by this ethical-practice activity or its named deliverables. Ethical responsibility and FAIR fulfilment are related but distinct."@en ;
+    map:evidenceRequirement "Inspect approved policy or control requirements that explicitly distinguish access authorization from permitted reuse. Test any resulting authentication and authorization procedure for identified resources (A1.2) and inspect the clear, accessible usage licence attached to data and metadata (R1.1). An ethics statement, privacy notice or generic compliance metric alone is insufficient."@en ;
+    map:inTopic dama:DataHandlingEthics ;
+    map:indirectSupportExplanation "Risk assessment can establish requirements for controlled access and clear reuse permissions; neither requirement is specified by the activity label alone."@en ;
+    map:lifecycleCode "P"@en ;
+    map:proposedApprovingPersona <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#profile/cdo-cio-8988b0c1>,
+        <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#profile/executives> ;
+    map:proposedContributingPersona <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#profile/coordinating-data-stewards>,
+        <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#profile/executive-data-stewards>,
+        <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#profile/regulators> ;
+    map:proposedResponsiblePersona <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#profile/data-governance-bodies>,
+        <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#profile/subject-matter-experts> ;
+    map:relevantDeliverables "Current Practices and Gaps; Ethical Data Handling Strategy"@en ;
+    map:sourceRow 3 ;
+    map:sourceWorksheet "DataHandlingEthics" .
+
+<https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-fair-mapping.ttl#activity/DataHandlingEthics/row-4> a owl:NamedIndividual,
+        map:SourceActivity ;
+    rdfs:label "Create an Ethical Data Handling Strategy"@en ;
+    dcterms:identifier "DataHandlingEthics!A4:L4" ;
+    dcterms:source <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/DAMAV2Images/01_DataHandlingEthics.webp>,
+        <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/DAMA-PDOC_FAIR-MASTER_2026-11-16_V3.xlsx#DataHandlingEthics!A4:L4> ;
+    map:alignmentBasis "Activity-derived proposal; source image plus interpreted associations"@en ;
+    map:assessmentStatus "Proposed; no implementation or compliance asserted"@en ;
+    map:deliverables "Ethical Data Handling Strategy; Ethical Corporate Statements on Data"@en ;
+    map:directSupportExplanation "No direct FAIR requirement is established by this ethical-practice activity or its named deliverables. Ethical responsibility and FAIR fulfilment are related but distinct."@en ;
+    map:evidenceRequirement "Inspect approved policy or control requirements that explicitly distinguish access authorization from permitted reuse. Test any resulting authentication and authorization procedure for identified resources (A1.2) and inspect the clear, accessible usage licence attached to data and metadata (R1.1). An ethics statement, privacy notice or generic compliance metric alone is insufficient."@en ;
+    map:inTopic dama:DataHandlingEthics ;
+    map:indirectSupportExplanation "The strategy can commission authentication, authorization and resource-specific usage licensing when those obligations are explicitly stated."@en ;
+    map:lifecycleCode "P"@en ;
+    map:proposedApprovingPersona <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#profile/cdo-cio-8988b0c1>,
+        <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#profile/executives> ;
+    map:proposedContributingPersona <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#profile/change-managers>,
+        <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#profile/executive-data-stewards>,
+        <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#profile/it-executives>,
+        <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#profile/subject-matter-experts> ;
+    map:proposedResponsiblePersona <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#profile/data-governance-bodies>,
+        <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#profile/dm-services> ;
+    map:relevantDeliverables "Ethical Data Handling Strategy; Ethical Corporate Statements on Data"@en ;
+    map:sourceRow 4 ;
+    map:sourceWorksheet "DataHandlingEthics" .
+
+<https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-fair-mapping.ttl#activity/DataHandlingEthics/row-5> a owl:NamedIndividual,
+        map:SourceActivity ;
+    rdfs:label "Identify and Remediate Gaps in Existing Practices"@en ;
+    dcterms:identifier "DataHandlingEthics!A5:L5" ;
+    dcterms:source <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/DAMAV2Images/01_DataHandlingEthics.webp>,
+        <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/DAMA-PDOC_FAIR-MASTER_2026-11-16_V3.xlsx#DataHandlingEthics!A5:L5> ;
+    map:alignmentBasis "Activity-derived proposal; source image plus interpreted associations"@en ;
+    map:assessmentStatus "Proposed; no implementation or compliance asserted"@en ;
+    map:deliverables "Current Practices and Gaps; Updated Policies"@en ;
+    map:directSupportExplanation "No direct FAIR requirement is established by this ethical-practice activity or its named deliverables. Ethical responsibility and FAIR fulfilment are related but distinct."@en ;
+    map:evidenceRequirement "Inspect approved policy or control requirements that explicitly distinguish access authorization from permitted reuse. Test any resulting authentication and authorization procedure for identified resources (A1.2) and inspect the clear, accessible usage licence attached to data and metadata (R1.1). An ethics statement, privacy notice or generic compliance metric alone is insufficient."@en ;
+    map:inTopic dama:DataHandlingEthics ;
+    map:indirectSupportExplanation "Remediation can address gaps in access controls and reuse permissions only where those gaps and the affected resources are identified."@en ;
+    map:lifecycleCode "D"@en ;
+    map:proposedApprovingPersona <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#profile/data-governance-bodies> ;
+    map:proposedContributingPersona <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#profile/change-managers>,
+        <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#profile/data-providers>,
+        <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#profile/data-stewards>,
+        <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#profile/subject-matter-experts> ;
+    map:proposedResponsiblePersona <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#profile/coordinating-data-stewards>,
+        <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#profile/dm-services> ;
+    map:relevantDeliverables "Updated Policies"@en ;
+    map:sourceRow 5 ;
+    map:sourceWorksheet "DataHandlingEthics" .
+
+<https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-fair-mapping.ttl#activity/DataHandlingEthics/row-7> a owl:NamedIndividual,
+        map:SourceActivity ;
+    rdfs:label "Implement Risk Mitigation"@en ;
+    dcterms:identifier "DataHandlingEthics!A7:L7" ;
+    dcterms:source <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/DAMAV2Images/01_DataHandlingEthics.webp>,
+        <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/DAMA-PDOC_FAIR-MASTER_2026-11-16_V3.xlsx#DataHandlingEthics!A7:L7> ;
+    map:alignmentBasis "Activity-derived proposal; source image plus interpreted associations"@en ;
+    map:assessmentStatus "Proposed; no implementation or compliance asserted"@en ;
+    map:deliverables "Updated Policies; Aligned Incentives, KPIs, and Targets"@en ;
+    map:directSupportExplanation "No direct FAIR requirement is established by this ethical-practice activity or its named deliverables. Ethical responsibility and FAIR fulfilment are related but distinct."@en ;
+    map:evidenceRequirement "Inspect approved policy or control requirements that explicitly distinguish access authorization from permitted reuse. Test any resulting authentication and authorization procedure for identified resources (A1.2) and inspect the clear, accessible usage licence attached to data and metadata (R1.1). An ethics statement, privacy notice or generic compliance metric alone is insufficient."@en ;
+    map:inTopic dama:DataHandlingEthics ;
+    map:indirectSupportExplanation "Mitigation can commission access-authorization and reuse-permission controls when the ethical risk assessment identifies those specific requirements."@en ;
+    map:lifecycleCode "D"@en ;
+    map:proposedApprovingPersona <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#profile/cdo-cio-8988b0c1>,
+        <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#profile/executives> ;
+    map:proposedContributingPersona <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#profile/data-providers>,
+        <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#profile/executive-data-stewards>,
+        <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#profile/it-executives>,
+        <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#profile/subject-matter-experts> ;
+    map:proposedResponsiblePersona <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#profile/data-governance-bodies>,
+        <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#profile/dm-services> ;
+    map:relevantDeliverables "Updated Policies; Aligned Incentives, KPIs, and Targets"@en ;
+    map:sourceRow 7 ;
+    map:sourceWorksheet "DataHandlingEthics" .
+
+<https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-fair-mapping.ttl#activity/DataHandlingEthics/row-8> a owl:NamedIndividual,
+        map:SourceActivity ;
+    rdfs:label "Implement Monitoring Plan"@en ;
+    dcterms:identifier "DataHandlingEthics!A8:L8" ;
+    dcterms:source <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/DAMAV2Images/01_DataHandlingEthics.webp>,
+        <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/DAMA-PDOC_FAIR-MASTER_2026-11-16_V3.xlsx#DataHandlingEthics!A8:L8> ;
+    map:alignmentBasis "Activity-derived proposal; source image plus interpreted associations"@en ;
+    map:assessmentStatus "Proposed; no implementation or compliance asserted"@en ;
+    map:deliverables "Ethical Data Handling Reporting; Aligned Incentives, KPIs, and Targets"@en ;
+    map:directSupportExplanation "No direct FAIR requirement is established by this ethical-practice activity or its named deliverables. Ethical responsibility and FAIR fulfilment are related but distinct."@en ;
+    map:evidenceRequirement "Inspect approved policy or control requirements that explicitly distinguish access authorization from permitted reuse. Test any resulting authentication and authorization procedure for identified resources (A1.2) and inspect the clear, accessible usage licence attached to data and metadata (R1.1). An ethics statement, privacy notice or generic compliance metric alone is insufficient."@en ;
+    map:inTopic dama:DataHandlingEthics ;
+    map:indirectSupportExplanation "Monitoring can sustain explicitly defined authorization and licensing controls. General ethics compliance incidents do not establish a FAIR-specific result."@en ;
+    map:lifecycleCode "C"@en ;
+    map:proposedApprovingPersona <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#profile/cdo-cio-8988b0c1>,
+        <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#profile/executives> ;
+    map:proposedContributingPersona <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#profile/data-stewards>,
+        <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#profile/regulators>,
+        <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#profile/subject-matter-experts> ;
+    map:proposedResponsiblePersona <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#profile/coordinating-data-stewards>,
+        <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#profile/data-governance-bodies>,
+        <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#profile/dm-services> ;
+    map:relevantDeliverables "Ethical Data Handling Reporting; Aligned Incentives, KPIs, and Targets"@en ;
+    map:sourceRow 8 ;
+    map:sourceWorksheet "DataHandlingEthics" .
+
+<https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-fair-mapping.ttl#activity/BigDataDataScience/row-3> a owl:NamedIndividual,
+        map:SourceActivity ;
+    rdfs:label "Establish Big Data Environments"@en ;
+    dcterms:identifier "BigDataDataScience!A3:L3" ;
+    dcterms:source <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/DAMAV2Images/13_BigDataDataScience.webp>,
+        <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/DAMA-PDOC_FAIR-MASTER_2026-11-16_V3.xlsx#BigDataDataScience!A3:L3> ;
+    map:alignmentBasis "Activity-derived proposal; source image plus interpreted associations"@en ;
+    map:assessmentStatus "Proposed; no implementation or compliance asserted"@en ;
+    map:deliverables "Big Data Landscape; Operations Plan"@en ;
+    map:directSupportExplanation "A deployed platform, database or cloud service does not establish identifier-based retrieval or an open protocol."@en ;
+    map:evidenceRequirement "Test retrieval of identified data and metadata through a specified standard protocol; inspect freely implementable protocol specifications; test required authentication and authorization. Platform availability alone is insufficient."@en ;
+    map:inTopic dama:BigDataAndDataScience ;
+    map:indirectSupportExplanation "Platform design can enable standardized retrieval, open protocols and controlled access if these are explicitly commissioned and implemented."@en ;
+    map:lifecycleCode "D"@en ;
+    map:proposedApprovingPersona <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#profile/it-executives> ;
+    map:proposedContributingPersona <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#profile/data-quality-and-governance-specialists>,
+        <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#profile/ingestion-architects>,
+        <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#profile/metadata-specialists> ;
+    map:proposedResponsiblePersona <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#profile/big-data-platform-architects> ;
+    map:relevantDeliverables "Big Data Landscape; Operations Plan"@en ;
+    map:sourceRow 3 ;
+    map:sourceWorksheet "BigDataDataScience" .
+
+<https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-fair-mapping.ttl#activity/BigDataDataScience/row-7> a owl:NamedIndividual,
+        map:SourceActivity ;
+    rdfs:label "Integrate/Align Data For Analysis"@en ;
+    dcterms:identifier "BigDataDataScience!A7:L7" ;
+    dcterms:source <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/DAMAV2Images/13_BigDataDataScience.webp>,
+        <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/DAMA-PDOC_FAIR-MASTER_2026-11-16_V3.xlsx#BigDataDataScience!A7:L7> ;
+    map:alignmentBasis "Activity-derived proposal; source image plus interpreted associations"@en ;
+    map:assessmentStatus "Proposed; no implementation or compliance asserted"@en ;
+    map:deliverables "Data Analysis and Hypotheses"@en ;
+    map:directSupportExplanation "Joining datasets or aligning statistical features does not by itself establish a shared knowledge-representation language or qualified resource references."@en ;
+    map:evidenceRequirement "Inspect shared formal representations and identifiable resources with typed relations; trace transformations to source versions. Matching columns, feature vectors and internal keys alone are insufficient."@en ;
+    map:inTopic dama:BigDataAndDataScience ;
+    map:indirectSupportExplanation "Integration can preserve provenance and implement explicit semantic representations and typed links when these requirements are included in the integration design."@en ;
+    map:lifecycleCode "D"@en ;
+    map:proposedApprovingPersona <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#profile/analytic-design-lead>,
+        <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#profile/big-data-platform-architects> ;
+    map:proposedContributingPersona <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#profile/data-curators>,
+        <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#profile/data-quality-and-governance-specialists>,
+        <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#profile/data-smes>,
+        <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#profile/metadata-specialists> ;
+    map:proposedResponsiblePersona <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#profile/data-scientists>,
+        <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#profile/ingestion-architects> ;
+    map:relevantDeliverables "Data Analysis and Hypotheses"@en ;
+    map:sourceRow 7 ;
+    map:sourceWorksheet "BigDataDataScience" .
+
+map:DirectContribution a owl:Class ;
+    rdfs:label "Direct contribution"@en ;
+    rdfs:comment "The source practice produces or verifies evidence addressing the target FAIR subprinciple."@en .
+
+map:PublishProvenance a owl:NamedIndividual,
+        map:Practice ;
+    rdfs:label "Publish detailed dataset provenance"@en ;
+    map:evidenceForPrinciple fair:R1.2 ;
+    map:inKnowledgeArea dama:MetadataManagement .
+
+map:AttachUsageLicense a owl:NamedIndividual,
+        map:Practice ;
     rdfs:label "Attach a usage license to the published data or metadata"@en ;
+    map:evidenceForPrinciple fair:R1.1 ;
     map:inKnowledgeArea dama:MetadataManagement .
 
-map:SetLicensingPolicy a owl:NamedIndividual, map:Practice ;
-    rdfs:label "Set a data licensing policy"@en ;
-    map:inKnowledgeArea dama:DataGovernance .
-
-map:ConfigureRetrievalAuthorization a owl:NamedIndividual, map:Practice ;
+map:ConfigureRetrievalAuthorization a owl:NamedIndividual,
+        map:Practice ;
     rdfs:label "Configure authentication and authorization for retrieval"@en ;
+    map:evidenceForPrinciple fair:A1.2 ;
     map:inKnowledgeArea dama:DataSecurity .
 
-map:IndexInSearchableCatalog a owl:NamedIndividual, map:Practice ;
-    rdfs:label "Index data or metadata in a searchable catalog"@en ;
-    map:inKnowledgeArea dama:MetadataManagement .
+map:SourceActivity a owl:Class ;
+    rdfs:label "Source activity"@en ;
+    rdfs:subClassOf map:Practice .
 
-map:SetDataSecurityPolicy a owl:NamedIndividual, map:Practice ;
-    rdfs:label "Set a data security policy"@en ;
-    map:inKnowledgeArea dama:DataSecurity .
+map:Practice a owl:Class ;
+    rdfs:label "DAMA-related practice"@en .
 
-# Proposed contribution assertions and vocabulary terms used as their sources.
-map:PublishProvenanceToR1_2 a owl:NamedIndividual, map:DirectContribution ;
-    map:fromPractice map:PublishProvenance ;
-    map:targetsPrinciple fair:R1.2 ;
-    map:rationale "The provenance record provides evidence about the origins and history of the data."@en ;
-    map:applicabilityCondition "Detailed provenance is associated with the data or metadata."@en ;
-    dcterms:source dama:MetadataManagement, fair:R1.2 .
+map:IndirectContribution a owl:Class ;
+    rdfs:label "Indirect contribution"@en ;
+    rdfs:comment "The source practice enables an intermediate practice that provides or verifies the evidence."@en ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty map:viaPractice ;
+            owl:someValuesFrom map:Practice ] .
 
-map:AssignProvenanceResponsibilityToR1_2 a owl:NamedIndividual, map:IndirectContribution ;
-    map:fromPractice map:AssignProvenanceResponsibility ;
-    map:targetsPrinciple fair:R1.2 ;
-    map:viaPractice map:PublishProvenance ;
-    map:rationale "Assigning responsibility enables the publication of detailed dataset provenance."@en ;
-    dcterms:source dama:DataGovernance, fair:R1.2 .
-
-map:IncludeDatasetIdentifierToF3 a owl:NamedIndividual, map:DirectContribution ;
-    map:fromPractice map:IncludeDatasetIdentifier ;
-    map:targetsPrinciple fair:F3 ;
-    map:rationale "The metadata record explicitly identifies the data it describes."@en ;
-    map:applicabilityCondition "The identifier in the metadata is the identifier of the described data."@en ;
-    dcterms:source dama:MetadataManagement, fair:F3 .
-
-map:PublishSharedRepresentationToI1 a owl:NamedIndividual, map:DirectContribution ;
-    map:fromPractice map:PublishSharedRepresentation ;
-    map:targetsPrinciple fair:I1 ;
-    map:rationale "The published representation provides evidence of the knowledge representation language used."@en ;
-    map:applicabilityCondition "The language is formal, accessible, shared and broadly applicable."@en ;
-    dcterms:source dama:DataIntegrationAndInteroperability, fair:I1 .
-
-map:AttachUsageLicenseToR1_1 a owl:NamedIndividual, map:DirectContribution ;
-    map:fromPractice map:AttachUsageLicense ;
-    map:targetsPrinciple fair:R1.1 ;
-    map:rationale "The published license states the terms under which the data or metadata may be used."@en ;
-    map:applicabilityCondition "The license applies to the resource and is clear and accessible."@en ;
-    dcterms:source dama:MetadataManagement, fair:R1.1 .
-
-map:SetLicensingPolicyToR1_1 a owl:NamedIndividual, map:IndirectContribution ;
-    map:fromPractice map:SetLicensingPolicy ;
-    map:targetsPrinciple fair:R1.1 ;
-    map:viaPractice map:AttachUsageLicense ;
-    map:rationale "The policy enables a publishing practice that attaches the applicable usage license."@en ;
-    dcterms:source dama:DataGovernance, fair:R1.1 .
-
-map:ConfigureRetrievalAuthorizationToA1_2 a owl:NamedIndividual, map:DirectContribution ;
-    map:fromPractice map:ConfigureRetrievalAuthorization ;
-    map:targetsPrinciple fair:A1.2 ;
-    map:rationale "The retrieval configuration provides evidence that the protocol supports authentication and authorization."@en ;
-    map:applicabilityCondition "Access control is needed and the retrieval protocol supports both authentication and authorization."@en ;
-    dcterms:source dama:DataSecurity, fair:A1.2 .
-
-map:IndexInSearchableCatalogToF4 a owl:NamedIndividual, map:DirectContribution ;
-    map:fromPractice map:IndexInSearchableCatalog ;
-    map:targetsPrinciple fair:F4 ;
-    map:rationale "A searchable catalog entry provides evidence that the data or metadata have been indexed."@en ;
-    map:applicabilityCondition "The catalog is searchable and contains an index entry for the relevant data or metadata."@en ;
-    dcterms:source dama:MetadataManagement, fair:F4 .
-
-map:SetDataSecurityPolicyToA1_2 a owl:NamedIndividual, map:IndirectContribution ;
-    map:fromPractice map:SetDataSecurityPolicy ;
-    map:targetsPrinciple fair:A1.2 ;
-    map:viaPractice map:ConfigureRetrievalAuthorization ;
-    map:rationale "The policy drives the configuration of authentication and authorization for data or metadata retrieval."@en ;
-    map:applicabilityCondition "The policy applies to the retrieval service and calls for authentication and authorization where needed."@en ;
-    dcterms:source dama:DataSecurity, fair:A1.2 .
+map:AreaAlignmentAssessment a owl:Class ;
+    rdfs:label "Proposed area-to-FAIR alignment assessment"@en ;
+    owl:disjointWith map:FAIRContribution .

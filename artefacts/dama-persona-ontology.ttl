@@ -1,11 +1,14 @@
-# Populated from the published persona table. Load with the DAMA and FAIR vocabularies.
 @prefix dama: <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-ontology.ttl#> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix fair: <https://w3id.org/fair/principles/terms/> .
+@prefix map: <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-fair-mapping.ttl#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix persona: <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+dcterms:creator a owl:AnnotationProperty .
 
 dcterms:source a owl:AnnotationProperty .
 
@@ -13,18 +16,16 @@ dcterms:title a owl:AnnotationProperty .
 
 skos:definition a owl:AnnotationProperty .
 
-dcterms:creator a owl:AnnotationProperty .
-
-<https://orcid.org/0000-0001-5095-7052> rdfs:label "Chris Day"@en .
-
 <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl> a owl:Ontology ;
     dcterms:creator <https://orcid.org/0000-0001-5095-7052> ;
-    dcterms:source <https://fair-dama.perdl.com/dama/personas/> ;
-    dcterms:title "DAMA Persona Ontology"@en .
+    dcterms:modified "2026-11-16"^^xsd:date ;
+    dcterms:source <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/DAMA_Segments_High_Level_v1.18.0.md#persona> ;
+    dcterms:title "DAMA Persona Ontology"@en ;
+    owl:versionInfo "1.1.0" .
 
 persona:concernsPractice a owl:ObjectProperty ;
     rdfs:domain persona:Responsibility ;
-    rdfs:range <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-fair-mapping.ttl#Practice> .
+    rdfs:range map:Practice .
 
 persona:consumerIn a owl:ObjectProperty ;
     rdfs:domain persona:Persona ;
@@ -32,7 +33,8 @@ persona:consumerIn a owl:ObjectProperty ;
 
 persona:correspondsToKnowledgeArea a owl:ObjectProperty ;
     rdfs:domain persona:SourceTopic ;
-    rdfs:range dama:KnowledgeArea .
+    rdfs:range dama:KnowledgeArea ;
+    rdfs:subPropertyOf persona:correspondsToTopic .
 
 persona:hasGoal a owl:ObjectProperty ;
     rdfs:domain persona:Persona ;
@@ -42,6 +44,12 @@ persona:hasResponsibility a owl:ObjectProperty ;
     rdfs:domain persona:Persona ;
     rdfs:range persona:Responsibility .
 
+persona:partiallyCorrespondsToKnowledgeArea a owl:ObjectProperty ;
+    rdfs:label "partially corresponds to knowledge area"@en ;
+    rdfs:comment "A partial documentary correspondence; it is not identity or complete coverage."@en ;
+    rdfs:domain persona:SourceTopic ;
+    rdfs:range dama:KnowledgeArea .
+
 persona:participantIn a owl:ObjectProperty ;
     rdfs:domain persona:Persona ;
     rdfs:range persona:SourceTopic .
@@ -49,7 +57,7 @@ persona:participantIn a owl:ObjectProperty ;
 <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#profile/all-employees> a owl:NamedIndividual,
         persona:Persona ;
     rdfs:label "All Employees"@en ;
-    dcterms:source <https://fair-dama.perdl.com/dama/personas/> ;
+    dcterms:source <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/DAMA_Segments_High_Level_v1.18.0.md#persona> ;
     skos:definition "Contribute to organization-wide creation, use and handling of information."@en ;
     persona:participantIn <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#topic/document-content-management> ;
     persona:reportedDirectFAIRPrinciple fair:A1,
@@ -59,10 +67,28 @@ persona:participantIn a owl:ObjectProperty ;
         fair:I2 ;
     persona:reportedIndirectFAIRPrinciple fair:A2 .
 
+<https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#profile/analytic-design-lead> a owl:NamedIndividual,
+        persona:Persona ;
+    rdfs:label "Analytic Design Lead"@en ;
+    dcterms:source <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/DAMA_Segments_High_Level_v1.18.0.md#persona> ;
+    skos:definition "Coordinate analytical design, methodological choices and solution quality."@en ;
+    persona:participantIn <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#topic/big-data-data-science> ;
+    persona:reportedDirectFAIRPrinciple fair:R1 ;
+    persona:reportedIndirectFAIRPrinciple fair:A1,
+        fair:A1.1,
+        fair:A1.2,
+        fair:F2,
+        fair:I1,
+        fair:I3,
+        fair:R1,
+        fair:R1.1,
+        fair:R1.2,
+        fair:R1.3 .
+
 <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#profile/application-architects> a owl:NamedIndividual,
         persona:Persona ;
     rdfs:label "Application Architects"@en ;
-    dcterms:source <https://fair-dama.perdl.com/dama/personas/> ;
+    dcterms:source <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/DAMA_Segments_High_Level_v1.18.0.md#persona> ;
     skos:definition "Design application structures and their use of data and integration services."@en ;
     persona:participantIn <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#topic/reference-master-data-management> ;
     persona:reportedDirectFAIRPrinciple fair:I3,
@@ -71,7 +97,7 @@ persona:participantIn a owl:ObjectProperty ;
 <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#profile/application-developers-and-architects> a owl:NamedIndividual,
         persona:Persona ;
     rdfs:label "Application Developers and Architects"@en ;
-    dcterms:source <https://fair-dama.perdl.com/dama/personas/> ;
+    dcterms:source <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/DAMA_Segments_High_Level_v1.18.0.md#persona> ;
     skos:definition "Design and build applications that create, access and process data."@en ;
     persona:consumerIn <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#topic/reference-master-data-management> ;
     persona:reportedDirectFAIRPrinciple fair:I3,
@@ -80,7 +106,7 @@ persona:participantIn a owl:ObjectProperty ;
 <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#profile/application-users> a owl:NamedIndividual,
         persona:Persona ;
     rdfs:label "Application Users"@en ;
-    dcterms:source <https://fair-dama.perdl.com/dama/personas/> ;
+    dcterms:source <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/DAMA_Segments_High_Level_v1.18.0.md#persona> ;
     skos:definition "Use applications to perform business tasks and access data."@en ;
     persona:consumerIn <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#topic/reference-master-data-management> ;
     persona:reportedDirectFAIRPrinciple fair:I3,
@@ -89,14 +115,14 @@ persona:participantIn a owl:ObjectProperty ;
 <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#profile/audit-compliance> a owl:NamedIndividual,
         persona:Persona ;
     rdfs:label "Audit / Compliance"@en ;
-    dcterms:source <https://fair-dama.perdl.com/dama/personas/> ;
+    dcterms:source <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/DAMA_Segments_High_Level_v1.18.0.md#persona> ;
     skos:definition "Review controls, evidence and adherence to organizational or regulatory requirements."@en ;
     persona:consumerIn <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#topic/data-management-maturity-assessment> .
 
 <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#profile/bi-analysts> a owl:NamedIndividual,
         persona:Persona ;
     rdfs:label "BI Analysts"@en ;
-    dcterms:source <https://fair-dama.perdl.com/dama/personas/> ;
+    dcterms:source <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/DAMA_Segments_High_Level_v1.18.0.md#persona> ;
     skos:definition "Analyze business information and define reporting and analytical requirements."@en ;
     persona:participantIn <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#topic/data-security-management> ;
     persona:reportedDirectFAIRPrinciple fair:A1.2 ;
@@ -105,7 +131,7 @@ persona:participantIn a owl:ObjectProperty ;
 <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#profile/bi-and-reporting-users> a owl:NamedIndividual,
         persona:Persona ;
     rdfs:label "BI and Reporting Users"@en ;
-    dcterms:source <https://fair-dama.perdl.com/dama/personas/> ;
+    dcterms:source <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/DAMA_Segments_High_Level_v1.18.0.md#persona> ;
     skos:definition "Consume analytical datasets, dashboards and reports."@en ;
     persona:consumerIn <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#topic/reference-master-data-management> ;
     persona:reportedDirectFAIRPrinciple fair:I3,
@@ -114,7 +140,7 @@ persona:participantIn a owl:ObjectProperty ;
 <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#profile/bi-developers-and-architects> a owl:NamedIndividual,
         persona:Persona ;
     rdfs:label "BI Developers and Architects"@en ;
-    dcterms:source <https://fair-dama.perdl.com/dama/personas/> ;
+    dcterms:source <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/DAMA_Segments_High_Level_v1.18.0.md#persona> ;
     skos:definition "Design and implement analytical platforms, models and reporting services."@en ;
     persona:consumerIn <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#topic/reference-master-data-management> ;
     persona:reportedDirectFAIRPrinciple fair:I3,
@@ -123,7 +149,7 @@ persona:participantIn a owl:ObjectProperty ;
 <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#profile/bi-program-manager> a owl:NamedIndividual,
         persona:Persona ;
     rdfs:label "BI Program Manager"@en ;
-    dcterms:source <https://fair-dama.perdl.com/dama/personas/> ;
+    dcterms:source <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/DAMA_Segments_High_Level_v1.18.0.md#persona> ;
     skos:definition "Coordinate the portfolio, resources and outcomes of business intelligence initiatives."@en ;
     persona:participantIn <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#topic/data-warehousing-business-intelligence-management> ;
     persona:reportedDirectFAIRPrinciple fair:A1,
@@ -132,16 +158,35 @@ persona:participantIn a owl:ObjectProperty ;
 <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#profile/bi-specialists> a owl:NamedIndividual,
         persona:Persona ;
     rdfs:label "BI Specialists"@en ;
-    dcterms:source <https://fair-dama.perdl.com/dama/personas/> ;
+    dcterms:source <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/DAMA_Segments_High_Level_v1.18.0.md#persona> ;
     skos:definition "Provide specialist expertise in analytical platforms, models and reporting."@en ;
     persona:participantIn <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#topic/data-warehousing-business-intelligence-management> ;
     persona:reportedDirectFAIRPrinciple fair:A1,
         fair:F4 .
 
+<https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#profile/big-data-platform-architects> a owl:NamedIndividual,
+        persona:Persona ;
+    rdfs:label "Big Data Platform Architects"@en ;
+    dcterms:source <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/DAMA_Segments_High_Level_v1.18.0.md#persona> ;
+    skos:definition "Design scalable analytical platforms, storage and processing environments."@en ;
+    persona:participantIn <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#topic/big-data-data-science> ;
+    persona:reportedDirectFAIRPrinciple fair:R1 ;
+    persona:reportedIndirectFAIRPrinciple fair:A1,
+        fair:A1.1,
+        fair:A1.2,
+        fair:F2,
+        fair:I1,
+        fair:I3,
+        fair:R1,
+        fair:R1.1,
+        fair:R1.2,
+        fair:R1.3 ;
+    persona:supplierIn <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#topic/big-data-data-science> .
+
 <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#profile/business-and-data-analysts> a owl:NamedIndividual,
         persona:Persona ;
     rdfs:label "Business and Data Analysts"@en ;
-    dcterms:source <https://fair-dama.perdl.com/dama/personas/> ;
+    dcterms:source <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/DAMA_Segments_High_Level_v1.18.0.md#persona> ;
     skos:definition "Translate business needs into data requirements and examine data behavior and meaning."@en ;
     persona:participantIn <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#topic/data-integration-interoperability> ;
     persona:reportedDirectFAIRPrinciple fair:A1.2,
@@ -162,7 +207,7 @@ persona:participantIn a owl:ObjectProperty ;
 <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#profile/business-and-it-users> a owl:NamedIndividual,
         persona:Persona ;
     rdfs:label "Business and IT users"@en ;
-    dcterms:source <https://fair-dama.perdl.com/dama/personas/> ;
+    dcterms:source <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/DAMA_Segments_High_Level_v1.18.0.md#persona> ;
     skos:definition "Use managed content to support business and technology work."@en ;
     persona:consumerIn <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#topic/document-content-management> ;
     persona:reportedDirectFAIRPrinciple fair:A1,
@@ -175,7 +220,7 @@ persona:participantIn a owl:ObjectProperty ;
 <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#profile/business-data-stewards> a owl:NamedIndividual,
         persona:Persona ;
     rdfs:label "Business Data Stewards"@en ;
-    dcterms:source <https://fair-dama.perdl.com/dama/personas/> ;
+    dcterms:source <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/DAMA_Segments_High_Level_v1.18.0.md#persona> ;
     skos:definition "Define and oversee business meaning, rules and quality for data domains."@en ;
     persona:participantIn <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#topic/data-governance> ;
     persona:reportedDirectFAIRPrinciple fair:I3,
@@ -185,14 +230,26 @@ persona:participantIn a owl:ObjectProperty ;
 <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#profile/business-executives> a owl:NamedIndividual,
         persona:Persona ;
     rdfs:label "Business Executives"@en ;
-    dcterms:source <https://fair-dama.perdl.com/dama/personas/> ;
+    dcterms:source <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/DAMA_Segments_High_Level_v1.18.0.md#persona> ;
     skos:definition "Sponsor business priorities and align data investment with business outcomes."@en ;
+    persona:consumerIn <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#topic/big-data-data-science> ;
+    persona:reportedDirectFAIRPrinciple fair:R1 ;
+    persona:reportedIndirectFAIRPrinciple fair:A1,
+        fair:A1.1,
+        fair:A1.2,
+        fair:F2,
+        fair:I1,
+        fair:I3,
+        fair:R1,
+        fair:R1.1,
+        fair:R1.2,
+        fair:R1.3 ;
     persona:supplierIn <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#topic/data-governance> .
 
 <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#profile/business-executives-and-managers> a owl:NamedIndividual,
         persona:Persona ;
     rdfs:label "Business Executives and Managers"@en ;
-    dcterms:source <https://fair-dama.perdl.com/dama/personas/> ;
+    dcterms:source <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/DAMA_Segments_High_Level_v1.18.0.md#persona> ;
     skos:definition "Direct business functions and sponsor information and analytical requirements."@en ;
     persona:participantIn <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#topic/data-warehousing-business-intelligence-management> ;
     persona:reportedDirectFAIRPrinciple fair:A1,
@@ -201,14 +258,32 @@ persona:participantIn a owl:ObjectProperty ;
 <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#profile/business-management> a owl:NamedIndividual,
         persona:Persona ;
     rdfs:label "Business Management"@en ;
-    dcterms:source <https://fair-dama.perdl.com/dama/personas/> ;
+    dcterms:source <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/DAMA_Segments_High_Level_v1.18.0.md#persona> ;
     skos:definition "Set business priorities and guide operational improvement and resource use."@en ;
     persona:participantIn <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#topic/data-management-maturity-assessment> .
+
+<https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#profile/business-partners> a owl:NamedIndividual,
+        persona:Persona ;
+    rdfs:label "Business Partners"@en ;
+    dcterms:source <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/DAMA_Segments_High_Level_v1.18.0.md#persona> ;
+    skos:definition "Contribute business needs and use analytical insights in collaborative decisions."@en ;
+    persona:consumerIn <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#topic/big-data-data-science> ;
+    persona:reportedDirectFAIRPrinciple fair:R1 ;
+    persona:reportedIndirectFAIRPrinciple fair:A1,
+        fair:A1.1,
+        fair:A1.2,
+        fair:F2,
+        fair:I1,
+        fair:I3,
+        fair:R1,
+        fair:R1.1,
+        fair:R1.2,
+        fair:R1.3 .
 
 <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#profile/business-subject-matter-experts> a owl:NamedIndividual,
         persona:Persona ;
     rdfs:label "Business Subject Matter Experts"@en ;
-    dcterms:source <https://fair-dama.perdl.com/dama/personas/> ;
+    dcterms:source <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/DAMA_Segments_High_Level_v1.18.0.md#persona> ;
     skos:definition "Explain business concepts, rules and expectations relevant to data quality."@en ;
     persona:reportedIndirectFAIRPrinciple fair:F2,
         fair:R1 ;
@@ -217,7 +292,7 @@ persona:participantIn a owl:ObjectProperty ;
 <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#profile/business-users> a owl:NamedIndividual,
         persona:Persona ;
     rdfs:label "Business Users"@en ;
-    dcterms:source <https://fair-dama.perdl.com/dama/personas/> ;
+    dcterms:source <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/DAMA_Segments_High_Level_v1.18.0.md#persona> ;
     skos:definition "Use business data and metadata to perform operational and analytical tasks."@en ;
     persona:consumerIn <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#topic/meta-data-management> ;
     persona:participantIn <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#topic/meta-data-management> ;
@@ -235,14 +310,32 @@ persona:participantIn a owl:ObjectProperty ;
 <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#profile/cdo-cio> a owl:NamedIndividual,
         persona:Persona ;
     rdfs:label "CDO/CIO"@en ;
-    dcterms:source <https://fair-dama.perdl.com/dama/personas/> ;
+    dcterms:source <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/DAMA_Segments_High_Level_v1.18.0.md#persona> ;
     skos:definition "Provide executive leadership spanning data strategy and information technology."@en ;
     persona:participantIn <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#topic/data-management-maturity-assessment> .
+
+<https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#profile/cdo-cio-8988b0c1> a owl:NamedIndividual,
+        persona:Persona ;
+    rdfs:label "CDO / CIO"@en ;
+    dcterms:source <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/DAMA_Segments_High_Level_v1.18.0.md#persona> ;
+    skos:definition "Provide executive leadership spanning data strategy and information technology."@en ;
+    persona:participantIn <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#topic/data-handling-ethics> ;
+    persona:reportedIndirectFAIRPrinciple fair:A1.2,
+        fair:R1.1 .
+
+<https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#profile/change-managers> a owl:NamedIndividual,
+        persona:Persona ;
+    rdfs:label "Change Managers"@en ;
+    dcterms:source <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/DAMA_Segments_High_Level_v1.18.0.md#persona> ;
+    skos:definition "Coordinate communications, training and adoption of changed data-handling practices."@en ;
+    persona:participantIn <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#topic/data-handling-ethics> ;
+    persona:reportedIndirectFAIRPrinciple fair:A1.2,
+        fair:R1.1 .
 
 <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#profile/chief-information-officer> a owl:NamedIndividual,
         persona:Persona ;
     rdfs:label "Chief Information Officer"@en ;
-    dcterms:source <https://fair-dama.perdl.com/dama/personas/> ;
+    dcterms:source <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/DAMA_Segments_High_Level_v1.18.0.md#persona> ;
     skos:definition "Direct enterprise information technology strategy and services."@en ;
     persona:participantIn <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#topic/document-content-management> ;
     persona:reportedDirectFAIRPrinciple fair:A1,
@@ -255,7 +348,7 @@ persona:participantIn a owl:ObjectProperty ;
 <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#profile/chief-knowledge-officer> a owl:NamedIndividual,
         persona:Persona ;
     rdfs:label "Chief Knowledge Officer"@en ;
-    dcterms:source <https://fair-dama.perdl.com/dama/personas/> ;
+    dcterms:source <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/DAMA_Segments_High_Level_v1.18.0.md#persona> ;
     skos:definition "Lead knowledge management, sharing and organizational learning."@en ;
     persona:participantIn <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#topic/document-content-management> ;
     persona:reportedDirectFAIRPrinciple fair:A1,
@@ -268,14 +361,14 @@ persona:participantIn a owl:ObjectProperty ;
 <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#profile/cio> a owl:NamedIndividual,
         persona:Persona ;
     rdfs:label "CIO"@en ;
-    dcterms:source <https://fair-dama.perdl.com/dama/personas/> ;
+    dcterms:source <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/DAMA_Segments_High_Level_v1.18.0.md#persona> ;
     skos:definition "Direct enterprise information technology strategy and services."@en ;
     persona:participantIn <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#topic/data-governance> .
 
 <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#profile/cio-and-other-executives> a owl:NamedIndividual,
         persona:Persona ;
     rdfs:label "CIO and Other Executives"@en ;
-    dcterms:source <https://fair-dama.perdl.com/dama/personas/> ;
+    dcterms:source <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/DAMA_Segments_High_Level_v1.18.0.md#persona> ;
     skos:definition "Provide technology and enterprise leadership for data-related decisions."@en ;
     persona:participantIn <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#topic/data-architecture-management> ;
     persona:reportedDirectFAIRPrinciple fair:I1,
@@ -288,7 +381,7 @@ persona:participantIn a owl:ObjectProperty ;
 <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#profile/cio-cto> a owl:NamedIndividual,
         persona:Persona ;
     rdfs:label "CIO/CTO"@en ;
-    dcterms:source <https://fair-dama.perdl.com/dama/personas/> ;
+    dcterms:source <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/DAMA_Segments_High_Level_v1.18.0.md#persona> ;
     skos:definition "Provide executive leadership for information technology and technology architecture."@en ;
     persona:participantIn <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#topic/data-security-management> ;
     persona:reportedDirectFAIRPrinciple fair:A1.2 ;
@@ -297,7 +390,7 @@ persona:participantIn a owl:ObjectProperty ;
 <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#profile/clerical-workers> a owl:NamedIndividual,
         persona:Persona ;
     rdfs:label "Clerical Workers"@en ;
-    dcterms:source <https://fair-dama.perdl.com/dama/personas/> ;
+    dcterms:source <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/DAMA_Segments_High_Level_v1.18.0.md#persona> ;
     skos:definition "Capture, process and retrieve information in administrative workflows."@en ;
     persona:consumerIn <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#topic/data-management> ;
     persona:reportedDirectFAIRPrinciple fair:A1,
@@ -322,17 +415,22 @@ persona:participantIn a owl:ObjectProperty ;
 <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#profile/coordinating-data-stewards> a owl:NamedIndividual,
         persona:Persona ;
     rdfs:label "Coordinating Data Stewards"@en ;
-    dcterms:source <https://fair-dama.perdl.com/dama/personas/> ;
+    dcterms:source <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/DAMA_Segments_High_Level_v1.18.0.md#persona> ;
     skos:definition "Coordinate stewardship practices and resolve issues across domains or teams."@en ;
-    persona:participantIn <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#topic/data-governance> .
+    persona:participantIn <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#topic/data-governance>,
+        <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#topic/data-handling-ethics> ;
+    persona:reportedIndirectFAIRPrinciple fair:A1.2,
+        fair:R1.1 .
 
 <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#profile/customers> a owl:NamedIndividual,
         persona:Persona ;
     rdfs:label "Customers"@en ;
-    dcterms:source <https://fair-dama.perdl.com/dama/personas/> ;
+    dcterms:source <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/DAMA_Segments_High_Level_v1.18.0.md#persona> ;
     skos:definition "Receive products, services or information and provide requirements or feedback."@en ;
-    persona:consumerIn <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#topic/data-development>,
+    persona:consumerIn <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#topic/big-data-data-science>,
+        <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#topic/data-development>,
         <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#topic/data-governance>,
+        <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#topic/data-handling-ethics>,
         <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#topic/data-management>,
         <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#topic/data-quality-management>,
         <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#topic/data-security-management> ;
@@ -346,20 +444,25 @@ persona:participantIn a owl:ObjectProperty ;
         fair:R1,
         fair:R1.2,
         fair:R1.3 ;
-    persona:reportedIndirectFAIRPrinciple fair:A1.2,
+    persona:reportedIndirectFAIRPrinciple fair:A1,
+        fair:A1.1,
+        fair:A1.2,
         fair:A2,
         fair:F1,
         fair:F2,
         fair:F3,
+        fair:I1,
+        fair:I3,
         fair:R1,
         fair:R1.1,
-        fair:R1.2 ;
+        fair:R1.2,
+        fair:R1.3 ;
     persona:supplierIn <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#topic/data-security-management> .
 
 <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#profile/customers-and-collaborators> a owl:NamedIndividual,
         persona:Persona ;
     rdfs:label "Customers and Collaborators"@en ;
-    dcterms:source <https://fair-dama.perdl.com/dama/personas/> ;
+    dcterms:source <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/DAMA_Segments_High_Level_v1.18.0.md#persona> ;
     skos:definition "Use or exchange data and metadata in customer or collaborative relationships."@en ;
     persona:consumerIn <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#topic/meta-data-management> ;
     persona:reportedDirectFAIRPrinciple fair:A1,
@@ -376,7 +479,7 @@ persona:participantIn a owl:ObjectProperty ;
 <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#profile/data-analysts> a owl:NamedIndividual,
         persona:Persona ;
     rdfs:label "Data Analysts"@en ;
-    dcterms:source <https://fair-dama.perdl.com/dama/personas/> ;
+    dcterms:source <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/DAMA_Segments_High_Level_v1.18.0.md#persona> ;
     skos:definition "Investigate data content, requirements, patterns and fitness for use."@en ;
     persona:consumerIn <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#topic/data-architecture-management> ;
     persona:participantIn <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#topic/data-quality-management>,
@@ -393,7 +496,7 @@ persona:participantIn a owl:ObjectProperty ;
 <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#profile/data-analysts-and-modelers> a owl:NamedIndividual,
         persona:Persona ;
     rdfs:label "Data Analysts and Modelers"@en ;
-    dcterms:source <https://fair-dama.perdl.com/dama/personas/> ;
+    dcterms:source <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/DAMA_Segments_High_Level_v1.18.0.md#persona> ;
     skos:definition "Analyze requirements and represent data structures, relationships and rules."@en ;
     persona:participantIn <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#topic/data-architecture-management> ;
     persona:reportedDirectFAIRPrinciple fair:I1,
@@ -406,7 +509,7 @@ persona:participantIn a owl:ObjectProperty ;
 <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#profile/data-architects> a owl:NamedIndividual,
         persona:Persona ;
     rdfs:label "Data Architects"@en ;
-    dcterms:source <https://fair-dama.perdl.com/dama/personas/> ;
+    dcterms:source <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/DAMA_Segments_High_Level_v1.18.0.md#persona> ;
     skos:definition "Design enterprise and solution data structures, flows and architectural standards."@en ;
     persona:consumerIn <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#topic/data-architecture-management> ;
     persona:participantIn <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#topic/data-architecture-management>,
@@ -441,7 +544,7 @@ persona:participantIn a owl:ObjectProperty ;
 <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#profile/data-architects-and-analysts> a owl:NamedIndividual,
         persona:Persona ;
     rdfs:label "Data Architects and Analysts"@en ;
-    dcterms:source <https://fair-dama.perdl.com/dama/personas/> ;
+    dcterms:source <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/DAMA_Segments_High_Level_v1.18.0.md#persona> ;
     skos:definition "Translate information needs into architectural designs and analytical requirements."@en ;
     persona:participantIn <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#topic/data-development>,
         <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#topic/data-operations-management>,
@@ -460,7 +563,7 @@ persona:participantIn a owl:ObjectProperty ;
 <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#profile/data-architects-and-modelers> a owl:NamedIndividual,
         persona:Persona ;
     rdfs:label "Data Architects and Modelers"@en ;
-    dcterms:source <https://fair-dama.perdl.com/dama/personas/> ;
+    dcterms:source <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/DAMA_Segments_High_Level_v1.18.0.md#persona> ;
     skos:definition "Design data architectures and detailed models of structures and relationships."@en ;
     persona:participantIn <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#topic/meta-data-management> ;
     persona:reportedDirectFAIRPrinciple fair:A1,
@@ -480,7 +583,7 @@ persona:participantIn a owl:ObjectProperty ;
 <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#profile/data-brokers> a owl:NamedIndividual,
         persona:Persona ;
     rdfs:label "Data Brokers"@en ;
-    dcterms:source <https://fair-dama.perdl.com/dama/personas/> ;
+    dcterms:source <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/DAMA_Segments_High_Level_v1.18.0.md#persona> ;
     skos:definition "Mediate the sourcing, provision or exchange of data between parties."@en ;
     persona:reportedDirectFAIRPrinciple fair:A1,
         fair:F2,
@@ -497,7 +600,7 @@ persona:participantIn a owl:ObjectProperty ;
 <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#profile/data-consumers> a owl:NamedIndividual,
         persona:Persona ;
     rdfs:label "Data Consumers"@en ;
-    dcterms:source <https://fair-dama.perdl.com/dama/personas/> ;
+    dcterms:source <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/DAMA_Segments_High_Level_v1.18.0.md#persona> ;
     skos:definition "Use supplied data for business processes, applications or analysis."@en ;
     persona:reportedDirectFAIRPrinciple fair:I3,
         fair:R1.2 ;
@@ -506,7 +609,7 @@ persona:participantIn a owl:ObjectProperty ;
 <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#profile/data-creators> a owl:NamedIndividual,
         persona:Persona ;
     rdfs:label "Data Creators"@en ;
-    dcterms:source <https://fair-dama.perdl.com/dama/personas/> ;
+    dcterms:source <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/DAMA_Segments_High_Level_v1.18.0.md#persona> ;
     skos:definition "Generate and record data through business or technical activities."@en ;
     persona:consumerIn <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#topic/data-operations-management> ;
     persona:participantIn <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#topic/data-management> ;
@@ -530,17 +633,38 @@ persona:participantIn a owl:ObjectProperty ;
         fair:R1.2 ;
     persona:supplierIn <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#topic/data-management> .
 
+<https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#profile/data-curators> a owl:NamedIndividual,
+        persona:Persona ;
+    rdfs:label "Data Curators"@en ;
+    dcterms:source <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/DAMA_Segments_High_Level_v1.18.0.md#persona> ;
+    skos:definition "Organize, document and maintain analytical datasets and their reuse context."@en ;
+    persona:participantIn <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#topic/big-data-data-science> ;
+    persona:reportedDirectFAIRPrinciple fair:R1 ;
+    persona:reportedIndirectFAIRPrinciple fair:A1,
+        fair:A1.1,
+        fair:A1.2,
+        fair:F2,
+        fair:I1,
+        fair:I3,
+        fair:R1,
+        fair:R1.1,
+        fair:R1.2,
+        fair:R1.3 .
+
 <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#profile/data-governance-bodies> a owl:NamedIndividual,
         persona:Persona ;
     rdfs:label "Data Governance Bodies"@en ;
-    dcterms:source <https://fair-dama.perdl.com/dama/personas/> ;
+    dcterms:source <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/DAMA_Segments_High_Level_v1.18.0.md#persona> ;
     skos:definition "Provide collective oversight of data policies, responsibilities and decisions."@en ;
-    persona:consumerIn <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#topic/data-management-maturity-assessment> .
+    persona:consumerIn <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#topic/data-management-maturity-assessment> ;
+    persona:participantIn <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#topic/data-handling-ethics> ;
+    persona:reportedIndirectFAIRPrinciple fair:A1.2,
+        fair:R1.1 .
 
 <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#profile/data-governance-council> a owl:NamedIndividual,
         persona:Persona ;
     rdfs:label "Data Governance Council"@en ;
-    dcterms:source <https://fair-dama.perdl.com/dama/personas/> ;
+    dcterms:source <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/DAMA_Segments_High_Level_v1.18.0.md#persona> ;
     skos:definition "Set data governance direction and resolve cross-domain policy and ownership issues."@en ;
     persona:participantIn <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#topic/reference-master-data-management> ;
     persona:reportedDirectFAIRPrinciple fair:A1,
@@ -558,14 +682,14 @@ persona:participantIn a owl:ObjectProperty ;
 <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#profile/data-governance-office> a owl:NamedIndividual,
         persona:Persona ;
     rdfs:label "Data Governance Office"@en ;
-    dcterms:source <https://fair-dama.perdl.com/dama/personas/> ;
+    dcterms:source <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/DAMA_Segments_High_Level_v1.18.0.md#persona> ;
     skos:definition "Coordinate governance processes, stewardship support and governance reporting."@en ;
     persona:participantIn <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#topic/data-management-maturity-assessment> .
 
 <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#profile/data-integration-architects> a owl:NamedIndividual,
         persona:Persona ;
     rdfs:label "Data Integration Architects"@en ;
-    dcterms:source <https://fair-dama.perdl.com/dama/personas/> ;
+    dcterms:source <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/DAMA_Segments_High_Level_v1.18.0.md#persona> ;
     skos:definition "Design patterns and architectures for data exchange and transformation."@en ;
     persona:participantIn <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#topic/meta-data-management> ;
     persona:reportedDirectFAIRPrinciple fair:A1,
@@ -582,7 +706,7 @@ persona:participantIn a owl:ObjectProperty ;
 <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#profile/data-integration-developers-and-architects> a owl:NamedIndividual,
         persona:Persona ;
     rdfs:label "Data Integration Developers and Architects"@en ;
-    dcterms:source <https://fair-dama.perdl.com/dama/personas/> ;
+    dcterms:source <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/DAMA_Segments_High_Level_v1.18.0.md#persona> ;
     skos:definition "Design and implement data exchange and transformation solutions."@en ;
     persona:consumerIn <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#topic/reference-master-data-management> ;
     persona:reportedDirectFAIRPrinciple fair:I3,
@@ -591,7 +715,7 @@ persona:participantIn a owl:ObjectProperty ;
 <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#profile/data-integration-etl-specialists> a owl:NamedIndividual,
         persona:Persona ;
     rdfs:label "Data Integration (ETL) Specialists"@en ;
-    dcterms:source <https://fair-dama.perdl.com/dama/personas/> ;
+    dcterms:source <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/DAMA_Segments_High_Level_v1.18.0.md#persona> ;
     skos:definition "Implement extraction, transformation and loading of data between systems."@en ;
     persona:participantIn <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#topic/data-warehousing-business-intelligence-management> ;
     persona:reportedDirectFAIRPrinciple fair:A1,
@@ -600,7 +724,7 @@ persona:participantIn a owl:ObjectProperty ;
 <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#profile/data-management-executive> a owl:NamedIndividual,
         persona:Persona ;
     rdfs:label "Data Management Executive"@en ;
-    dcterms:source <https://fair-dama.perdl.com/dama/personas/> ;
+    dcterms:source <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/DAMA_Segments_High_Level_v1.18.0.md#persona> ;
     skos:definition "Lead enterprise data management strategy, investment and accountability."@en ;
     persona:participantIn <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#topic/document-content-management> ;
     persona:reportedDirectFAIRPrinciple fair:A1,
@@ -613,7 +737,7 @@ persona:participantIn a owl:ObjectProperty ;
 <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#profile/data-model-administrator> a owl:NamedIndividual,
         persona:Persona ;
     rdfs:label "Data Model Administrator"@en ;
-    dcterms:source <https://fair-dama.perdl.com/dama/personas/> ;
+    dcterms:source <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/DAMA_Segments_High_Level_v1.18.0.md#persona> ;
     skos:definition "Manage model repositories, versions, access and modeling conventions."@en ;
     persona:participantIn <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#topic/data-architecture-management> ;
     persona:reportedDirectFAIRPrinciple fair:I1,
@@ -626,7 +750,7 @@ persona:participantIn a owl:ObjectProperty ;
 <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#profile/data-model-administrators> a owl:NamedIndividual,
         persona:Persona ;
     rdfs:label "Data Model Administrators"@en ;
-    dcterms:source <https://fair-dama.perdl.com/dama/personas/> ;
+    dcterms:source <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/DAMA_Segments_High_Level_v1.18.0.md#persona> ;
     skos:definition "Manage model repositories, versions, access and modeling conventions."@en ;
     persona:participantIn <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#topic/data-development> ;
     persona:reportedDirectFAIRPrinciple fair:A1,
@@ -637,7 +761,7 @@ persona:participantIn a owl:ObjectProperty ;
 <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#profile/data-modelers> a owl:NamedIndividual,
         persona:Persona ;
     rdfs:label "Data Modelers"@en ;
-    dcterms:source <https://fair-dama.perdl.com/dama/personas/> ;
+    dcterms:source <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/DAMA_Segments_High_Level_v1.18.0.md#persona> ;
     skos:definition "Create conceptual, logical and physical representations of data."@en ;
     persona:participantIn <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#topic/data-integration-interoperability> ;
     persona:reportedDirectFAIRPrinciple fair:A1,
@@ -666,7 +790,7 @@ persona:participantIn a owl:ObjectProperty ;
 <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#profile/data-producers> a owl:NamedIndividual,
         persona:Persona ;
     rdfs:label "Data Producers"@en ;
-    dcterms:source <https://fair-dama.perdl.com/dama/personas/> ;
+    dcterms:source <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/DAMA_Segments_High_Level_v1.18.0.md#persona> ;
     skos:definition "Supply data created or maintained by operational systems and processes."@en ;
     persona:consumerIn <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#topic/data-architecture-management>,
         <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#topic/data-development>,
@@ -691,9 +815,11 @@ persona:participantIn a owl:ObjectProperty ;
         fair:I1,
         fair:I3,
         fair:R1,
+        fair:R1.1,
         fair:R1.2,
         fair:R1.3 ;
-    persona:supplierIn <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#topic/data-architecture-management>,
+    persona:supplierIn <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#topic/big-data-data-science>,
+        <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#topic/data-architecture-management>,
         <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#topic/data-development>,
         <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#topic/data-integration-interoperability>,
         <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#topic/data-quality-management>,
@@ -702,7 +828,7 @@ persona:participantIn a owl:ObjectProperty ;
 <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#profile/data-professionals> a owl:NamedIndividual,
         persona:Persona ;
     rdfs:label "Data Professionals"@en ;
-    dcterms:source <https://fair-dama.perdl.com/dama/personas/> ;
+    dcterms:source <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/DAMA_Segments_High_Level_v1.18.0.md#persona> ;
     skos:definition "Design, implement and maintain data management capabilities."@en ;
     persona:consumerIn <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#topic/data-development>,
         <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#topic/data-governance>,
@@ -735,17 +861,20 @@ persona:participantIn a owl:ObjectProperty ;
 <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#profile/data-providers> a owl:NamedIndividual,
         persona:Persona ;
     rdfs:label "Data Providers"@en ;
-    dcterms:source <https://fair-dama.perdl.com/dama/personas/> ;
+    dcterms:source <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/DAMA_Segments_High_Level_v1.18.0.md#persona> ;
     skos:definition "Deliver data and associated documentation to consuming services or organizations."@en ;
     persona:participantIn <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#topic/reference-master-data-management> ;
     persona:reportedDirectFAIRPrinciple fair:I3,
         fair:R1.2 ;
-    persona:supplierIn <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#topic/reference-master-data-management> .
+    persona:reportedIndirectFAIRPrinciple fair:A1.2,
+        fair:R1.1 ;
+    persona:supplierIn <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#topic/data-handling-ethics>,
+        <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#topic/reference-master-data-management> .
 
 <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#profile/data-quality-analysts> a owl:NamedIndividual,
         persona:Persona ;
     rdfs:label "Data Quality Analysts"@en ;
-    dcterms:source <https://fair-dama.perdl.com/dama/personas/> ;
+    dcterms:source <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/DAMA_Segments_High_Level_v1.18.0.md#persona> ;
     skos:definition "Profile data, investigate defects and assess conformance to quality requirements."@en ;
     persona:participantIn <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#topic/data-quality-management>,
         <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#topic/data-warehousing-business-intelligence-management> ;
@@ -754,10 +883,47 @@ persona:participantIn a owl:ObjectProperty ;
     persona:reportedIndirectFAIRPrinciple fair:F2,
         fair:R1 .
 
+<https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#profile/data-quality-and-governance-specialists> a owl:NamedIndividual,
+        persona:Persona ;
+    rdfs:label "Data Quality and Governance Specialists"@en ;
+    dcterms:source <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/DAMA_Segments_High_Level_v1.18.0.md#persona> ;
+    skos:definition "Define and oversee quality controls, governance requirements and responsible data use."@en ;
+    persona:participantIn <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#topic/big-data-data-science> ;
+    persona:reportedDirectFAIRPrinciple fair:R1 ;
+    persona:reportedIndirectFAIRPrinciple fair:A1,
+        fair:A1.1,
+        fair:A1.2,
+        fair:F2,
+        fair:I1,
+        fair:I3,
+        fair:R1,
+        fair:R1.1,
+        fair:R1.2,
+        fair:R1.3 .
+
+<https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#profile/data-scientists> a owl:NamedIndividual,
+        persona:Persona ;
+    rdfs:label "Data Scientists"@en ;
+    dcterms:source <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/DAMA_Segments_High_Level_v1.18.0.md#persona> ;
+    skos:definition "Develop hypotheses, analytical methods and models and interpret their results."@en ;
+    persona:participantIn <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#topic/big-data-data-science> ;
+    persona:reportedDirectFAIRPrinciple fair:R1 ;
+    persona:reportedIndirectFAIRPrinciple fair:A1,
+        fair:A1.1,
+        fair:A1.2,
+        fair:F2,
+        fair:I1,
+        fair:I3,
+        fair:R1,
+        fair:R1.1,
+        fair:R1.2,
+        fair:R1.3 ;
+    persona:supplierIn <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#topic/big-data-data-science> .
+
 <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#profile/data-security-administrators> a owl:NamedIndividual,
         persona:Persona ;
     rdfs:label "Data Security Administrators"@en ;
-    dcterms:source <https://fair-dama.perdl.com/dama/personas/> ;
+    dcterms:source <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/DAMA_Segments_High_Level_v1.18.0.md#persona> ;
     skos:definition "Administer data access permissions and security controls."@en ;
     persona:participantIn <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#topic/data-security-management>,
         <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#topic/data-warehousing-business-intelligence-management> ;
@@ -766,10 +932,28 @@ persona:participantIn a owl:ObjectProperty ;
         fair:F4 ;
     persona:reportedIndirectFAIRPrinciple fair:A1.2 .
 
+<https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#profile/data-smes> a owl:NamedIndividual,
+        persona:Persona ;
+    rdfs:label "Data SME’s"@en ;
+    dcterms:source <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/DAMA_Segments_High_Level_v1.18.0.md#persona> ;
+    skos:definition "Provide specialist knowledge of source data, business meaning and analytical context."@en ;
+    persona:participantIn <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#topic/big-data-data-science> ;
+    persona:reportedDirectFAIRPrinciple fair:R1 ;
+    persona:reportedIndirectFAIRPrinciple fair:A1,
+        fair:A1.1,
+        fair:A1.2,
+        fair:F2,
+        fair:I1,
+        fair:I3,
+        fair:R1,
+        fair:R1.1,
+        fair:R1.2,
+        fair:R1.3 .
+
 <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#profile/data-stewards> a owl:NamedIndividual,
         persona:Persona ;
     rdfs:label "Data Stewards"@en ;
-    dcterms:source <https://fair-dama.perdl.com/dama/personas/> ;
+    dcterms:source <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/DAMA_Segments_High_Level_v1.18.0.md#persona> ;
     skos:definition "Maintain business definitions, quality rules and accountable handling of data."@en ;
     persona:consumerIn <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#topic/data-architecture-management>,
         <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#topic/data-management-maturity-assessment>,
@@ -811,6 +995,7 @@ persona:participantIn a owl:ObjectProperty ;
     persona:supplierIn <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#topic/data-architecture-management>,
         <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#topic/data-development>,
         <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#topic/data-governance>,
+        <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#topic/data-handling-ethics>,
         <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#topic/data-management-maturity-assessment>,
         <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#topic/data-operations-management>,
         <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#topic/data-quality-management>,
@@ -820,7 +1005,7 @@ persona:participantIn a owl:ObjectProperty ;
 <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#profile/data-stewards-and-smes> a owl:NamedIndividual,
         persona:Persona ;
     rdfs:label "Data Stewards and SMEs"@en ;
-    dcterms:source <https://fair-dama.perdl.com/dama/personas/> ;
+    dcterms:source <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/DAMA_Segments_High_Level_v1.18.0.md#persona> ;
     skos:definition "Combine stewardship accountability with specialist knowledge of business data."@en ;
     persona:participantIn <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#topic/data-development> ;
     persona:reportedDirectFAIRPrinciple fair:A1,
@@ -831,7 +1016,7 @@ persona:participantIn a owl:ObjectProperty ;
 <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#profile/data-stewardship-council> a owl:NamedIndividual,
         persona:Persona ;
     rdfs:label "Data Stewardship Council"@en ;
-    dcterms:source <https://fair-dama.perdl.com/dama/personas/> ;
+    dcterms:source <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/DAMA_Segments_High_Level_v1.18.0.md#persona> ;
     skos:definition "Coordinate stewardship responsibilities, standards and issue resolution."@en ;
     persona:participantIn <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#topic/data-quality-management> ;
     persona:reportedDirectFAIRPrinciple fair:A1.2 ;
@@ -840,10 +1025,28 @@ persona:participantIn a owl:ObjectProperty ;
         fair:R1 ;
     persona:supplierIn <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#topic/data-security-management> .
 
+<https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#profile/data-suppliers> a owl:NamedIndividual,
+        persona:Persona ;
+    rdfs:label "Data Suppliers"@en ;
+    dcterms:source <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/DAMA_Segments_High_Level_v1.18.0.md#persona> ;
+    skos:definition "Supply internal or external datasets and their associated terms and documentation."@en ;
+    persona:reportedDirectFAIRPrinciple fair:R1 ;
+    persona:reportedIndirectFAIRPrinciple fair:A1,
+        fair:A1.1,
+        fair:A1.2,
+        fair:F2,
+        fair:I1,
+        fair:I3,
+        fair:R1,
+        fair:R1.1,
+        fair:R1.2,
+        fair:R1.3 ;
+    persona:supplierIn <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#topic/big-data-data-science> .
+
 <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#profile/database-administrators> a owl:NamedIndividual,
         persona:Persona ;
     rdfs:label "Database Administrators"@en ;
-    dcterms:source <https://fair-dama.perdl.com/dama/personas/> ;
+    dcterms:source <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/DAMA_Segments_High_Level_v1.18.0.md#persona> ;
     skos:definition "Configure, operate, secure and tune database environments."@en ;
     persona:consumerIn <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#topic/data-architecture-management> ;
     persona:participantIn <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#topic/data-architecture-management>,
@@ -876,7 +1079,7 @@ persona:participantIn a owl:ObjectProperty ;
 <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#profile/dm-execs-and-other-it-mgmt> a owl:NamedIndividual,
         persona:Persona ;
     rdfs:label "DM Execs and Other IT Mgmt"@en ;
-    dcterms:source <https://fair-dama.perdl.com/dama/personas/> ;
+    dcterms:source <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/DAMA_Segments_High_Level_v1.18.0.md#persona> ;
     skos:definition "Coordinate data management and wider technology leadership and delivery."@en ;
     persona:participantIn <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#topic/data-warehousing-business-intelligence-management> ;
     persona:reportedDirectFAIRPrinciple fair:A1,
@@ -885,7 +1088,7 @@ persona:participantIn a owl:ObjectProperty ;
 <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#profile/dm-executive> a owl:NamedIndividual,
         persona:Persona ;
     rdfs:label "DM Executive"@en ;
-    dcterms:source <https://fair-dama.perdl.com/dama/personas/> ;
+    dcterms:source <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/DAMA_Segments_High_Level_v1.18.0.md#persona> ;
     skos:definition "Lead the data management program, priorities and resources."@en ;
     persona:participantIn <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#topic/data-governance>,
         <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#topic/meta-data-management> ;
@@ -903,7 +1106,7 @@ persona:participantIn a owl:ObjectProperty ;
 <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#profile/dm-executive-and-managers> a owl:NamedIndividual,
         persona:Persona ;
     rdfs:label "DM Executive and Managers"@en ;
-    dcterms:source <https://fair-dama.perdl.com/dama/personas/> ;
+    dcterms:source <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/DAMA_Segments_High_Level_v1.18.0.md#persona> ;
     skos:definition "Lead and coordinate data management delivery and resources."@en ;
     persona:participantIn <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#topic/data-architecture-management> ;
     persona:reportedDirectFAIRPrinciple fair:I1,
@@ -916,14 +1119,14 @@ persona:participantIn a owl:ObjectProperty ;
 <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#profile/dm-executives> a owl:NamedIndividual,
         persona:Persona ;
     rdfs:label "DM Executives"@en ;
-    dcterms:source <https://fair-dama.perdl.com/dama/personas/> ;
+    dcterms:source <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/DAMA_Segments_High_Level_v1.18.0.md#persona> ;
     skos:definition "Lead data management strategy, investment and program delivery."@en ;
     persona:supplierIn <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#topic/data-management-maturity-assessment> .
 
 <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#profile/dm-executives-and-other-it-management> a owl:NamedIndividual,
         persona:Persona ;
     rdfs:label "DM Executives and Other IT Management"@en ;
-    dcterms:source <https://fair-dama.perdl.com/dama/personas/> ;
+    dcterms:source <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/DAMA_Segments_High_Level_v1.18.0.md#persona> ;
     skos:definition "Coordinate data management and wider technology leadership and delivery."@en ;
     persona:participantIn <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#topic/data-development>,
         <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#topic/data-operations-management> ;
@@ -938,14 +1141,14 @@ persona:participantIn a owl:ObjectProperty ;
 <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#profile/dm-executives-data-governance-bodies> a owl:NamedIndividual,
         persona:Persona ;
     rdfs:label "DM Executives & Data Governance Bodies"@en ;
-    dcterms:source <https://fair-dama.perdl.com/dama/personas/> ;
+    dcterms:source <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/DAMA_Segments_High_Level_v1.18.0.md#persona> ;
     skos:definition "Combine data management leadership with governance direction and oversight."@en ;
     persona:participantIn <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#topic/data-management-maturity-assessment> .
 
 <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#profile/dm-leader> a owl:NamedIndividual,
         persona:Persona ;
     rdfs:label "DM Leader"@en ;
-    dcterms:source <https://fair-dama.perdl.com/dama/personas/> ;
+    dcterms:source <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/DAMA_Segments_High_Level_v1.18.0.md#persona> ;
     skos:definition "Direct data management practices and coordinate implementation priorities."@en ;
     persona:participantIn <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#topic/data-security-management> ;
     persona:reportedDirectFAIRPrinciple fair:A1.2 ;
@@ -954,7 +1157,7 @@ persona:participantIn a owl:ObjectProperty ;
 <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#profile/dm-professionals> a owl:NamedIndividual,
         persona:Persona ;
     rdfs:label "DM Professionals"@en ;
-    dcterms:source <https://fair-dama.perdl.com/dama/personas/> ;
+    dcterms:source <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/DAMA_Segments_High_Level_v1.18.0.md#persona> ;
     skos:definition "Apply professional data management practices and deliver supporting capabilities."@en ;
     persona:participantIn <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#topic/document-content-management> ;
     persona:reportedDirectFAIRPrinciple fair:A1,
@@ -964,10 +1167,19 @@ persona:participantIn a owl:ObjectProperty ;
         fair:I2 ;
     persona:reportedIndirectFAIRPrinciple fair:A2 .
 
+<https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#profile/dm-services> a owl:NamedIndividual,
+        persona:Persona ;
+    rdfs:label "DM Services"@en ;
+    dcterms:source <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/DAMA_Segments_High_Level_v1.18.0.md#persona> ;
+    skos:definition "Provide organizational data management services supporting implementation and monitoring."@en ;
+    persona:participantIn <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#topic/data-handling-ethics> ;
+    persona:reportedIndirectFAIRPrinciple fair:A1.2,
+        fair:R1.1 .
+
 <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#profile/drm-director> a owl:NamedIndividual,
         persona:Persona ;
     rdfs:label "DRM Director"@en ;
-    dcterms:source <https://fair-dama.perdl.com/dama/personas/> ;
+    dcterms:source <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/DAMA_Segments_High_Level_v1.18.0.md#persona> ;
     skos:definition "Provide director-level oversight of the data-related management function; the source does not expand DRM."@en ;
     persona:participantIn <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#topic/data-quality-management> ;
     persona:reportedIndirectFAIRPrinciple fair:F2,
@@ -976,22 +1188,25 @@ persona:participantIn a owl:ObjectProperty ;
 <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#profile/employees> a owl:NamedIndividual,
         persona:Persona ;
     rdfs:label "Employees"@en ;
-    dcterms:source <https://fair-dama.perdl.com/dama/personas/> ;
+    dcterms:source <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/DAMA_Segments_High_Level_v1.18.0.md#persona> ;
     skos:definition "Create, supply or use data and participate in organizational processes."@en ;
+    persona:consumerIn <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#topic/data-handling-ethics> ;
     persona:participantIn <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#topic/data-management-maturity-assessment> ;
     persona:reportedDirectFAIRPrinciple fair:A1,
         fair:A1.2,
         fair:F2,
         fair:F4,
         fair:I2 ;
-    persona:reportedIndirectFAIRPrinciple fair:A2 ;
+    persona:reportedIndirectFAIRPrinciple fair:A1.2,
+        fair:A2,
+        fair:R1.1 ;
     persona:supplierIn <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#topic/data-management-maturity-assessment>,
         <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#topic/document-content-management> .
 
 <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#profile/enterprise-customers> a owl:NamedIndividual,
         persona:Persona ;
     rdfs:label "Enterprise Customers"@en ;
-    dcterms:source <https://fair-dama.perdl.com/dama/personas/> ;
+    dcterms:source <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/DAMA_Segments_High_Level_v1.18.0.md#persona> ;
     skos:definition "Use enterprise data services and provide service requirements and feedback."@en ;
     persona:consumerIn <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#topic/data-operations-management> ;
     persona:reportedIndirectFAIRPrinciple fair:A2,
@@ -1001,7 +1216,7 @@ persona:participantIn a owl:ObjectProperty ;
 <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#profile/etl-service-interface-developers> a owl:NamedIndividual,
         persona:Persona ;
     rdfs:label "ETL, Service, Interface Developers"@en ;
-    dcterms:source <https://fair-dama.perdl.com/dama/personas/> ;
+    dcterms:source <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/DAMA_Segments_High_Level_v1.18.0.md#persona> ;
     skos:definition "Build data extraction, transformation, service and interface implementations."@en ;
     persona:participantIn <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#topic/data-integration-interoperability> ;
     persona:reportedDirectFAIRPrinciple fair:A1.2,
@@ -1022,19 +1237,24 @@ persona:participantIn a owl:ObjectProperty ;
 <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#profile/executive-data-stewards> a owl:NamedIndividual,
         persona:Persona ;
     rdfs:label "Executive Data Stewards"@en ;
-    dcterms:source <https://fair-dama.perdl.com/dama/personas/> ;
+    dcterms:source <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/DAMA_Segments_High_Level_v1.18.0.md#persona> ;
     skos:definition "Provide senior accountability for data domains and stewardship decisions."@en ;
-    persona:participantIn <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#topic/data-governance> .
+    persona:participantIn <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#topic/data-governance> ;
+    persona:reportedIndirectFAIRPrinciple fair:A1.2,
+        fair:R1.1 ;
+    persona:supplierIn <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#topic/data-handling-ethics> .
 
 <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#profile/executives> a owl:NamedIndividual,
         persona:Persona ;
     rdfs:label "Executives"@en ;
-    dcterms:source <https://fair-dama.perdl.com/dama/personas/> ;
+    dcterms:source <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/DAMA_Segments_High_Level_v1.18.0.md#persona> ;
     skos:definition "Set strategic direction, authorize investment and oversee organizational outcomes."@en ;
-    persona:consumerIn <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#topic/data-management>,
+    persona:consumerIn <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#topic/data-handling-ethics>,
+        <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#topic/data-management>,
         <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#topic/data-management-maturity-assessment>,
         <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#topic/data-security-management> ;
-    persona:participantIn <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#topic/data-management> ;
+    persona:participantIn <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#topic/data-handling-ethics>,
+        <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#topic/data-management> ;
     persona:reportedDirectFAIRPrinciple fair:A1,
         fair:A1.2,
         fair:F2,
@@ -1054,6 +1274,7 @@ persona:participantIn a owl:ObjectProperty ;
         fair:R1.1,
         fair:R1.2 ;
     persona:supplierIn <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#topic/data-architecture-management>,
+        <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#topic/data-handling-ethics>,
         <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#topic/data-management>,
         <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#topic/data-management-maturity-assessment>,
         <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#topic/data-operations-management> .
@@ -1061,7 +1282,7 @@ persona:participantIn a owl:ObjectProperty ;
 <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#profile/executives-and-managers> a owl:NamedIndividual,
         persona:Persona ;
     rdfs:label "Executives and Managers"@en ;
-    dcterms:source <https://fair-dama.perdl.com/dama/personas/> ;
+    dcterms:source <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/DAMA_Segments_High_Level_v1.18.0.md#persona> ;
     skos:definition "Set priorities, oversee delivery and use information for management decisions."@en ;
     persona:reportedDirectFAIRPrinciple fair:A1,
         fair:A1.2,
@@ -1084,7 +1305,7 @@ persona:participantIn a owl:ObjectProperty ;
 <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#profile/external-customers> a owl:NamedIndividual,
         persona:Persona ;
     rdfs:label "External customers"@en ;
-    dcterms:source <https://fair-dama.perdl.com/dama/personas/> ;
+    dcterms:source <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/DAMA_Segments_High_Level_v1.18.0.md#persona> ;
     skos:definition "Receive organizational content, communications or services externally."@en ;
     persona:consumerIn <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#topic/document-content-management> ;
     persona:reportedDirectFAIRPrinciple fair:A1,
@@ -1097,7 +1318,7 @@ persona:participantIn a owl:ObjectProperty ;
 <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#profile/external-customers-and-systems> a owl:NamedIndividual,
         persona:Persona ;
     rdfs:label "External Customers and Systems"@en ;
-    dcterms:source <https://fair-dama.perdl.com/dama/personas/> ;
+    dcterms:source <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/DAMA_Segments_High_Level_v1.18.0.md#persona> ;
     skos:definition "Consume published analytical information outside organizational boundaries."@en ;
     persona:consumerIn <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#topic/data-warehousing-business-intelligence-management> ;
     persona:reportedDirectFAIRPrinciple fair:A1,
@@ -1106,7 +1327,7 @@ persona:participantIn a owl:ObjectProperty ;
 <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#profile/external-parties> a owl:NamedIndividual,
         persona:Persona ;
     rdfs:label "External parties"@en ;
-    dcterms:source <https://fair-dama.perdl.com/dama/personas/> ;
+    dcterms:source <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/DAMA_Segments_High_Level_v1.18.0.md#persona> ;
     skos:definition "Supply documents or information from outside the organization."@en ;
     persona:reportedDirectFAIRPrinciple fair:A1,
         fair:A1.2,
@@ -1119,7 +1340,7 @@ persona:participantIn a owl:ObjectProperty ;
 <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#profile/external-sources> a owl:NamedIndividual,
         persona:Persona ;
     rdfs:label "External Sources"@en ;
-    dcterms:source <https://fair-dama.perdl.com/dama/personas/> ;
+    dcterms:source <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/DAMA_Segments_High_Level_v1.18.0.md#persona> ;
     skos:definition "Provide data or information originating outside the organization."@en ;
     persona:reportedDirectFAIRPrinciple fair:A1,
         fair:A1.2,
@@ -1145,7 +1366,7 @@ persona:participantIn a owl:ObjectProperty ;
 <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#profile/government> a owl:NamedIndividual,
         persona:Persona ;
     rdfs:label "Government"@en ;
-    dcterms:source <https://fair-dama.perdl.com/dama/personas/> ;
+    dcterms:source <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/DAMA_Segments_High_Level_v1.18.0.md#persona> ;
     skos:definition "Provide public-sector policy, legal requirements or authoritative information."@en ;
     persona:reportedDirectFAIRPrinciple fair:A1.2 ;
     persona:reportedIndirectFAIRPrinciple fair:A1.2 ;
@@ -1154,7 +1375,7 @@ persona:participantIn a owl:ObjectProperty ;
 <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#profile/government-and-industry-regulators> a owl:NamedIndividual,
         persona:Persona ;
     rdfs:label "Government and Industry Regulators"@en ;
-    dcterms:source <https://fair-dama.perdl.com/dama/personas/> ;
+    dcterms:source <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/DAMA_Segments_High_Level_v1.18.0.md#persona> ;
     skos:definition "Set or enforce public-sector and industry-specific compliance obligations."@en ;
     persona:reportedDirectFAIRPrinciple fair:A1,
         fair:F2,
@@ -1171,7 +1392,7 @@ persona:participantIn a owl:ObjectProperty ;
 <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#profile/government-regulatory-agencies> a owl:NamedIndividual,
         persona:Persona ;
     rdfs:label "Government regulatory agencies"@en ;
-    dcterms:source <https://fair-dama.perdl.com/dama/personas/> ;
+    dcterms:source <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/DAMA_Segments_High_Level_v1.18.0.md#persona> ;
     skos:definition "Review regulated information and assess compliance with statutory requirements."@en ;
     persona:consumerIn <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#topic/document-content-management> ;
     persona:reportedDirectFAIRPrinciple fair:A1,
@@ -1184,7 +1405,7 @@ persona:participantIn a owl:ObjectProperty ;
 <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#profile/help-desk-analysts> a owl:NamedIndividual,
         persona:Persona ;
     rdfs:label "Help Desk Analysts"@en ;
-    dcterms:source <https://fair-dama.perdl.com/dama/personas/> ;
+    dcterms:source <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/DAMA_Segments_High_Level_v1.18.0.md#persona> ;
     skos:definition "Support users and triage access, application and data service issues."@en ;
     persona:participantIn <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#topic/data-security-management> ;
     persona:reportedDirectFAIRPrinciple fair:A1.2 ;
@@ -1193,7 +1414,7 @@ persona:participantIn a owl:ObjectProperty ;
 <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#profile/information-consumers> a owl:NamedIndividual,
         persona:Persona ;
     rdfs:label "Information Consumers"@en ;
-    dcterms:source <https://fair-dama.perdl.com/dama/personas/> ;
+    dcterms:source <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/DAMA_Segments_High_Level_v1.18.0.md#persona> ;
     skos:definition "Use data and information to perform work or make decisions."@en ;
     persona:consumerIn <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#topic/data-integration-interoperability>,
         <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#topic/data-operations-management> ;
@@ -1221,23 +1442,60 @@ persona:participantIn a owl:ObjectProperty ;
         fair:R1.1,
         fair:R1.2,
         fair:R1.3 ;
-    persona:supplierIn <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#topic/data-architecture-management>,
+    persona:supplierIn <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#topic/big-data-data-science>,
+        <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#topic/data-architecture-management>,
         <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#topic/data-development>,
         <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#topic/data-quality-management> .
 
 <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#profile/information-consumers-internal-and-external> a owl:NamedIndividual,
         persona:Persona ;
     rdfs:label "Information Consumers (Internal and External)"@en ;
-    dcterms:source <https://fair-dama.perdl.com/dama/personas/> ;
+    dcterms:source <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/DAMA_Segments_High_Level_v1.18.0.md#persona> ;
     skos:definition "Use organizational information within or outside the enterprise."@en ;
     persona:reportedDirectFAIRPrinciple fair:A1,
         fair:F4 ;
     persona:supplierIn <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#topic/data-warehousing-business-intelligence-management> .
 
+<https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#profile/ingestion-architects> a owl:NamedIndividual,
+        persona:Persona ;
+    rdfs:label "Ingestion Architects"@en ;
+    dcterms:source <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/DAMA_Segments_High_Level_v1.18.0.md#persona> ;
+    skos:definition "Design acquisition and ingestion patterns, source integration and loading controls."@en ;
+    persona:participantIn <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#topic/big-data-data-science> ;
+    persona:reportedDirectFAIRPrinciple fair:R1 ;
+    persona:reportedIndirectFAIRPrinciple fair:A1,
+        fair:A1.1,
+        fair:A1.2,
+        fair:F2,
+        fair:I1,
+        fair:I3,
+        fair:R1,
+        fair:R1.1,
+        fair:R1.2,
+        fair:R1.3 .
+
+<https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#profile/intermediaries> a owl:NamedIndividual,
+        persona:Persona ;
+    rdfs:label "Intermediaries"@en ;
+    dcterms:source <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/DAMA_Segments_High_Level_v1.18.0.md#persona> ;
+    skos:definition "Relay, interpret or distribute analytical information between producers and consumers."@en ;
+    persona:consumerIn <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#topic/big-data-data-science> ;
+    persona:reportedDirectFAIRPrinciple fair:R1 ;
+    persona:reportedIndirectFAIRPrinciple fair:A1,
+        fair:A1.1,
+        fair:A1.2,
+        fair:F2,
+        fair:I1,
+        fair:I3,
+        fair:R1,
+        fair:R1.1,
+        fair:R1.2,
+        fair:R1.3 .
+
 <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#profile/internal-customers-and-systems> a owl:NamedIndividual,
         persona:Persona ;
     rdfs:label "Internal Customers and Systems"@en ;
-    dcterms:source <https://fair-dama.perdl.com/dama/personas/> ;
+    dcterms:source <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/DAMA_Segments_High_Level_v1.18.0.md#persona> ;
     skos:definition "Consume analytical information within organizational boundaries."@en ;
     persona:consumerIn <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#topic/data-warehousing-business-intelligence-management> ;
     persona:reportedDirectFAIRPrinciple fair:A1,
@@ -1246,14 +1504,27 @@ persona:participantIn a owl:ObjectProperty ;
 <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#profile/it-executives> a owl:NamedIndividual,
         persona:Persona ;
     rdfs:label "IT Executives"@en ;
-    dcterms:source <https://fair-dama.perdl.com/dama/personas/> ;
+    dcterms:source <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/DAMA_Segments_High_Level_v1.18.0.md#persona> ;
     skos:definition "Direct technology strategy, investment and service delivery."@en ;
-    persona:supplierIn <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#topic/data-governance> .
+    persona:consumerIn <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#topic/big-data-data-science> ;
+    persona:reportedDirectFAIRPrinciple fair:R1 ;
+    persona:reportedIndirectFAIRPrinciple fair:A1,
+        fair:A1.1,
+        fair:A1.2,
+        fair:F2,
+        fair:I1,
+        fair:I3,
+        fair:R1,
+        fair:R1.1,
+        fair:R1.2,
+        fair:R1.3 ;
+    persona:supplierIn <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#topic/data-governance>,
+        <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#topic/data-handling-ethics> .
 
 <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#profile/it-operators> a owl:NamedIndividual,
         persona:Persona ;
     rdfs:label "IT Operators"@en ;
-    dcterms:source <https://fair-dama.perdl.com/dama/personas/> ;
+    dcterms:source <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/DAMA_Segments_High_Level_v1.18.0.md#persona> ;
     skos:definition "Run scheduled processing and monitor technology services and operational incidents."@en ;
     persona:participantIn <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#topic/data-operations-management> ;
     persona:reportedIndirectFAIRPrinciple fair:A2,
@@ -1263,7 +1534,7 @@ persona:participantIn a owl:ObjectProperty ;
 <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#profile/it-steering-committee> a owl:NamedIndividual,
         persona:Persona ;
     rdfs:label "IT Steering Committee"@en ;
-    dcterms:source <https://fair-dama.perdl.com/dama/personas/> ;
+    dcterms:source <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/DAMA_Segments_High_Level_v1.18.0.md#persona> ;
     skos:definition "Prioritize technology initiatives and oversee alignment, resources and investment."@en ;
     persona:reportedDirectFAIRPrinciple fair:A1,
         fair:A1.2,
@@ -1291,7 +1562,7 @@ persona:participantIn a owl:ObjectProperty ;
 <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#profile/knowledge-workers> a owl:NamedIndividual,
         persona:Persona ;
     rdfs:label "Knowledge Workers"@en ;
-    dcterms:source <https://fair-dama.perdl.com/dama/personas/> ;
+    dcterms:source <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/DAMA_Segments_High_Level_v1.18.0.md#persona> ;
     skos:definition "Interpret information and apply specialist knowledge to decisions and tasks."@en ;
     persona:consumerIn <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#topic/data-architecture-management>,
         <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#topic/data-development>,
@@ -1329,7 +1600,7 @@ persona:participantIn a owl:ObjectProperty ;
 <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#profile/managers> a owl:NamedIndividual,
         persona:Persona ;
     rdfs:label "Managers"@en ;
-    dcterms:source <https://fair-dama.perdl.com/dama/personas/> ;
+    dcterms:source <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/DAMA_Segments_High_Level_v1.18.0.md#persona> ;
     skos:definition "Direct teams, processes and resources using operational information."@en ;
     persona:consumerIn <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#topic/data-management>,
         <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#topic/data-security-management> ;
@@ -1355,7 +1626,7 @@ persona:participantIn a owl:ObjectProperty ;
 <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#profile/managers-and-executives> a owl:NamedIndividual,
         persona:Persona ;
     rdfs:label "Managers and Executives"@en ;
-    dcterms:source <https://fair-dama.perdl.com/dama/personas/> ;
+    dcterms:source <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/DAMA_Segments_High_Level_v1.18.0.md#persona> ;
     skos:definition "Use information to direct operations, set priorities and make investment decisions."@en ;
     persona:consumerIn <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#topic/data-architecture-management>,
         <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#topic/data-development>,
@@ -1390,14 +1661,14 @@ persona:participantIn a owl:ObjectProperty ;
 <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#profile/maturity-assessors> a owl:NamedIndividual,
         persona:Persona ;
     rdfs:label "Maturity Assessors"@en ;
-    dcterms:source <https://fair-dama.perdl.com/dama/personas/> ;
+    dcterms:source <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/DAMA_Segments_High_Level_v1.18.0.md#persona> ;
     skos:definition "Collect evidence, assess capabilities and report findings against a maturity framework."@en ;
     persona:participantIn <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#topic/data-management-maturity-assessment> .
 
 <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#profile/meta-data-specialist> a owl:NamedIndividual,
         persona:Persona ;
     rdfs:label "Meta-data Specialist"@en ;
-    dcterms:source <https://fair-dama.perdl.com/dama/personas/> ;
+    dcterms:source <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/DAMA_Segments_High_Level_v1.18.0.md#persona> ;
     skos:definition "Design and maintain metadata definitions, repositories and management practices."@en ;
     persona:participantIn <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#topic/meta-data-management> ;
     persona:reportedDirectFAIRPrinciple fair:A1,
@@ -1411,17 +1682,35 @@ persona:participantIn a owl:ObjectProperty ;
     persona:reportedIndirectFAIRPrinciple fair:A2,
         fair:F3 .
 
+<https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#profile/metadata-specialists> a owl:NamedIndividual,
+        persona:Persona ;
+    rdfs:label "Metadata Specialists"@en ;
+    dcterms:source <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/DAMA_Segments_High_Level_v1.18.0.md#persona> ;
+    skos:definition "Capture and maintain business, technical and operational descriptions of data resources."@en ;
+    persona:participantIn <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#topic/big-data-data-science> ;
+    persona:reportedDirectFAIRPrinciple fair:R1 ;
+    persona:reportedIndirectFAIRPrinciple fair:A1,
+        fair:A1.1,
+        fair:A1.2,
+        fair:F2,
+        fair:I1,
+        fair:I3,
+        fair:R1,
+        fair:R1.1,
+        fair:R1.2,
+        fair:R1.3 .
+
 <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#profile/organizational-effectiveness-group> a owl:NamedIndividual,
         persona:Persona ;
     rdfs:label "Organizational Effectiveness Group"@en ;
-    dcterms:source <https://fair-dama.perdl.com/dama/personas/> ;
+    dcterms:source <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/DAMA_Segments_High_Level_v1.18.0.md#persona> ;
     skos:definition "Support operating-model improvement, organizational change and capability development."@en ;
     persona:consumerIn <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#topic/data-management-maturity-assessment> .
 
 <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#profile/other-data-professionals> a owl:NamedIndividual,
         persona:Persona ;
     rdfs:label "Other Data Professionals"@en ;
-    dcterms:source <https://fair-dama.perdl.com/dama/personas/> ;
+    dcterms:source <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/DAMA_Segments_High_Level_v1.18.0.md#persona> ;
     skos:definition "Provide additional specialist support for data management delivery."@en ;
     persona:participantIn <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#topic/data-quality-management> ;
     persona:reportedDirectFAIRPrinciple fair:A1,
@@ -1441,7 +1730,7 @@ persona:participantIn a owl:ObjectProperty ;
 <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#profile/other-dm-professionals> a owl:NamedIndividual,
         persona:Persona ;
     rdfs:label "Other DM Professionals"@en ;
-    dcterms:source <https://fair-dama.perdl.com/dama/personas/> ;
+    dcterms:source <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/DAMA_Segments_High_Level_v1.18.0.md#persona> ;
     skos:definition "Provide additional professional data management expertise."@en ;
     persona:participantIn <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#topic/meta-data-management> ;
     persona:reportedDirectFAIRPrinciple fair:A1,
@@ -1458,7 +1747,7 @@ persona:participantIn a owl:ObjectProperty ;
 <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#profile/other-enterprise-architects> a owl:NamedIndividual,
         persona:Persona ;
     rdfs:label "Other Enterprise Architects"@en ;
-    dcterms:source <https://fair-dama.perdl.com/dama/personas/> ;
+    dcterms:source <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/DAMA_Segments_High_Level_v1.18.0.md#persona> ;
     skos:definition "Align data architecture with business, application and technology architectures."@en ;
     persona:participantIn <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#topic/data-architecture-management> ;
     persona:reportedDirectFAIRPrinciple fair:I1,
@@ -1471,7 +1760,7 @@ persona:participantIn a owl:ObjectProperty ;
 <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#profile/other-it-managers> a owl:NamedIndividual,
         persona:Persona ;
     rdfs:label "Other IT Managers"@en ;
-    dcterms:source <https://fair-dama.perdl.com/dama/personas/> ;
+    dcterms:source <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/DAMA_Segments_High_Level_v1.18.0.md#persona> ;
     skos:definition "Manage supporting technology teams, services and operational resources."@en ;
     persona:participantIn <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#topic/document-content-management> ;
     persona:reportedDirectFAIRPrinciple fair:A1,
@@ -1484,7 +1773,7 @@ persona:participantIn a owl:ObjectProperty ;
 <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#profile/other-it-professionals> a owl:NamedIndividual,
         persona:Persona ;
     rdfs:label "Other IT Professionals"@en ;
-    dcterms:source <https://fair-dama.perdl.com/dama/personas/> ;
+    dcterms:source <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/DAMA_Segments_High_Level_v1.18.0.md#persona> ;
     skos:definition "Provide supporting technology expertise across data management activities."@en ;
     persona:consumerIn <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#topic/data-development>,
         <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#topic/data-operations-management>,
@@ -1514,7 +1803,7 @@ persona:participantIn a owl:ObjectProperty ;
 <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#profile/project-and-program-managers> a owl:NamedIndividual,
         persona:Persona ;
     rdfs:label "Project and Program Managers"@en ;
-    dcterms:source <https://fair-dama.perdl.com/dama/personas/> ;
+    dcterms:source <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/DAMA_Segments_High_Level_v1.18.0.md#persona> ;
     skos:definition "Coordinate integration delivery, dependencies, resources and program outcomes."@en ;
     persona:participantIn <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#topic/data-integration-interoperability> ;
     persona:reportedDirectFAIRPrinciple fair:A1.2,
@@ -1535,7 +1824,7 @@ persona:participantIn a owl:ObjectProperty ;
 <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#profile/project-managers> a owl:NamedIndividual,
         persona:Persona ;
     rdfs:label "Project Managers"@en ;
-    dcterms:source <https://fair-dama.perdl.com/dama/personas/> ;
+    dcterms:source <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/DAMA_Segments_High_Level_v1.18.0.md#persona> ;
     skos:definition "Coordinate delivery scope, schedules, resources and risks."@en ;
     persona:consumerIn <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#topic/data-architecture-management> ;
     persona:participantIn <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#topic/data-development>,
@@ -1556,7 +1845,7 @@ persona:participantIn a owl:ObjectProperty ;
 <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#profile/records-management-staff> a owl:NamedIndividual,
         persona:Persona ;
     rdfs:label "Records Management Staff"@en ;
-    dcterms:source <https://fair-dama.perdl.com/dama/personas/> ;
+    dcterms:source <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/DAMA_Segments_High_Level_v1.18.0.md#persona> ;
     skos:definition "Manage records classification, retention, retrieval and disposition."@en ;
     persona:participantIn <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#topic/document-content-management> ;
     persona:reportedDirectFAIRPrinciple fair:A1,
@@ -1569,14 +1858,18 @@ persona:participantIn a owl:ObjectProperty ;
 <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#profile/regulators> a owl:NamedIndividual,
         persona:Persona ;
     rdfs:label "Regulators"@en ;
-    dcterms:source <https://fair-dama.perdl.com/dama/personas/> ;
+    dcterms:source <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/DAMA_Segments_High_Level_v1.18.0.md#persona> ;
     skos:definition "Oversee compliance with applicable rules and sector obligations."@en ;
-    persona:consumerIn <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#topic/data-management-maturity-assessment> .
+    persona:consumerIn <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#topic/data-handling-ethics>,
+        <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#topic/data-management-maturity-assessment> ;
+    persona:reportedIndirectFAIRPrinciple fair:A1.2,
+        fair:R1.1 ;
+    persona:supplierIn <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#topic/data-handling-ethics> .
 
 <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#profile/regulatory-bodies> a owl:NamedIndividual,
         persona:Persona ;
     rdfs:label "Regulatory Bodies"@en ;
-    dcterms:source <https://fair-dama.perdl.com/dama/personas/> ;
+    dcterms:source <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/DAMA_Segments_High_Level_v1.18.0.md#persona> ;
     skos:definition "Set and oversee regulatory requirements affecting data management."@en ;
     persona:reportedDirectFAIRPrinciple fair:A1,
         fair:A1.2,
@@ -1603,7 +1896,7 @@ persona:participantIn a owl:ObjectProperty ;
 <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#profile/senior-management> a owl:NamedIndividual,
         persona:Persona ;
     rdfs:label "Senior management"@en ;
-    dcterms:source <https://fair-dama.perdl.com/dama/personas/> ;
+    dcterms:source <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/DAMA_Segments_High_Level_v1.18.0.md#persona> ;
     skos:definition "Set organizational priorities and oversee performance, investment and risk."@en ;
     persona:consumerIn <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#topic/document-content-management> ;
     persona:reportedDirectFAIRPrinciple fair:A1,
@@ -1616,7 +1909,7 @@ persona:participantIn a owl:ObjectProperty ;
 <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#profile/smes-and-other-info-consumers> a owl:NamedIndividual,
         persona:Persona ;
     rdfs:label "SMEs and Other Info Consumers"@en ;
-    dcterms:source <https://fair-dama.perdl.com/dama/personas/> ;
+    dcterms:source <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/DAMA_Segments_High_Level_v1.18.0.md#persona> ;
     skos:definition "Provide domain expertise and requirements from information users."@en ;
     persona:participantIn <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#topic/data-warehousing-business-intelligence-management> ;
     persona:reportedDirectFAIRPrinciple fair:A1,
@@ -1625,7 +1918,7 @@ persona:participantIn a owl:ObjectProperty ;
 <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#profile/software-developers> a owl:NamedIndividual,
         persona:Persona ;
     rdfs:label "Software Developers"@en ;
-    dcterms:source <https://fair-dama.perdl.com/dama/personas/> ;
+    dcterms:source <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/DAMA_Segments_High_Level_v1.18.0.md#persona> ;
     skos:definition "Build and maintain applications and services that process data."@en ;
     persona:consumerIn <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#topic/data-architecture-management> ;
     persona:participantIn <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#topic/data-development>,
@@ -1643,10 +1936,28 @@ persona:participantIn a owl:ObjectProperty ;
     persona:supplierIn <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#topic/data-development>,
         <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#topic/data-operations-management> .
 
+<https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#profile/stakeholders> a owl:NamedIndividual,
+        persona:Persona ;
+    rdfs:label "Stakeholders"@en ;
+    dcterms:source <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/DAMA_Segments_High_Level_v1.18.0.md#persona> ;
+    skos:definition "Provide requirements and receive or act on the outcomes of analytical work."@en ;
+    persona:consumerIn <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#topic/big-data-data-science> ;
+    persona:reportedDirectFAIRPrinciple fair:R1 ;
+    persona:reportedIndirectFAIRPrinciple fair:A1,
+        fair:A1.1,
+        fair:A1.2,
+        fair:F2,
+        fair:I1,
+        fair:I3,
+        fair:R1,
+        fair:R1.1,
+        fair:R1.2,
+        fair:R1.3 .
+
 <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#profile/standards-organizations> a owl:NamedIndividual,
         persona:Persona ;
     rdfs:label "Standards Organizations"@en ;
-    dcterms:source <https://fair-dama.perdl.com/dama/personas/> ;
+    dcterms:source <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/DAMA_Segments_High_Level_v1.18.0.md#persona> ;
     skos:definition "Develop and maintain shared technical, semantic or domain standards."@en ;
     persona:reportedDirectFAIRPrinciple fair:I3,
         fair:R1.2 ;
@@ -1655,7 +1966,7 @@ persona:participantIn a owl:ObjectProperty ;
 <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#profile/steering-committees> a owl:NamedIndividual,
         persona:Persona ;
     rdfs:label "Steering Committees"@en ;
-    dcterms:source <https://fair-dama.perdl.com/dama/personas/> ;
+    dcterms:source <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/DAMA_Segments_High_Level_v1.18.0.md#persona> ;
     skos:definition "Provide direction, prioritization and oversight for programs or initiatives."@en ;
     persona:reportedDirectFAIRPrinciple fair:I3,
         fair:R1.2 ;
@@ -1664,9 +1975,10 @@ persona:participantIn a owl:ObjectProperty ;
 <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#profile/subject-matter-experts> a owl:NamedIndividual,
         persona:Persona ;
     rdfs:label "Subject Matter Experts"@en ;
-    dcterms:source <https://fair-dama.perdl.com/dama/personas/> ;
+    dcterms:source <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/DAMA_Segments_High_Level_v1.18.0.md#persona> ;
     skos:definition "Provide specialist domain knowledge to clarify requirements, meaning and rules."@en ;
-    persona:participantIn <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#topic/reference-master-data-management> ;
+    persona:participantIn <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#topic/data-handling-ethics>,
+        <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#topic/reference-master-data-management> ;
     persona:reportedDirectFAIRPrinciple fair:A1,
         fair:A1.2,
         fair:F2,
@@ -1682,6 +1994,7 @@ persona:participantIn a owl:ObjectProperty ;
         fair:I1,
         fair:I3,
         fair:R1,
+        fair:R1.1,
         fair:R1.2,
         fair:R1.3 ;
     persona:supplierIn <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#topic/data-development>,
@@ -1693,7 +2006,7 @@ persona:participantIn a owl:ObjectProperty ;
 <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#profile/subject-matter-experts-smes> a owl:NamedIndividual,
         persona:Persona ;
     rdfs:label "Subject Matter Experts (SMEs)"@en ;
-    dcterms:source <https://fair-dama.perdl.com/dama/personas/> ;
+    dcterms:source <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/DAMA_Segments_High_Level_v1.18.0.md#persona> ;
     skos:definition "Provide specialist domain knowledge to clarify requirements, meaning and rules."@en ;
     persona:participantIn <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#topic/data-architecture-management> ;
     persona:reportedDirectFAIRPrinciple fair:I1,
@@ -1706,19 +2019,19 @@ persona:participantIn a owl:ObjectProperty ;
 <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#profile/vendors-customers-and-partners> a owl:NamedIndividual,
         persona:Persona ;
     rdfs:label "Vendors, Customers, and Partners"@en ;
-    dcterms:source <https://fair-dama.perdl.com/dama/personas/> ;
+    dcterms:source <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/DAMA_Segments_High_Level_v1.18.0.md#persona> ;
     skos:definition "Exchange or consume reference and master data across organizational boundaries."@en ;
     persona:consumerIn <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#topic/reference-master-data-management> ;
     persona:reportedDirectFAIRPrinciple fair:I3,
         fair:R1.2 .
 
 persona:reportedDirectFAIRPrinciple a owl:ObjectProperty ;
-    rdfs:comment "Direct FAIR relationship reported in the persona table."@en ;
+    rdfs:comment "Area-level relationship reported in the v1.18.0 persona table; inferred from listed topic membership, not individual responsibility or implementation evidence."@en ;
     rdfs:domain persona:Persona ;
     rdfs:range fair:FAIR-SubPrinciple .
 
 persona:reportedIndirectFAIRPrinciple a owl:ObjectProperty ;
-    rdfs:comment "Indirect FAIR relationship reported in the persona table. The table does not specify an intermediate practice."@en ;
+    rdfs:comment "Area-level relationship reported in the v1.18.0 persona table; inferred from listed topic membership, not individual responsibility or implementation evidence."@en ;
     rdfs:domain persona:Persona ;
     rdfs:range fair:FAIR-SubPrinciple .
 
@@ -1733,6 +2046,13 @@ persona:supplierIn a owl:ObjectProperty ;
 persona:Goal a owl:Class .
 
 persona:Role a owl:Class .
+
+persona:correspondsToTopic a owl:ObjectProperty ;
+    rdfs:label "corresponds to management topic"@en ;
+    rdfs:domain persona:SourceTopic ;
+    rdfs:range dama:ManagementTopic .
+
+<https://orcid.org/0000-0001-5095-7052> rdfs:label "Chris Day"@en .
 
 persona:Responsibility a owl:Class .
 
@@ -1755,16 +2075,25 @@ persona:Responsibility a owl:Class .
     rdfs:label "Document & Content Management"@en ;
     persona:correspondsToKnowledgeArea dama:DocumentsAndContentManagement .
 
-persona:SourceTopic a owl:Class .
+<https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#topic/data-handling-ethics> a owl:NamedIndividual,
+        persona:SourceTopic ;
+    rdfs:label "Data Handling Ethics"@en ;
+    persona:correspondsToTopic dama:DataHandlingEthics .
 
 <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#topic/data-management-maturity-assessment> a owl:NamedIndividual,
         persona:SourceTopic ;
-    rdfs:label "Data Management Maturity Assessment"@en .
+    rdfs:label "Data Management Maturity Assessment"@en ;
+    persona:correspondsToTopic dama:DataManagementMaturityAssessment .
 
 <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#topic/data-operations-management> a owl:NamedIndividual,
         persona:SourceTopic ;
     rdfs:label "Data Operations Management"@en ;
     persona:correspondsToKnowledgeArea dama:DataStorageAndOperations .
+
+<https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#topic/big-data-data-science> a owl:NamedIndividual,
+        persona:SourceTopic ;
+    rdfs:label "Big Data & Data Science"@en ;
+    persona:correspondsToTopic dama:BigDataAndDataScience .
 
 <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#topic/data-security-management> a owl:NamedIndividual,
         persona:SourceTopic ;
@@ -1776,9 +2105,12 @@ persona:SourceTopic a owl:Class .
     rdfs:label "Reference & Master Data Management"@en ;
     persona:correspondsToKnowledgeArea dama:ReferenceAndMasterDataManagement .
 
+persona:SourceTopic a owl:Class .
+
 <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#topic/data-development> a owl:NamedIndividual,
         persona:SourceTopic ;
-    rdfs:label "Data Development"@en .
+    rdfs:label "Data Development"@en ;
+    persona:partiallyCorrespondsToKnowledgeArea dama:DataModelingAndDesign .
 
 <https://github.com/chris-day/FAIR-DAMA/blob/main/artefacts/dama-persona-ontology.ttl#topic/data-quality-management> a owl:NamedIndividual,
         persona:SourceTopic ;
